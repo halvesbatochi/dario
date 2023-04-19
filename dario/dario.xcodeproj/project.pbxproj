@@ -9,21 +9,25 @@
 /* Begin PBXBuildFile section */
 		5C59645329EF9813003BB257 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C59645229EF9813003BB257 /* AppDelegate.swift */; };
 		5C59645529EF9813003BB257 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C59645429EF9813003BB257 /* SceneDelegate.swift */; };
-		5C59645729EF9813003BB257 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C59645629EF9813003BB257 /* ViewController.swift */; };
-		5C59645A29EF9813003BB257 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C59645829EF9813003BB257 /* Main.storyboard */; };
+		5C59645729EF9813003BB257 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C59645629EF9813003BB257 /* TabViewController.swift */; };
 		5C59645C29EF9814003BB257 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C59645B29EF9814003BB257 /* Assets.xcassets */; };
 		5C59645F29EF9814003BB257 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C59645D29EF9814003BB257 /* LaunchScreen.storyboard */; };
+		5CC54DEC29EF9DD100963CD7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC54DEB29EF9DD100963CD7 /* HomeViewController.swift */; };
+		5CC54DEE29EF9E6900963CD7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC54DED29EF9E6900963CD7 /* ProfileViewController.swift */; };
+		5CC54DF029EFA0FF00963CD7 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC54DEF29EFA0FF00963CD7 /* HistoryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5C59644F29EF9813003BB257 /* dario.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dario.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C59645229EF9813003BB257 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C59645429EF9813003BB257 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5C59645629EF9813003BB257 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		5C59645929EF9813003BB257 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5C59645629EF9813003BB257 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		5C59645B29EF9814003BB257 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5C59645E29EF9814003BB257 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5C59646029EF9814003BB257 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5CC54DEB29EF9DD100963CD7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		5CC54DED29EF9E6900963CD7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		5CC54DEF29EFA0FF00963CD7 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +60,81 @@
 		5C59645129EF9813003BB257 /* dario */ = {
 			isa = PBXGroup;
 			children = (
-				5C59645229EF9813003BB257 /* AppDelegate.swift */,
-				5C59645429EF9813003BB257 /* SceneDelegate.swift */,
-				5C59645629EF9813003BB257 /* ViewController.swift */,
-				5C59645829EF9813003BB257 /* Main.storyboard */,
-				5C59645B29EF9814003BB257 /* Assets.xcassets */,
-				5C59645D29EF9814003BB257 /* LaunchScreen.storyboard */,
+				5CC54DE929EF9ACA00963CD7 /* Resources */,
+				5CC54DE829EF9AB200963CD7 /* APIClient */,
+				5CC54DE729EF9A7D00963CD7 /* Managers */,
+				5CC54DE629EF9A4B00963CD7 /* ViewModels */,
+				5CC54DE529EF99D000963CD7 /* Views */,
+				5CC54DE429EF99A300963CD7 /* Models */,
+				5CC54DE329EF999400963CD7 /* Controllers */,
 				5C59646029EF9814003BB257 /* Info.plist */,
 			);
 			path = dario;
+			sourceTree = "<group>";
+		};
+		5CC54DE329EF999400963CD7 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5CC54DEA29EF9C8800963CD7 /* Core */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		5CC54DE429EF99A300963CD7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5CC54DE529EF99D000963CD7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5CC54DE629EF9A4B00963CD7 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		5CC54DE729EF9A7D00963CD7 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		5CC54DE829EF9AB200963CD7 /* APIClient */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = APIClient;
+			sourceTree = "<group>";
+		};
+		5CC54DE929EF9ACA00963CD7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5C59645229EF9813003BB257 /* AppDelegate.swift */,
+				5C59645B29EF9814003BB257 /* Assets.xcassets */,
+				5C59645D29EF9814003BB257 /* LaunchScreen.storyboard */,
+				5C59645429EF9813003BB257 /* SceneDelegate.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		5CC54DEA29EF9C8800963CD7 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				5C59645629EF9813003BB257 /* TabViewController.swift */,
+				5CC54DEB29EF9DD100963CD7 /* HomeViewController.swift */,
+				5CC54DED29EF9E6900963CD7 /* ProfileViewController.swift */,
+				5CC54DEF29EFA0FF00963CD7 /* HistoryViewController.swift */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +197,6 @@
 			files = (
 				5C59645F29EF9814003BB257 /* LaunchScreen.storyboard in Resources */,
 				5C59645C29EF9814003BB257 /* Assets.xcassets in Resources */,
-				5C59645A29EF9813003BB257 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +207,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C59645729EF9813003BB257 /* ViewController.swift in Sources */,
+				5C59645729EF9813003BB257 /* TabViewController.swift in Sources */,
 				5C59645329EF9813003BB257 /* AppDelegate.swift in Sources */,
+				5CC54DEE29EF9E6900963CD7 /* ProfileViewController.swift in Sources */,
+				5CC54DF029EFA0FF00963CD7 /* HistoryViewController.swift in Sources */,
 				5C59645529EF9813003BB257 /* SceneDelegate.swift in Sources */,
+				5CC54DEC29EF9DD100963CD7 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		5C59645829EF9813003BB257 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5C59645929EF9813003BB257 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		5C59645D29EF9814003BB257 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -292,7 +356,6 @@
 				INFOPLIST_FILE = dario/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -320,7 +383,6 @@
 				INFOPLIST_FILE = dario/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
