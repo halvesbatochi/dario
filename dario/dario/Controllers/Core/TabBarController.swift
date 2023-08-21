@@ -17,15 +17,15 @@ final class TabBarController: UITabBarController {
     
     private func setUpTabs() {
         let homeVC = HomeViewController()
-        let historyVC = HistoryViewController()
+        let timelineVC = TimeLineViewController()
         let profileVC = ProfileViewController()
         
         homeVC.navigationItem.largeTitleDisplayMode = .automatic
-        historyVC.navigationItem.largeTitleDisplayMode = .automatic
+        timelineVC.navigationItem.largeTitleDisplayMode = .automatic
         profileVC.navigationItem.largeTitleDisplayMode = .automatic
         
         let nav1 = UINavigationController(rootViewController: homeVC)
-        let nav2 = UINavigationController(rootViewController: historyVC)
+        let nav2 = UINavigationController(rootViewController: timelineVC)
         let nav3 = UINavigationController(rootViewController: profileVC)
         
         nav1.tabBarItem = UITabBarItem(title: "Home",
