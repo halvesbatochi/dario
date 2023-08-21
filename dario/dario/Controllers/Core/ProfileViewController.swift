@@ -7,11 +7,12 @@
 
 import UIKit
 
+/// Controller to show Profile
 final class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Perfil"
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .systemYellow
     }
 }

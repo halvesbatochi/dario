@@ -7,11 +7,12 @@
 
 import UIKit
 
-final class HistoryViewController: UIViewController {
+/// Controller to show TimeLine
+final class TimeLineViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Histórico"
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .systemBlue
     }
 }

@@ -9,27 +9,33 @@
 /* Begin PBXBuildFile section */
 		5C59645329EF9813003BB257 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C59645229EF9813003BB257 /* AppDelegate.swift */; };
 		5C59645529EF9813003BB257 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C59645429EF9813003BB257 /* SceneDelegate.swift */; };
-		5C59645729EF9813003BB257 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C59645629EF9813003BB257 /* TabViewController.swift */; };
+		5C59645729EF9813003BB257 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C59645629EF9813003BB257 /* TabBarController.swift */; };
 		5C59645C29EF9814003BB257 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C59645B29EF9814003BB257 /* Assets.xcassets */; };
 		5C59645F29EF9814003BB257 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C59645D29EF9814003BB257 /* LaunchScreen.storyboard */; };
 		5C65472E29F7DDD0003EC311 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C65472D29F7DDD0003EC311 /* Extensions.swift */; };
 		5CC54DEC29EF9DD100963CD7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC54DEB29EF9DD100963CD7 /* HomeViewController.swift */; };
 		5CC54DEE29EF9E6900963CD7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC54DED29EF9E6900963CD7 /* ProfileViewController.swift */; };
-		5CC54DF029EFA0FF00963CD7 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC54DEF29EFA0FF00963CD7 /* HistoryViewController.swift */; };
+		5CC54DF029EFA0FF00963CD7 /* TimeLineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC54DEF29EFA0FF00963CD7 /* TimeLineViewController.swift */; };
+		5CCAB9452A92DC2B0051B233 /* DRService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCAB9442A92DC2B0051B233 /* DRService.swift */; };
+		5CCAB9472A92DCBA0051B233 /* DRRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCAB9462A92DCBA0051B233 /* DRRequest.swift */; };
+		5CCAB9492A92DD990051B233 /* DREndpoint .swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCAB9482A92DD990051B233 /* DREndpoint .swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5C59644F29EF9813003BB257 /* dario.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dario.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C59645229EF9813003BB257 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C59645429EF9813003BB257 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5C59645629EF9813003BB257 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
+		5C59645629EF9813003BB257 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		5C59645B29EF9814003BB257 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5C59645E29EF9814003BB257 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5C59646029EF9814003BB257 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C65472D29F7DDD0003EC311 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		5CC54DEB29EF9DD100963CD7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		5CC54DED29EF9E6900963CD7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		5CC54DEF29EFA0FF00963CD7 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		5CC54DEF29EFA0FF00963CD7 /* TimeLineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineViewController.swift; sourceTree = "<group>"; };
+		5CCAB9442A92DC2B0051B233 /* DRService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRService.swift; sourceTree = "<group>"; };
+		5CCAB9462A92DCBA0051B233 /* DRRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRRequest.swift; sourceTree = "<group>"; };
+		5CCAB9482A92DD990051B233 /* DREndpoint .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DREndpoint .swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +119,9 @@
 		5CC54DE829EF9AB200963CD7 /* APIClient */ = {
 			isa = PBXGroup;
 			children = (
+				5CCAB9442A92DC2B0051B233 /* DRService.swift */,
+				5CCAB9462A92DCBA0051B233 /* DRRequest.swift */,
+				5CCAB9482A92DD990051B233 /* DREndpoint .swift */,
 			);
 			path = APIClient;
 			sourceTree = "<group>";
@@ -132,10 +141,10 @@
 		5CC54DEA29EF9C8800963CD7 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				5C59645629EF9813003BB257 /* TabViewController.swift */,
+				5C59645629EF9813003BB257 /* TabBarController.swift */,
 				5CC54DEB29EF9DD100963CD7 /* HomeViewController.swift */,
 				5CC54DED29EF9E6900963CD7 /* ProfileViewController.swift */,
-				5CC54DEF29EFA0FF00963CD7 /* HistoryViewController.swift */,
+				5CC54DEF29EFA0FF00963CD7 /* TimeLineViewController.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -210,10 +219,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C59645729EF9813003BB257 /* TabViewController.swift in Sources */,
+				5C59645729EF9813003BB257 /* TabBarController.swift in Sources */,
+				5CCAB9492A92DD990051B233 /* DREndpoint .swift in Sources */,
+				5CCAB9452A92DC2B0051B233 /* DRService.swift in Sources */,
+				5CCAB9472A92DCBA0051B233 /* DRRequest.swift in Sources */,
 				5C59645329EF9813003BB257 /* AppDelegate.swift in Sources */,
 				5CC54DEE29EF9E6900963CD7 /* ProfileViewController.swift in Sources */,
-				5CC54DF029EFA0FF00963CD7 /* HistoryViewController.swift in Sources */,
+				5CC54DF029EFA0FF00963CD7 /* TimeLineViewController.swift in Sources */,
 				5C59645529EF9813003BB257 /* SceneDelegate.swift in Sources */,
 				5CC54DEC29EF9DD100963CD7 /* HomeViewController.swift in Sources */,
 				5C65472E29F7DDD0003EC311 /* Extensions.swift in Sources */,

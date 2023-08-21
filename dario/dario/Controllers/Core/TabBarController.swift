@@ -7,7 +7,8 @@
 
 import UIKit
 
-final class TabViewController: UITabBarController {
+/// Controller to house tans and root tab controllers
+final class TabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
