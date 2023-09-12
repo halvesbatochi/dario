@@ -23,6 +23,7 @@ final class DRHomeView: UIView {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+        
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.isHidden = true
         collectionView.alpha = 0
@@ -36,39 +37,185 @@ final class DRHomeView: UIView {
         let view = UIView()
         
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .systemTeal
+        view.clipsToBounds = true
+        view.layer.cornerRadius = 10
+        view.layer.borderWidth = 2
+        view.layer.borderColor = UIColor(red: 0/255,
+                                         green: 155/255,
+                                         blue: 223/255,
+                                         alpha: 1.0).cgColor
         
         return view
+    }()
+    
+    private let eventCardImage: UIImageView = {
+        let imageView = UIImageView()
+    
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = UIImage(named: "EventCardImage")
+        
+        return imageView
+    }()
+    
+    private let eventCardLabel: UILabel = {
+        let label = UILabel()
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Participe dos"
+        label.textColor = .systemGray
+        label.textAlignment = .center
+        label.font = .systemFont(ofSize: 20,
+                                 weight: .regular)
+        
+        return label
+    }()
+    
+    private let eventCardLabelSecondary: UILabel = {
+        let label = UILabel()
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Eventos"
+        label.textColor = UIColor(red: 0/255,
+                                  green: 155/255,
+                                  blue: 223/255,
+                                  alpha: 1.0)
+        label.textAlignment = .center
+        label.font = .systemFont(ofSize: 28,
+                                 weight: .semibold)
+        
+        return label
     }()
     
     private let institutionCard: UIView = {
         let view = UIView()
         
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .systemMint
+        view.clipsToBounds = true
+        view.layer.cornerRadius = 10
+        view.layer.borderWidth = 2
+        view.layer.borderColor = UIColor(red: 0/255,
+                                         green: 155/255,
+                                         blue: 223/255,
+                                         alpha: 1.0).cgColor
         
         return view
+    }()
+    
+    private let institutionCardImage: UIImageView = {
+        let imageView = UIImageView()
+        
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = UIImage(named: "InstitutionCardImage")
+        
+        return imageView
+    }()
+    
+    private let institutionCardLabel: UILabel = {
+        let label = UILabel()
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Conheça as"
+        label.textColor = .systemGray
+        label.textAlignment = .center
+        label.font = .systemFont(ofSize: 20,
+                                 weight: .regular)
+        
+        return label
+    }()
+    
+    private let institutionCardLabelSecondary: UILabel = {
+        let label = UILabel()
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Instituições"
+        label.textColor = UIColor(red: 0/255,
+                                  green: 155/255,
+                                  blue: 223/255,
+                                  alpha: 1.0)
+        label.textAlignment = .center
+        label.font = .systemFont(ofSize: 28,
+                                 weight: .semibold)
+        
+        return label
     }()
     
     private let donateCard: UIView = {
         let view = UIView()
         
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .systemPink
+        view.clipsToBounds = true
+        view.layer.cornerRadius = 10
+        view.layer.borderWidth = 2
+        view.layer.borderColor = UIColor(red: 0/255,
+                                         green: 155/255,
+                                         blue: 223/255,
+                                         alpha: 1.0).cgColor
         
         return view
     }()
+    
+    private let donateCardImage: UIImageView = {
+        let imageView = UIImageView()
+        
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = UIImage(named: "DonateCardImage")
+        
+        return imageView
+    }()
+    
+    private let donateCardLabel: UILabel = {
+        let label = UILabel()
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Mesmo longe"
+        label.textColor = .systemGray
+        label.textAlignment = .center
+        label.font = .systemFont(ofSize: 20,
+                                 weight: .regular)
+        
+        return label
+    }()
+    
+    private let donateCardLabelSecondary: UILabel = {
+        let label = UILabel()
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Contribua"
+        label.textColor = UIColor(red: 0/255,
+                                  green: 155/255,
+                                  blue: 223/255,
+                                  alpha: 1.0)
+        label.textAlignment = .center
+        label.font = .systemFont(ofSize: 28,
+                                 weight: .semibold)
+        
+        return label
+    }()
+
     
     // MARK: - Init
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
+        backgroundColor = .systemBackground
         addSubviews(collectionView,
                     spinner,
                     eventsCard,
                     institutionCard,
                     donateCard)
+        
+        eventsCard.addSubviews(eventCardImage,
+                               eventCardLabel,
+                               eventCardLabelSecondary)
+        
+        institutionCard.addSubviews(institutionCardImage,
+                                    institutionCardLabel,
+                                    institutionCardLabelSecondary)
+        
+        donateCard.addSubviews(donateCardImage,
+                               donateCardLabel,
+                               donateCardLabelSecondary)
 
         addConstraints()
         setUpCollectionView()
@@ -95,15 +242,54 @@ final class DRHomeView: UIView {
             eventsCard.leftAnchor.constraint(equalTo: leftAnchor, constant: 15),
             eventsCard.rightAnchor.constraint(equalTo: rightAnchor, constant: -15),
             
+            eventCardImage.heightAnchor.constraint(equalToConstant: 80),
+            eventCardImage.widthAnchor.constraint(equalToConstant: 80),
+            eventCardImage.topAnchor.constraint(equalTo: eventsCard.topAnchor, constant: 15),
+            eventCardImage.leftAnchor.constraint(equalTo: eventsCard.leftAnchor, constant: 30),
+            
+            eventCardLabel.topAnchor.constraint(equalTo: eventsCard.topAnchor, constant: 25),
+            eventCardLabel.leftAnchor.constraint(equalTo: eventCardImage.rightAnchor, constant: 10),
+            eventCardLabel.rightAnchor.constraint(equalTo: eventsCard.rightAnchor, constant: -15),
+            
+            eventCardLabelSecondary.topAnchor.constraint(equalTo: eventCardLabel.bottomAnchor, constant: 0),
+            eventCardLabelSecondary.leftAnchor.constraint(equalTo: eventCardLabel.leftAnchor),
+            eventCardLabelSecondary.rightAnchor.constraint(equalTo: eventCardLabel.rightAnchor),
+            
             institutionCard.heightAnchor.constraint(equalToConstant: 110),
             institutionCard.topAnchor.constraint(equalTo: eventsCard.bottomAnchor, constant: 20),
             institutionCard.leftAnchor.constraint(equalTo: leftAnchor, constant: 15),
             institutionCard.rightAnchor.constraint(equalTo: rightAnchor, constant: -15),
             
+            institutionCardImage.heightAnchor.constraint(equalToConstant: 80),
+            institutionCardImage.widthAnchor.constraint(equalToConstant: 120),
+            institutionCardImage.topAnchor.constraint(equalTo: institutionCard.topAnchor, constant: 15),
+            institutionCardImage.rightAnchor.constraint(equalTo: institutionCard.rightAnchor, constant: -30),
+            
+            institutionCardLabel.topAnchor.constraint(equalTo: institutionCard.topAnchor, constant: 25),
+            institutionCardLabel.leftAnchor.constraint(equalTo: institutionCard.leftAnchor, constant: 15),
+            institutionCardLabel.rightAnchor.constraint(equalTo: institutionCardImage.leftAnchor, constant: 15),
+            
+            institutionCardLabelSecondary.topAnchor.constraint(equalTo: institutionCardLabel.bottomAnchor, constant: 0),
+            institutionCardLabelSecondary.leftAnchor.constraint(equalTo: institutionCardLabel.leftAnchor),
+            institutionCardLabelSecondary.rightAnchor.constraint(equalTo: institutionCardLabel.rightAnchor),
+            
             donateCard.heightAnchor.constraint(equalToConstant: 110),
             donateCard.topAnchor.constraint(equalTo: institutionCard.bottomAnchor, constant: 20),
             donateCard.leftAnchor.constraint(equalTo: leftAnchor, constant: 15),
             donateCard.rightAnchor.constraint(equalTo: rightAnchor, constant: -15),
+            
+            donateCardImage.heightAnchor.constraint(equalToConstant: 80),
+            donateCardImage.widthAnchor.constraint(equalToConstant: 120),
+            donateCardImage.topAnchor.constraint(equalTo: donateCard.topAnchor, constant: 15),
+            donateCardImage.leftAnchor.constraint(equalTo: donateCard.leftAnchor, constant:30),
+            
+            donateCardLabel.topAnchor.constraint(equalTo: donateCard.topAnchor, constant: 25),
+            donateCardLabel.leftAnchor.constraint(equalTo: donateCardImage.rightAnchor, constant: 10),
+            donateCardLabel.rightAnchor.constraint(equalTo: donateCard.rightAnchor, constant: -15),
+            
+            donateCardLabelSecondary.topAnchor.constraint(equalTo: donateCardLabel.bottomAnchor, constant: 0),
+            donateCardLabelSecondary.leftAnchor.constraint(equalTo: donateCardLabel.leftAnchor),
+            donateCardLabelSecondary.rightAnchor.constraint(equalTo: donateCardLabel.rightAnchor),
             
         ])
     }

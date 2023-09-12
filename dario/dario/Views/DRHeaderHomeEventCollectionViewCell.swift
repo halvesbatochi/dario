@@ -21,32 +21,36 @@ final class DRHeaderHomeEventCollectionViewCell: UICollectionViewCell {
     private let layerView: UIView = {
         let view = UIView()
         
+        view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = UIColor(white: 1, alpha: 0.8)
         view.clipsToBounds = true
         view.layer.cornerRadius = 5
         view.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMinXMinYCorner]
         
-        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     private let eventLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .systemGray2
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .systemGray
         label.textAlignment = .right
         label.font = .systemFont(ofSize: 18,
                                  weight: .medium)
-        label.translatesAutoresizingMaskIntoConstraints = false
+        
         return label
     }()
     
     private let institutionLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .systemGray
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .systemGray2
         label.textAlignment = .right
         label.font = .systemFont(ofSize: 12,
                                  weight: .regular)
-        label.translatesAutoresizingMaskIntoConstraints = false
+
         return label
     }()
 
@@ -54,7 +58,9 @@ final class DRHeaderHomeEventCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.backgroundColor = .cyan
+        
+        contentView.backgroundColor = .systemMint
+        contentView.layer.cornerRadius = 10
         contentView.addSubviews(coverView,
                                 layerView,
                                 eventLabel,

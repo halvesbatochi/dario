@@ -15,6 +15,8 @@ final class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Home"
+        view.backgroundColor = .systemBackground
+        navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.systemGray]
         view.addSubview(homeView)
         
         setUpView()
