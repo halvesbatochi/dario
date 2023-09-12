@@ -10,7 +10,7 @@ import UIKit
 /// Controller to show Home
 final class HomeViewController: UIViewController {
     
-    private let homeView = HomeView()
+    private let homeView = DRHomeView()
 
     override func viewDidLoad() {
         super.viewDidLoad()

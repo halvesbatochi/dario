@@ -22,8 +22,10 @@
 		5CCAB94B2A92E3D60051B233 /* DREvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCAB94A2A92E3D60051B233 /* DREvent.swift */; };
 		5CCAB94D2A92E3F10051B233 /* DRInstitution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCAB94C2A92E3F10051B233 /* DRInstitution.swift */; };
 		5CCAB94F2A92E4050051B233 /* DRDonate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCAB94E2A92E4050051B233 /* DRDonate.swift */; };
-		5CCAB9512A92E9FC0051B233 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCAB9502A92E9FC0051B233 /* HomeView.swift */; };
-		5CCAB9532A92ED410051B233 /* HomeViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCAB9522A92ED410051B233 /* HomeViewViewModel.swift */; };
+		5CCAB9512A92E9FC0051B233 /* DRHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCAB9502A92E9FC0051B233 /* DRHomeView.swift */; };
+		5CCAB9532A92ED410051B233 /* DRHomeViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCAB9522A92ED410051B233 /* DRHomeViewViewModel.swift */; };
+		5CCAB9552A930A8F0051B233 /* DRHeaderHomeEventCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCAB9542A930A8F0051B233 /* DRHeaderHomeEventCollectionViewCell.swift */; };
+		5CCAB9572A930DDE0051B233 /* DRHeaderHomeEventCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCAB9562A930DDE0051B233 /* DRHeaderHomeEventCollectionViewCellViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,8 +46,10 @@
 		5CCAB94A2A92E3D60051B233 /* DREvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DREvent.swift; sourceTree = "<group>"; };
 		5CCAB94C2A92E3F10051B233 /* DRInstitution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRInstitution.swift; sourceTree = "<group>"; };
 		5CCAB94E2A92E4050051B233 /* DRDonate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRDonate.swift; sourceTree = "<group>"; };
-		5CCAB9502A92E9FC0051B233 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		5CCAB9522A92ED410051B233 /* HomeViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewViewModel.swift; sourceTree = "<group>"; };
+		5CCAB9502A92E9FC0051B233 /* DRHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRHomeView.swift; sourceTree = "<group>"; };
+		5CCAB9522A92ED410051B233 /* DRHomeViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRHomeViewViewModel.swift; sourceTree = "<group>"; };
+		5CCAB9542A930A8F0051B233 /* DRHeaderHomeEventCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRHeaderHomeEventCollectionViewCell.swift; sourceTree = "<group>"; };
+		5CCAB9562A930DDE0051B233 /* DRHeaderHomeEventCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRHeaderHomeEventCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +115,8 @@
 		5CC54DE529EF99D000963CD7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				5CCAB9502A92E9FC0051B233 /* HomeView.swift */,
+				5CCAB9502A92E9FC0051B233 /* DRHomeView.swift */,
+				5CCAB9542A930A8F0051B233 /* DRHeaderHomeEventCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -119,7 +124,8 @@
 		5CC54DE629EF9A4B00963CD7 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				5CCAB9522A92ED410051B233 /* HomeViewViewModel.swift */,
+				5CCAB9522A92ED410051B233 /* DRHomeViewViewModel.swift */,
+				5CCAB9562A930DDE0051B233 /* DRHeaderHomeEventCollectionViewCellViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -235,16 +241,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C59645729EF9813003BB257 /* TabBarController.swift in Sources */,
-				5CCAB9512A92E9FC0051B233 /* HomeView.swift in Sources */,
+				5CCAB9512A92E9FC0051B233 /* DRHomeView.swift in Sources */,
 				5CCAB94F2A92E4050051B233 /* DRDonate.swift in Sources */,
 				5CCAB9492A92DD990051B233 /* DREndpoint .swift in Sources */,
 				5CCAB9452A92DC2B0051B233 /* DRService.swift in Sources */,
+				5CCAB9572A930DDE0051B233 /* DRHeaderHomeEventCollectionViewCellViewModel.swift in Sources */,
 				5CCAB9472A92DCBA0051B233 /* DRRequest.swift in Sources */,
 				5C59645329EF9813003BB257 /* AppDelegate.swift in Sources */,
 				5CCAB94B2A92E3D60051B233 /* DREvent.swift in Sources */,
 				5CCAB94D2A92E3F10051B233 /* DRInstitution.swift in Sources */,
+				5CCAB9552A930A8F0051B233 /* DRHeaderHomeEventCollectionViewCell.swift in Sources */,
 				5CC54DEE29EF9E6900963CD7 /* ProfileViewController.swift in Sources */,
-				5CCAB9532A92ED410051B233 /* HomeViewViewModel.swift in Sources */,
+				5CCAB9532A92ED410051B233 /* DRHomeViewViewModel.swift in Sources */,
 				5CC54DF029EFA0FF00963CD7 /* TimeLineViewController.swift in Sources */,
 				5C59645529EF9813003BB257 /* SceneDelegate.swift in Sources */,
 				5CC54DEC29EF9DD100963CD7 /* HomeViewController.swift in Sources */,
