@@ -36,7 +36,6 @@ class DREventsView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = .systemBlue
         addSubviews(collectionView)
         
         addConstraints()

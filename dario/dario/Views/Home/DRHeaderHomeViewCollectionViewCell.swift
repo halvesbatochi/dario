@@ -112,7 +112,7 @@ final class DRHeaderHomeViewCollectionViewCell: UICollectionViewCell {
         eventLabel.text = viewModel.eventName
         institutionLabel.text = viewModel.institutionName
 
-        viewModel.fetchImage { [weak self] result in
+      /*  viewModel.fetchImage { [weak self] result in
             switch result {
             case .success(let data):
                 DispatchQueue.main.async {
@@ -123,6 +123,6 @@ final class DRHeaderHomeViewCollectionViewCell: UICollectionViewCell {
                 print(String(describing: error))
                 break
             }
-        }
+        } */
     }
 }

@@ -19,12 +19,12 @@ class DRDonatesView: UIView {
     }()
     
     private let donatesHeaderImage: UIImageView = {
-        let viewImage = UIImageView()
+        let imageView = UIImageView()
         
-        viewImage.translatesAutoresizingMaskIntoConstraints = false
-        viewImage.image = UIImage(named: "DonatesHeaderImage")
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = UIImage(named: "DonatesHeaderImage")
         
-        return viewImage
+        return imageView
     }()
     
     private let donatesHeaderLabel: UILabel = {
