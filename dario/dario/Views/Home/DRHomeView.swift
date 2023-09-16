@@ -8,6 +8,7 @@
 import UIKit
 
 protocol DRHomeViewDelegate: AnyObject {
+    func navigateEventsView(_ homeView: DRHomeView)
     func navigateInstitutionsView(_ homeView: DRHomeView)
     func navigateDonatesView(_ homeView: DRHomeView)
 }
@@ -51,7 +52,6 @@ final class DRHomeView: UIView {
                                          green: 155/255,
                                          blue: 223/255,
                                          alpha: 1.0).cgColor
-        
         return view
     }()
     
@@ -73,7 +73,6 @@ final class DRHomeView: UIView {
         label.textAlignment = .center
         label.font = .systemFont(ofSize: 20,
                                  weight: .regular)
-        
         return label
     }()
     
@@ -89,7 +88,6 @@ final class DRHomeView: UIView {
         label.textAlignment = .center
         label.font = .systemFont(ofSize: 28,
                                  weight: .semibold)
-        
         return label
     }()
     
@@ -104,7 +102,6 @@ final class DRHomeView: UIView {
                                          green: 155/255,
                                          blue: 223/255,
                                          alpha: 1.0).cgColor
-        
         return view
     }()
     
@@ -126,7 +123,6 @@ final class DRHomeView: UIView {
         label.textAlignment = .center
         label.font = .systemFont(ofSize: 20,
                                  weight: .regular)
-        
         return label
     }()
     
@@ -142,7 +138,6 @@ final class DRHomeView: UIView {
         label.textAlignment = .center
         label.font = .systemFont(ofSize: 28,
                                  weight: .semibold)
-        
         return label
     }()
     
@@ -157,7 +152,6 @@ final class DRHomeView: UIView {
                                          green: 155/255,
                                          blue: 223/255,
                                          alpha: 1.0).cgColor
-        
         return view
     }()
     
@@ -179,7 +173,6 @@ final class DRHomeView: UIView {
         label.textAlignment = .center
         label.font = .systemFont(ofSize: 20,
                                  weight: .regular)
-        
         return label
     }()
     
@@ -195,7 +188,6 @@ final class DRHomeView: UIView {
         label.textAlignment = .center
         label.font = .systemFont(ofSize: 28,
                                  weight: .semibold)
-        
         return label
     }()
 
@@ -237,6 +229,10 @@ final class DRHomeView: UIView {
     // MARK: - Private methods
     
     private func setUpCards() {
+        let gestureEvents = UITapGestureRecognizer(target: self,
+                                                   action: #selector(self.navigateEventsView))
+        self.eventsCard.addGestureRecognizer(gestureEvents)
+        
         let gestureInstitutions = UITapGestureRecognizer(target: self,
                                                          action: #selector(self.navigateInstitutionsView))
         self.institutionCard.addGestureRecognizer(gestureInstitutions)
@@ -244,7 +240,10 @@ final class DRHomeView: UIView {
         let gestureDonates = UITapGestureRecognizer(target: self,
                                                     action: #selector(self.navigateDonatesView))
         self.donateCard.addGestureRecognizer(gestureDonates)
-        
+    }
+    
+    @objc private func navigateEventsView() {
+        delegate?.navigateEventsView(self)
     }
     
     @objc private func navigateInstitutionsView() {
@@ -254,6 +253,7 @@ final class DRHomeView: UIView {
     @objc private func navigateDonatesView() {
         delegate?.navigateDonatesView(self)
     }
+    
     
     private func setUpCollectionView() {
         collectionView.dataSource = viewModel
