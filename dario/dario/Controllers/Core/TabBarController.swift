@@ -20,7 +20,7 @@ final class TabBarController: UITabBarController {
         let timelineVC = TimeLineViewController()
         let profileVC = ProfileViewController()
         
-        homeVC.navigationItem.largeTitleDisplayMode = .automatic
+        homeVC.navigationItem.largeTitleDisplayMode = .always
         timelineVC.navigationItem.largeTitleDisplayMode = .automatic
         profileVC.navigationItem.largeTitleDisplayMode = .automatic
         

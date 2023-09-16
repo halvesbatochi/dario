@@ -7,8 +7,15 @@
 
 import UIKit
 
+protocol DRHomeViewDelegate: AnyObject {
+    func navigateInstitutionsView(_ homeView: DRHomeView)
+    func navigateDonatesView(_ homeView: DRHomeView)
+}
+
 /// View that handles showing home elements, loader and etc.
 final class DRHomeView: UIView {
+    
+    public weak var delegate: DRHomeViewDelegate?
     
     private let viewModel = DRHomeViewViewModel()
     
@@ -218,11 +225,46 @@ final class DRHomeView: UIView {
                                donateCardLabelSecondary)
 
         addConstraints()
+        
         setUpCollectionView()
+        setUpCards()
     }
     
     required init?(coder: NSCoder) {
         fatalError("Unsupported")
+    }
+    
+    // MARK: - Private methods
+    
+    private func setUpCards() {
+        let gestureInstitutions = UITapGestureRecognizer(target: self,
+                                                         action: #selector(self.navigateInstitutionsView))
+        self.institutionCard.addGestureRecognizer(gestureInstitutions)
+        
+        let gestureDonates = UITapGestureRecognizer(target: self,
+                                                    action: #selector(self.navigateDonatesView))
+        self.donateCard.addGestureRecognizer(gestureDonates)
+        
+    }
+    
+    @objc private func navigateInstitutionsView() {
+        delegate?.navigateInstitutionsView(self)
+    }
+    
+    @objc private func navigateDonatesView() {
+        delegate?.navigateDonatesView(self)
+    }
+    
+    private func setUpCollectionView() {
+        collectionView.dataSource = viewModel
+        collectionView.delegate = viewModel
+        
+        DispatchQueue.main.asyncAfter(deadline: .now()+2, execute: {
+            self.collectionView.isHidden = false
+            UIView.animate(withDuration: 0.4) {
+                self.collectionView.alpha = 1
+            }
+        })
     }
     
     private func addConstraints() {
@@ -292,17 +334,5 @@ final class DRHomeView: UIView {
             donateCardLabelSecondary.rightAnchor.constraint(equalTo: donateCardLabel.rightAnchor),
             
         ])
-    }
-    
-    private func setUpCollectionView() {
-        collectionView.dataSource = viewModel
-        collectionView.delegate = viewModel
-        
-        DispatchQueue.main.asyncAfter(deadline: .now()+2, execute: {
-            self.collectionView.isHidden = false
-            UIView.animate(withDuration: 0.4) {
-                self.collectionView.alpha = 1
-            }
-        })
     }
 }
