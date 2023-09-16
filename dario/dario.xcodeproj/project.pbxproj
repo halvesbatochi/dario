@@ -11,6 +11,9 @@
 		5C1AB9572AB53EBD00093930 /* DRDonatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1AB9562AB53EBD00093930 /* DRDonatesViewController.swift */; };
 		5C1AB95A2AB54D8400093930 /* DREventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1AB9592AB54D8400093930 /* DREventsView.swift */; };
 		5C1AB95C2AB54DF600093930 /* DREventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1AB95B2AB54DF600093930 /* DREventsViewController.swift */; };
+		5C1AB9602AB5581D00093930 /* DREventsViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1AB95F2AB5581D00093930 /* DREventsViewViewModel.swift */; };
+		5C1AB9622AB5588500093930 /* DRHeaderEventsViewCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1AB9612AB5588500093930 /* DRHeaderEventsViewCollectionViewCellViewModel.swift */; };
+		5C1AB9642AB5595E00093930 /* DRHeaderEventsViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1AB9632AB5595E00093930 /* DRHeaderEventsViewCollectionViewCell.swift */; };
 		5C59645329EF9813003BB257 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C59645229EF9813003BB257 /* AppDelegate.swift */; };
 		5C59645529EF9813003BB257 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C59645429EF9813003BB257 /* SceneDelegate.swift */; };
 		5C59645729EF9813003BB257 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C59645629EF9813003BB257 /* TabBarController.swift */; };
@@ -28,8 +31,8 @@
 		5CCAB94F2A92E4050051B233 /* DRDonate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCAB94E2A92E4050051B233 /* DRDonate.swift */; };
 		5CCAB9512A92E9FC0051B233 /* DRHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCAB9502A92E9FC0051B233 /* DRHomeView.swift */; };
 		5CCAB9532A92ED410051B233 /* DRHomeViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCAB9522A92ED410051B233 /* DRHomeViewViewModel.swift */; };
-		5CCAB9552A930A8F0051B233 /* DRHeaderHomeEventCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCAB9542A930A8F0051B233 /* DRHeaderHomeEventCollectionViewCell.swift */; };
-		5CCAB9572A930DDE0051B233 /* DRHeaderHomeEventCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCAB9562A930DDE0051B233 /* DRHeaderHomeEventCollectionViewCellViewModel.swift */; };
+		5CCAB9552A930A8F0051B233 /* DRHeaderHomeViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCAB9542A930A8F0051B233 /* DRHeaderHomeViewCollectionViewCell.swift */; };
+		5CCAB9572A930DDE0051B233 /* DRHeaderHomeViewCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCAB9562A930DDE0051B233 /* DRHeaderHomeViewCollectionViewCellViewModel.swift */; };
 		5CFEBDC72AB148E400327F6E /* DRInstitutionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFEBDC62AB148E400327F6E /* DRInstitutionViewController.swift */; };
 		5CFEBDCA2AB1499000327F6E /* DRInstitutionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFEBDC92AB1499000327F6E /* DRInstitutionsView.swift */; };
 /* End PBXBuildFile section */
@@ -39,6 +42,9 @@
 		5C1AB9562AB53EBD00093930 /* DRDonatesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRDonatesViewController.swift; sourceTree = "<group>"; };
 		5C1AB9592AB54D8400093930 /* DREventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DREventsView.swift; sourceTree = "<group>"; };
 		5C1AB95B2AB54DF600093930 /* DREventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DREventsViewController.swift; sourceTree = "<group>"; };
+		5C1AB95F2AB5581D00093930 /* DREventsViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DREventsViewViewModel.swift; sourceTree = "<group>"; };
+		5C1AB9612AB5588500093930 /* DRHeaderEventsViewCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRHeaderEventsViewCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
+		5C1AB9632AB5595E00093930 /* DRHeaderEventsViewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRHeaderEventsViewCollectionViewCell.swift; sourceTree = "<group>"; };
 		5C59644F29EF9813003BB257 /* dario.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dario.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C59645229EF9813003BB257 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C59645429EF9813003BB257 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,8 +64,8 @@
 		5CCAB94E2A92E4050051B233 /* DRDonate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRDonate.swift; sourceTree = "<group>"; };
 		5CCAB9502A92E9FC0051B233 /* DRHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRHomeView.swift; sourceTree = "<group>"; };
 		5CCAB9522A92ED410051B233 /* DRHomeViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRHomeViewViewModel.swift; sourceTree = "<group>"; };
-		5CCAB9542A930A8F0051B233 /* DRHeaderHomeEventCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRHeaderHomeEventCollectionViewCell.swift; sourceTree = "<group>"; };
-		5CCAB9562A930DDE0051B233 /* DRHeaderHomeEventCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRHeaderHomeEventCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
+		5CCAB9542A930A8F0051B233 /* DRHeaderHomeViewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRHeaderHomeViewCollectionViewCell.swift; sourceTree = "<group>"; };
+		5CCAB9562A930DDE0051B233 /* DRHeaderHomeViewCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRHeaderHomeViewCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
 		5CFEBDC62AB148E400327F6E /* DRInstitutionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRInstitutionViewController.swift; sourceTree = "<group>"; };
 		5CFEBDC92AB1499000327F6E /* DRInstitutionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRInstitutionsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -87,6 +93,25 @@
 			isa = PBXGroup;
 			children = (
 				5C1AB9592AB54D8400093930 /* DREventsView.swift */,
+				5C1AB9632AB5595E00093930 /* DRHeaderEventsViewCollectionViewCell.swift */,
+			);
+			path = Events;
+			sourceTree = "<group>";
+		};
+		5C1AB95D2AB5577300093930 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				5CCAB9562A930DDE0051B233 /* DRHeaderHomeViewCollectionViewCellViewModel.swift */,
+				5CCAB9522A92ED410051B233 /* DRHomeViewViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		5C1AB95E2AB5577F00093930 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				5C1AB95F2AB5581D00093930 /* DREventsViewViewModel.swift */,
+				5C1AB9612AB5588500093930 /* DRHeaderEventsViewCollectionViewCellViewModel.swift */,
 			);
 			path = Events;
 			sourceTree = "<group>";
@@ -155,8 +180,8 @@
 		5CC54DE629EF9A4B00963CD7 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				5CCAB9522A92ED410051B233 /* DRHomeViewViewModel.swift */,
-				5CCAB9562A930DDE0051B233 /* DRHeaderHomeEventCollectionViewCellViewModel.swift */,
+				5C1AB95E2AB5577F00093930 /* Events */,
+				5C1AB95D2AB5577300093930 /* Home */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -205,7 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				5CCAB9502A92E9FC0051B233 /* DRHomeView.swift */,
-				5CCAB9542A930A8F0051B233 /* DRHeaderHomeEventCollectionViewCell.swift */,
+				5CCAB9542A930A8F0051B233 /* DRHeaderHomeViewCollectionViewCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -305,22 +330,25 @@
 				5CCAB9452A92DC2B0051B233 /* DRService.swift in Sources */,
 				5C1AB95A2AB54D8400093930 /* DREventsView.swift in Sources */,
 				5C1AB95C2AB54DF600093930 /* DREventsViewController.swift in Sources */,
-				5CCAB9572A930DDE0051B233 /* DRHeaderHomeEventCollectionViewCellViewModel.swift in Sources */,
+				5CCAB9572A930DDE0051B233 /* DRHeaderHomeViewCollectionViewCellViewModel.swift in Sources */,
 				5CCAB9472A92DCBA0051B233 /* DRRequest.swift in Sources */,
 				5C59645329EF9813003BB257 /* AppDelegate.swift in Sources */,
 				5CCAB94B2A92E3D60051B233 /* DREvent.swift in Sources */,
 				5CCAB94D2A92E3F10051B233 /* DRInstitution.swift in Sources */,
-				5CCAB9552A930A8F0051B233 /* DRHeaderHomeEventCollectionViewCell.swift in Sources */,
+				5CCAB9552A930A8F0051B233 /* DRHeaderHomeViewCollectionViewCell.swift in Sources */,
 				5CC54DEE29EF9E6900963CD7 /* ProfileViewController.swift in Sources */,
 				5CCAB9532A92ED410051B233 /* DRHomeViewViewModel.swift in Sources */,
 				5C1AB9552AB53E5A00093930 /* DRDonatesView.swift in Sources */,
+				5C1AB9602AB5581D00093930 /* DREventsViewViewModel.swift in Sources */,
 				5CFEBDC72AB148E400327F6E /* DRInstitutionViewController.swift in Sources */,
+				5C1AB9622AB5588500093930 /* DRHeaderEventsViewCollectionViewCellViewModel.swift in Sources */,
 				5CFEBDCA2AB1499000327F6E /* DRInstitutionsView.swift in Sources */,
 				5CC54DF029EFA0FF00963CD7 /* TimeLineViewController.swift in Sources */,
 				5C1AB9572AB53EBD00093930 /* DRDonatesViewController.swift in Sources */,
 				5C59645529EF9813003BB257 /* SceneDelegate.swift in Sources */,
 				5CC54DEC29EF9DD100963CD7 /* HomeViewController.swift in Sources */,
 				5C65472E29F7DDD0003EC311 /* Extensions.swift in Sources */,
+				5C1AB9642AB5595E00093930 /* DRHeaderEventsViewCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

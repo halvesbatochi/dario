@@ -1,5 +1,5 @@
 //
-//  DRHeaderHomeEventCollectionViewCellViewModel.swift
+//  DRHeaderHomeViewCollectionViewCellViewModel.swift
 //  dario
 //
 //  Created by Henrique Alves Batochi on 21/08/23.
@@ -7,26 +7,26 @@
 
 import Foundation
 
-final class DRHeaderHomeEventCollectionViewCellViewModel {
+final class DRHeaderHomeViewCollectionViewCellViewModel {
     
     public let eventName: String
     public let institutionName: String
-    private let eventImageURL: URL?
+    private let eventCoverURL: URL?
     
     // MARK: - Init
     
     init (eventName: String,
           institutionName: String,
-          eventImageURL: URL?
+          eventCoverURL: URL?
     ) {
         self.eventName = eventName
         self.institutionName = institutionName
-        self.eventImageURL = eventImageURL
+        self.eventCoverURL = eventCoverURL
     }
     
     public func fetchImage(completion: @escaping (Result<Data, Error>) -> Void) {
         // TODO: Abstract to Image Manager
-        guard let url = eventImageURL else {
+        guard let url = eventCoverURL else {
             completion(.failure(URLError(.badURL)))
             return
         }

@@ -1,5 +1,5 @@
 //
-//  DRHeaderHomeEventsCollectionViewCell.swift
+//  DRHeaderHomeViewCollectionViewCell.swift
 //  dario
 //
 //  Created by Henrique Alves Batochi on 20/08/23.
@@ -8,13 +8,15 @@
 import UIKit
 
 /// Single cell for a Event Home
-final class DRHeaderHomeEventCollectionViewCell: UICollectionViewCell {
-    static let cellIdentifier = "DRHeaderHomeEventCollectionViewCell"
+final class DRHeaderHomeViewCollectionViewCell: UICollectionViewCell {
+    static let cellIdentifier = "DRHeaderHomeViewCollectionViewCell"
     
     private let coverView: UIImageView = {
         let imageView = UIImageView()
+        
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        
         return imageView
     }()
     
@@ -25,8 +27,8 @@ final class DRHeaderHomeEventCollectionViewCell: UICollectionViewCell {
         view.backgroundColor = UIColor(white: 1, alpha: 0.8)
         view.clipsToBounds = true
         view.layer.cornerRadius = 5
-        view.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMinXMinYCorner]
-        
+        view.layer.maskedCorners = [.layerMinXMaxYCorner,
+                                    .layerMinXMinYCorner]
         return view
     }()
     
@@ -73,6 +75,8 @@ final class DRHeaderHomeEventCollectionViewCell: UICollectionViewCell {
         fatalError("Unsupported")
     }
     
+    // MARK: - Private Methods
+    
     private func addConstraint() {
         NSLayoutConstraint.activate([
             
@@ -95,6 +99,8 @@ final class DRHeaderHomeEventCollectionViewCell: UICollectionViewCell {
         ])
     }
     
+    // MARK: - Public Methods
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         coverView.image = nil
@@ -102,7 +108,7 @@ final class DRHeaderHomeEventCollectionViewCell: UICollectionViewCell {
         institutionLabel.text = nil
     }
     
-    public func configure(with viewModel: DRHeaderHomeEventCollectionViewCellViewModel) {
+    public func configure(with viewModel: DRHeaderHomeViewCollectionViewCellViewModel) {
         eventLabel.text = viewModel.eventName
         institutionLabel.text = viewModel.institutionName
 

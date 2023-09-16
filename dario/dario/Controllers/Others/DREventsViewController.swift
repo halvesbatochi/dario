@@ -13,6 +13,7 @@ class DREventsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        preventLargeTitleCollapsing()
 
         title = "Eventos"
         view.backgroundColor = .systemBackground
@@ -24,6 +25,12 @@ class DREventsViewController: UIViewController {
     }
     
     // MARK: - Private Methods
+    
+    private func preventLargeTitleCollapsing() {
+        let dummyView = UIView()
+        view.addSubview(dummyView)
+        view.sendSubviewToBack(dummyView)
+    }
     
     private func setUpView() {
         NSLayoutConstraint.activate([

@@ -11,6 +11,7 @@ final class DRHomeViewViewModel: NSObject {
     
 }
 
+// MARK: - UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout
 extension DRHomeViewViewModel: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 3
@@ -18,14 +19,16 @@ extension DRHomeViewViewModel: UICollectionViewDataSource, UICollectionViewDeleg
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: DRHeaderHomeEventCollectionViewCell.cellIdentifier,
+            withReuseIdentifier: DRHeaderHomeViewCollectionViewCell.cellIdentifier,
             for: indexPath
-        ) as? DRHeaderHomeEventCollectionViewCell else {
-            fatalError("Unsupported cell ")
+        ) as? DRHeaderHomeViewCollectionViewCell else {
+            fatalError("Unsupported cell")
         }
-        let viewModel = DRHeaderHomeEventCollectionViewCellViewModel(eventName: "Churrasco Legal",
-                                                                     institutionName: "PetCare",
-                                                                     eventImageURL: nil)
+        
+        // TODO: Carregando localmente apensa para visualizar durante desenvolvimento - Apagar depois!
+        let viewModel = DRHeaderHomeViewCollectionViewCellViewModel(eventName: "Sabadaço da Adoção",
+                                                                    institutionName: "Cão Amigo",
+                                                                    eventCoverURL: nil)
         cell.configure(with: viewModel)
         return cell
     }
@@ -34,9 +37,7 @@ extension DRHomeViewViewModel: UICollectionViewDataSource, UICollectionViewDeleg
         let bounds = UIScreen.main.bounds
         let width = bounds.width - 30
         let height = 200.0
-        return CGSize(
-            width: width,
-            height: height
-        )
+        return CGSize(width: width,
+                      height: height)
     }
 }

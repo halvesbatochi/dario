@@ -30,14 +30,18 @@ final class DRHomeView: UIView {
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+        layout.sectionInset = UIEdgeInsets(top: 0,
+                                           left: 10,
+                                           bottom: 0,
+                                           right: 10)
         
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        let collectionView = UICollectionView(frame: .zero,
+                                              collectionViewLayout: layout)
         collectionView.isHidden = true
         collectionView.alpha = 0
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.register(DRHeaderHomeEventCollectionViewCell.self,
-                                forCellWithReuseIdentifier: DRHeaderHomeEventCollectionViewCell.cellIdentifier)
+        collectionView.register(DRHeaderHomeViewCollectionViewCell.self,
+                                forCellWithReuseIdentifier: DRHeaderHomeViewCollectionViewCell.cellIdentifier)
         return collectionView
     }()
     
@@ -217,7 +221,6 @@ final class DRHomeView: UIView {
                                donateCardLabelSecondary)
 
         addConstraints()
-        
         setUpCollectionView()
         setUpCards()
     }
@@ -254,12 +257,11 @@ final class DRHomeView: UIView {
         delegate?.navigateDonatesView(self)
     }
     
-    
     private func setUpCollectionView() {
         collectionView.dataSource = viewModel
         collectionView.delegate = viewModel
         
-        DispatchQueue.main.asyncAfter(deadline: .now()+2, execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now()+1, execute: {
             self.collectionView.isHidden = false
             UIView.animate(withDuration: 0.4) {
                 self.collectionView.alpha = 1
@@ -274,10 +276,10 @@ final class DRHomeView: UIView {
             spinner.centerXAnchor.constraint(equalTo: centerXAnchor),
             spinner.centerYAnchor.constraint(equalTo: centerYAnchor),
             
+            collectionView.heightAnchor.constraint(equalToConstant: 210),
             collectionView.topAnchor.constraint(equalTo: topAnchor),
             collectionView.leftAnchor.constraint(equalTo: leftAnchor),
             collectionView.rightAnchor.constraint(equalTo: rightAnchor),
-            collectionView.heightAnchor.constraint(equalToConstant: 210),
             
             eventsCard.heightAnchor.constraint(equalToConstant: 110),
             eventsCard.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 20),
@@ -332,7 +334,6 @@ final class DRHomeView: UIView {
             donateCardLabelSecondary.topAnchor.constraint(equalTo: donateCardLabel.bottomAnchor, constant: 0),
             donateCardLabelSecondary.leftAnchor.constraint(equalTo: donateCardLabel.leftAnchor),
             donateCardLabelSecondary.rightAnchor.constraint(equalTo: donateCardLabel.rightAnchor),
-            
         ])
     }
 }
