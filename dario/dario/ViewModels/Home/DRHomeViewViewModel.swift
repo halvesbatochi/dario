@@ -7,8 +7,13 @@
 
 import UIKit
 
+protocol DRHomeViewViewModelDelegate: AnyObject {
+    func didSelectEventHeaderHome(_ index: Int)
+}
+
 final class DRHomeViewViewModel: NSObject {
     
+    public weak var delegate: DRHomeViewViewModelDelegate?
 }
 
 // MARK: - UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout
@@ -39,5 +44,9 @@ extension DRHomeViewViewModel: UICollectionViewDataSource, UICollectionViewDeleg
         let height = 200.0
         return CGSize(width: width,
                       height: height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.didSelectEventHeaderHome(indexPath.item)
     }
 }

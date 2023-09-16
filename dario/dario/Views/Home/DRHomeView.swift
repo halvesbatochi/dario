@@ -11,13 +11,13 @@ protocol DRHomeViewDelegate: AnyObject {
     func navigateEventsView(_ homeView: DRHomeView)
     func navigateInstitutionsView(_ homeView: DRHomeView)
     func navigateDonatesView(_ homeView: DRHomeView)
+    func didSelectEventHeaderHome(_ homeView: DRHomeView, _ index: Int)
 }
 
 /// View that handles showing home elements, loader and etc.
 final class DRHomeView: UIView {
     
     public weak var delegate: DRHomeViewDelegate?
-    
     private let viewModel = DRHomeViewViewModel()
     
     private let spinner: UIActivityIndicatorView = {
@@ -202,6 +202,8 @@ final class DRHomeView: UIView {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = .systemBackground
+        viewModel.delegate = self
+        
         addSubviews(collectionView,
                     spinner,
                     eventsCard,
@@ -219,7 +221,6 @@ final class DRHomeView: UIView {
         donateCard.addSubviews(donateCardImage,
                                donateCardLabel,
                                donateCardLabelSecondary)
-
         addConstraints()
         setUpCollectionView()
         setUpCards()
@@ -336,4 +337,13 @@ final class DRHomeView: UIView {
             donateCardLabelSecondary.rightAnchor.constraint(equalTo: donateCardLabel.rightAnchor),
         ])
     }
+}
+
+// MARK: - DRHomeViewViewModelDelegate
+extension DRHomeView : DRHomeViewViewModelDelegate {
+    func didSelectEventHeaderHome(_ index: Int) {
+        self.delegate?.didSelectEventHeaderHome(self, index)
+    }
+    
+    
 }

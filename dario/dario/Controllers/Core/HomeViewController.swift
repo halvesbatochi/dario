@@ -65,4 +65,13 @@ extension HomeViewController: DRHomeViewDelegate {
         vc.navigationItem.largeTitleDisplayMode = .always
         navigationController?.pushViewController(vc, animated: true)
     }
+    
+    func didSelectEventHeaderHome(_ homeView: DRHomeView, _ index: Int) {
+        print("Item escolhido " + "\(index)")
+        let vc = DREventHomeSheetViewController()
+        if let sheet = vc.sheetPresentationController {
+            sheet.detents = [.large()]
+        }
+        self.present(vc, animated: true)
+    }
 }
