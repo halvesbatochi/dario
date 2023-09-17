@@ -22,12 +22,14 @@ class DREventsView: UIView {
         
         let collectionView = UICollectionView(frame: .zero,
                                               collectionViewLayout: layout)
+        
+        collectionView.register(DRHeaderEventsViewCollectionViewCell.self,
+                                forCellWithReuseIdentifier: DRHeaderEventsViewCollectionViewCell.cellIdentifier)
         collectionView.isHidden = true
         collectionView.alpha = 0
         collectionView.backgroundColor = .systemBackground
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.register(DRHeaderEventsViewCollectionViewCell.self,
-                                forCellWithReuseIdentifier: DRHeaderEventsViewCollectionViewCell.cellIdentifier)
+
         return collectionView
     }()
 

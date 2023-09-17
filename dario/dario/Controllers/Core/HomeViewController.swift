@@ -71,6 +71,8 @@ extension HomeViewController: DRHomeViewDelegate {
         let vc = DREventHomeSheetViewController()
         if let sheet = vc.sheetPresentationController {
             sheet.detents = [.large()]
+            sheet.prefersGrabberVisible = true
+            sheet.preferredCornerRadius = 30
         }
         self.present(vc, animated: true)
     }
