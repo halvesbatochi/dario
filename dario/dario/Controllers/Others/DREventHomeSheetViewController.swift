@@ -14,6 +14,7 @@ class DREventHomeSheetViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(eventSheetView)
+        eventSheetView.delegate = self
         
         setUpView()
     }
@@ -28,4 +29,14 @@ class DREventHomeSheetViewController: UIViewController {
             eventSheetView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
     }
+}
+
+// MARK: - DREventHomeSheetViewDelegate
+extension DREventHomeSheetViewController: DREventHomeSheetViewDelegate {
+    func clickedParticipationButton(_ sender: UIButton) {
+        print("Navegando para tela de conclusao de participação")
+        dismiss(animated: true)
+    }
+    
+    
 }

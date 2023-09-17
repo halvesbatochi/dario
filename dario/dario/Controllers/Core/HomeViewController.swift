@@ -67,7 +67,6 @@ extension HomeViewController: DRHomeViewDelegate {
     }
     
     func didSelectEventHeaderHome(_ homeView: DRHomeView, _ index: Int) {
-        print("Item escolhido " + "\(index)")
         let vc = DREventHomeSheetViewController()
         if let sheet = vc.sheetPresentationController {
             sheet.detents = [.large()]

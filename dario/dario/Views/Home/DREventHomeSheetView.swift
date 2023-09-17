@@ -7,7 +7,13 @@
 
 import UIKit
 
+protocol DREventHomeSheetViewDelegate: AnyObject {
+    func clickedParticipationButton(_ sender: UIButton)
+}
+
 class DREventHomeSheetView: UIView {
+    
+    public weak var delegate: DREventHomeSheetViewDelegate?
     
     private let eventNameLabel: UILabel = {
         let label = UILabel()
@@ -190,6 +196,94 @@ class DREventHomeSheetView: UIView {
         return imageView
     }()
     
+    private let eventFourthLabel: UILabel = {
+        let label = UILabel()
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        let attrs1 = [NSAttributedString.Key.foregroundColor : UIColor.secondaryLabel]
+        let attrs2 = [NSAttributedString.Key.foregroundColor : UIColor(red: 48/255,
+                                                                       green: 176/255,
+                                                                       blue: 188/255,
+                                                                       alpha: 1.0)]
+        
+        let attributedString1 = NSMutableAttributedString(string: "Escolha sua área de interesse em ajudar e venha construir a diferença em ",
+                                                          attributes: attrs1)
+        let attributedString2 = NSMutableAttributedString(string: "um mundo mais solidário",
+                                                          attributes: attrs2)
+        let attributedString3 = NSMutableAttributedString(string: ". Juntando nossas diferenças em prol de algo em comum ",
+                                                          attributes: attrs1)
+        let attributedString4 = NSMutableAttributedString(string: "construíremos um mundo melhor",
+                                                          attributes: attrs2)
+        let attributedString5 = NSMutableAttributedString(string: ".",
+                                                          attributes: attrs1)
+        
+        attributedString1.append(attributedString2)
+        attributedString1.append(attributedString3)
+        attributedString1.append(attributedString4)
+        attributedString1.append(attributedString5)
+        
+        label.attributedText = attributedString1
+        label.numberOfLines = 0
+        
+        return label
+    }()
+    
+    private let optionsControl: UISegmentedControl = {
+        let segmentedControl = UISegmentedControl()
+        
+        segmentedControl.translatesAutoresizingMaskIntoConstraints = false
+        
+        segmentedControl.insertSegment(withTitle: "Cozinha", at: 0, animated: true)
+        segmentedControl.insertSegment(withTitle: "Recreação" , at: 1, animated: true)
+        segmentedControl.insertSegment(withTitle: "Limpeza", at: 2, animated: true)
+        segmentedControl.backgroundColor = .systemBackground
+        segmentedControl.selectedSegmentIndex = 1
+        
+        return segmentedControl
+    }()
+    
+    private let eventFifthLabel: UILabel = {
+        let label = UILabel()
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        let attrs1 = [NSAttributedString.Key.foregroundColor : UIColor.secondaryLabel]
+        let attrs2 = [NSAttributedString.Key.foregroundColor : UIColor(red: 48/255,
+                                                                       green: 176/255,
+                                                                       blue: 188/255,
+                                                                       alpha: 1.0)]
+        
+        let attributedString1 = NSMutableAttributedString(string: "Agradecemos ao seu interesse em construir momentos melhores e com isso ",
+                                                          attributes: attrs1)
+        let attributedString2 = NSMutableAttributedString(string: "um mundo melhor",
+                                                          attributes: attrs2)
+        let attributedString3 = NSMutableAttributedString(string: "!\nAgora só falra confirmar a sua participação!",
+                                                          attributes: attrs1)
+
+        
+        attributedString1.append(attributedString2)
+        attributedString1.append(attributedString3)
+
+        label.attributedText = attributedString1
+        label.numberOfLines = 0
+        
+        return label
+    }()
+    
+    let eventParticipationButton: UIButton = {
+        let button = UIButton()
+        
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        let imageButton = UIImage(named: "LogoBtn")
+        button.setBackgroundImage(imageButton, for: .normal)
+        button.setTitle("Participar", for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 12)
+        
+        return button
+    }()
+    
 
     // MARK: - Init
     
@@ -213,8 +307,13 @@ class DREventHomeSheetView: UIView {
                     eventSecondLabel,
                     eventVolunteersImage,
                     eventThirdyLabel,
-                    eventHandsImage)
+                    eventHandsImage,
+                    eventFourthLabel,
+                    optionsControl,
+                    eventFifthLabel,
+                    eventParticipationButton)
         addConstraints()
+        setUpParticipationButton()
     }
     
     required init?(coder: NSCoder) {
@@ -222,15 +321,24 @@ class DREventHomeSheetView: UIView {
     }
     
     // MARK: - Private Methods
-    func addConstraints() {
+    private func setUpParticipationButton() {
+        self.eventParticipationButton.addTarget(self, action: #selector(self.clickedButton), for: .touchUpInside)
+    }
+    
+    
+    @objc private func clickedButton(_ sender: UIButton) {
+        delegate?.clickedParticipationButton(sender)
+    }
+    
+    private func addConstraints() {
         NSLayoutConstraint.activate([
-            eventNameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 30),
+            eventNameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 25),
             eventNameLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 10),
             eventNameLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -10),
             
             eventInstitutionLogoView.heightAnchor.constraint(equalToConstant: 65),
             eventInstitutionLogoView.widthAnchor.constraint(equalToConstant: 65),
-            eventInstitutionLogoView.topAnchor.constraint(equalTo: eventNameLabel.bottomAnchor, constant: 20),
+            eventInstitutionLogoView.topAnchor.constraint(equalTo: eventNameLabel.bottomAnchor, constant: 10),
             eventInstitutionLogoView.leftAnchor.constraint(equalTo: leftAnchor, constant: 20),
             
             eventInstitutionNameLabel.topAnchor.constraint(equalTo: eventInstitutionLogoView.topAnchor, constant: 10),
@@ -261,7 +369,7 @@ class DREventHomeSheetView: UIView {
             eventDistanceLabel.topAnchor.constraint(equalTo: eventDateLabel.topAnchor),
             eventDistanceLabel.leftAnchor.constraint(equalTo: eventMapClipIcone.rightAnchor, constant: 2),
             
-            eventFirstLabel.topAnchor.constraint(equalTo: eventDistanceLabel.bottomAnchor, constant: 50),
+            eventFirstLabel.topAnchor.constraint(equalTo: eventDistanceLabel.bottomAnchor, constant: 30),
             eventFirstLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 52.5),
             
             eventHouseImage.heightAnchor.constraint(equalToConstant: 50),
@@ -286,6 +394,24 @@ class DREventHomeSheetView: UIView {
             eventHandsImage.widthAnchor.constraint(equalToConstant: 50),
             eventHandsImage.topAnchor.constraint(equalTo: eventThirdyLabel.bottomAnchor, constant: 10),
             eventHandsImage.centerXAnchor.constraint(equalTo: centerXAnchor),
+            
+            eventFourthLabel.topAnchor.constraint(equalTo: eventHandsImage.bottomAnchor, constant: 10),
+            eventFourthLabel.leftAnchor.constraint(equalTo: eventFirstLabel.leftAnchor),
+            eventFourthLabel.rightAnchor.constraint(equalTo: eventSecondLabel.rightAnchor),
+            
+            
+            optionsControl.topAnchor.constraint(equalTo: eventFourthLabel.bottomAnchor, constant: 10),
+            optionsControl.leftAnchor.constraint(equalTo: eventSecondLabel.leftAnchor),
+            optionsControl.rightAnchor.constraint(equalTo: eventSecondLabel.rightAnchor),
+            
+            eventFifthLabel.topAnchor.constraint(equalTo: optionsControl.bottomAnchor, constant: 10),
+            eventFifthLabel.leftAnchor.constraint(equalTo: eventSecondLabel.leftAnchor),
+            eventFifthLabel.rightAnchor.constraint(equalTo: eventSecondLabel.rightAnchor, constant: -60),
+            
+            eventParticipationButton.heightAnchor.constraint(equalToConstant: 90),
+            eventParticipationButton.widthAnchor.constraint(equalToConstant: 90),
+            eventParticipationButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -20),
+            eventParticipationButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20)
             
         ])
     }
