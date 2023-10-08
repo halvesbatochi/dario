@@ -231,7 +231,6 @@ final class DRHomeView: UIView {
     }
     
     // MARK: - Private methods
-    
     private func setUpCards() {
         let gestureEvents = UITapGestureRecognizer(target: self,
                                                    action: #selector(self.navigateEventsView))

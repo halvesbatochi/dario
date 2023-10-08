@@ -9,10 +9,26 @@ import UIKit
 
 /// Controller to show Profile
 final class ProfileViewController: UIViewController {
+    
+    private let loginView = DRLoginView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Perfil"
-        view.backgroundColor = .systemYellow
+        //title = "Login"
+        view.backgroundColor = .systemBackground
+        navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.systemGray]
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.systemGray]
+        
+        view.addSubview(loginView)
+        setUpView()
+    }
+    
+    private func setUpView() {
+        NSLayoutConstraint.activate([
+            loginView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            loginView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
+            loginView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
+            loginView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+        ])
     }
 }
