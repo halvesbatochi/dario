@@ -21,6 +21,8 @@ final class ProfileViewController: UIViewController {
         
         view.addSubview(loginView)
         setUpView()
+        
+        loginView.delegate = self
     }
     
     private func setUpView() {
@@ -30,5 +32,11 @@ final class ProfileViewController: UIViewController {
             loginView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
             loginView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ])
+    }
+}
+
+extension ProfileViewController: DRLoginViewDelegate {
+    func loginBtnTapped(_ drLoginView: DRLoginView, _ sender: UIButton) {
+        print("Buttom Tapped Login")
     }
 }

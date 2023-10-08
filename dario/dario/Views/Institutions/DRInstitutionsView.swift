@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DRInstitutionsView: UIView {
+final class DRInstitutionsView: UIView {
     
     private let institutionHeader: UIView = {
         let view = UIView()

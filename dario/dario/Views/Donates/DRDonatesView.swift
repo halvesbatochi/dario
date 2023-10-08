@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DRDonatesView: UIView {
+final class DRDonatesView: UIView {
     
     private let donatesHeaderView: UIView = {
         let view = UIView()

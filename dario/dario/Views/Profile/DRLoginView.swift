@@ -7,7 +7,14 @@
 
 import UIKit
 
-class DRLoginView: UIView {
+protocol DRLoginViewDelegate: AnyObject {
+    func loginBtnTapped(_ drLoginView: DRLoginView, _ sender: UIButton)
+}
+
+/// View that handles showing Login view elements, loader and etc.
+final class DRLoginView: UIView {
+    
+    public weak var delegate: DRLoginViewDelegate?
     
     private let logoLogin: UIImageView = {
         let logoImage = UIImageView()
@@ -16,6 +23,18 @@ class DRLoginView: UIView {
         logoImage.image = UIImage(named: "Login_logo")
         
         return logoImage
+    }()
+    
+    private let welcomeLabel: UILabel = {
+        let label = UILabel()
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Bem-vindo!"
+        label.textColor = .white
+        label.font = .systemFont(ofSize: 22,
+                                 weight: .regular)
+        
+        return label
     }()
     
     private let userLoginTxt: UITextField = {
@@ -46,13 +65,14 @@ class DRLoginView: UIView {
         return text
     }()
     
-    private let loginButton: UIButton = {
+    private lazy var loginButton: UIButton = {
         let btn = UIButton()
         
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.setTitle("Entrar", for: .normal)
         btn.backgroundColor = UIColor(named: "DRPrimaryColor")
         btn.setTitleColor(.white, for: .normal)
+        btn.layer.cornerRadius = 10.0
         btn.addTarget(self, action: #selector(btnTapped), for: .touchUpInside)
         
         return btn
@@ -71,6 +91,8 @@ class DRLoginView: UIView {
                     userLoginTxt,
                     passwordLoginTxt,
                     loginButton)
+        
+        logoLogin.addSubview(welcomeLabel)
 
         addConstraint()
     }
@@ -85,7 +107,7 @@ class DRLoginView: UIView {
     
     //MARK: - Private Methods
     @objc private func btnTapped(sender: UIButton) {
-        print("Entrar")
+        delegate?.loginBtnTapped(self, sender)
     }
     
     private func addConstraint() {
@@ -95,6 +117,9 @@ class DRLoginView: UIView {
             logoLogin.topAnchor.constraint(equalTo: topAnchor, constant: 5),
             logoLogin.centerXAnchor.constraint(equalTo: centerXAnchor),
             
+            welcomeLabel.centerXAnchor.constraint(equalTo: logoLogin.centerXAnchor),
+            welcomeLabel.centerYAnchor.constraint(equalTo: logoLogin.centerYAnchor),
+            
             userLoginTxt.topAnchor.constraint(equalTo: logoLogin.bottomAnchor, constant: 30),
             userLoginTxt.leftAnchor.constraint(equalTo: leftAnchor, constant: 20),
             userLoginTxt.rightAnchor.constraint(equalTo: rightAnchor, constant: -20),
@@ -103,6 +128,7 @@ class DRLoginView: UIView {
             passwordLoginTxt.leftAnchor.constraint(equalTo: leftAnchor, constant: 20),
             passwordLoginTxt.rightAnchor.constraint(equalTo: rightAnchor, constant: -20),
             
+            loginButton.heightAnchor.constraint(equalToConstant: 45),
             loginButton.topAnchor.constraint(equalTo: passwordLoginTxt.bottomAnchor, constant: 30),
             loginButton.leftAnchor.constraint(equalTo: leftAnchor, constant: 20),
             loginButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -20),

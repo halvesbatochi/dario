@@ -11,7 +11,7 @@ protocol DREventHomeSheetViewDelegate: AnyObject {
     func clickedParticipationButton(_ sender: UIButton)
 }
 
-class DREventHomeSheetView: UIView {
+final class DREventHomeSheetView: UIView {
     
     public weak var delegate: DREventHomeSheetViewDelegate?
     

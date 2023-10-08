@@ -8,7 +8,7 @@
 import UIKit
 
 ///View that handles showing Events
-class DREventsView: UIView {
+final class DREventsView: UIView {
     
     private let viewModel = DREventsViewViewModel()
     
