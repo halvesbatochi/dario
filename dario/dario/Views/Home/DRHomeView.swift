@@ -339,10 +339,8 @@ final class DRHomeView: UIView {
 }
 
 // MARK: - DRHomeViewViewModelDelegate
-extension DRHomeView : DRHomeViewViewModelDelegate {
+extension DRHomeView: DRHomeViewViewModelDelegate {
     func didSelectEventHeaderHome(_ index: Int) {
         self.delegate?.didSelectEventHeaderHome(self, index)
     }
-    
-    
 }

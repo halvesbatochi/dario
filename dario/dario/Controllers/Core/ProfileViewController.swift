@@ -25,6 +25,8 @@ final class ProfileViewController: UIViewController {
         loginView.delegate = self
     }
     
+    // MARK: - Private Methods
+    
     private func setUpView() {
         NSLayoutConstraint.activate([
             loginView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
