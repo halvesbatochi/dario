@@ -7,8 +7,8 @@
 
 import UIKit
 
-final class DRHeaderEventsViewCollectionViewCell: UICollectionViewCell {
-    static let cellIdentifier = "DRHeaderEventsViewCollectionViewCell"
+final class DRHeaderEventViewCollectionViewCell: UICollectionViewCell {
+    static let cellIdentifier = "DRHeaderEventViewCollectionViewCell"
     
     private let eventDateLabel: UILabel = {
         let label = UILabel()
@@ -153,7 +153,7 @@ final class DRHeaderEventsViewCollectionViewCell: UICollectionViewCell {
         eventInstitutionLogoView.image = nil
     }
     
-    public func configure(with viewModel: DRHeaderEventsViewCollectionViewCellViewModel) {
+    public func configure(with viewModel: DRHeaderEventViewCollectionViewCellViewModel) {
         eventDateLabel.text = viewModel.eventDate + " " + viewModel.eventHour
         eventNameLabel.text = viewModel.eventName
         eventInstitutionNameLabel.text = viewModel.eventInstitutionName

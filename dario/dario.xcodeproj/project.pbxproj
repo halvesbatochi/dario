@@ -7,14 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C128AFE2AD4F84200E7F842 /* DREventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C128AFD2AD4F84200E7F842 /* DREventTableViewCell.swift */; };
 		5C18ECA32AC3B68700E101EF /* DRLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C18ECA22AC3B68700E101EF /* DRLoginView.swift */; };
 		5C1AB9552AB53E5A00093930 /* DRDonatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1AB9542AB53E5A00093930 /* DRDonatesView.swift */; };
 		5C1AB9572AB53EBD00093930 /* DRDonatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1AB9562AB53EBD00093930 /* DRDonatesViewController.swift */; };
-		5C1AB95A2AB54D8400093930 /* DREventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1AB9592AB54D8400093930 /* DREventsView.swift */; };
-		5C1AB95C2AB54DF600093930 /* DREventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1AB95B2AB54DF600093930 /* DREventsViewController.swift */; };
-		5C1AB9602AB5581D00093930 /* DREventsViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1AB95F2AB5581D00093930 /* DREventsViewViewModel.swift */; };
-		5C1AB9622AB5588500093930 /* DRHeaderEventsViewCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1AB9612AB5588500093930 /* DRHeaderEventsViewCollectionViewCellViewModel.swift */; };
-		5C1AB9642AB5595E00093930 /* DRHeaderEventsViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1AB9632AB5595E00093930 /* DRHeaderEventsViewCollectionViewCell.swift */; };
+		5C1AB95A2AB54D8400093930 /* DREventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1AB9592AB54D8400093930 /* DREventView.swift */; };
+		5C1AB95C2AB54DF600093930 /* DREventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1AB95B2AB54DF600093930 /* DREventViewController.swift */; };
+		5C1AB9602AB5581D00093930 /* DREventViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1AB95F2AB5581D00093930 /* DREventViewViewModel.swift */; };
+		5C1AB9622AB5588500093930 /* DRHeaderEventViewCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1AB9612AB5588500093930 /* DRHeaderEventViewCollectionViewCellViewModel.swift */; };
+		5C1AB9642AB5595E00093930 /* DRHeaderEventViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1AB9632AB5595E00093930 /* DRHeaderEventViewCollectionViewCell.swift */; };
 		5C59645329EF9813003BB257 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C59645229EF9813003BB257 /* AppDelegate.swift */; };
 		5C59645529EF9813003BB257 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C59645429EF9813003BB257 /* SceneDelegate.swift */; };
 		5C59645729EF9813003BB257 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C59645629EF9813003BB257 /* TabBarController.swift */; };
@@ -25,6 +26,7 @@
 		5C7A08512AB65B1700F09422 /* DREventHomeSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7A08502AB65B1700F09422 /* DREventHomeSheetView.swift */; };
 		5C8335272AD369B600F146A8 /* DRCalibrationAlgorithmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8335262AD369B600F146A8 /* DRCalibrationAlgorithmViewController.swift */; };
 		5C83352A2AD36A6000F146A8 /* DRCalibrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8335292AD36A6000F146A8 /* DRCalibrationView.swift */; };
+		5CBDF3F92AD4FB60007AA1EE /* DREventTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBDF3F82AD4FB60007AA1EE /* DREventTableViewCellViewModel.swift */; };
 		5CC54DEC29EF9DD100963CD7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC54DEB29EF9DD100963CD7 /* HomeViewController.swift */; };
 		5CC54DEE29EF9E6900963CD7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC54DED29EF9E6900963CD7 /* ProfileViewController.swift */; };
 		5CC54DF029EFA0FF00963CD7 /* TimeLineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC54DEF29EFA0FF00963CD7 /* TimeLineViewController.swift */; };
@@ -46,14 +48,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5C128AFD2AD4F84200E7F842 /* DREventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DREventTableViewCell.swift; sourceTree = "<group>"; };
 		5C18ECA22AC3B68700E101EF /* DRLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRLoginView.swift; sourceTree = "<group>"; };
 		5C1AB9542AB53E5A00093930 /* DRDonatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRDonatesView.swift; sourceTree = "<group>"; };
 		5C1AB9562AB53EBD00093930 /* DRDonatesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRDonatesViewController.swift; sourceTree = "<group>"; };
-		5C1AB9592AB54D8400093930 /* DREventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DREventsView.swift; sourceTree = "<group>"; };
-		5C1AB95B2AB54DF600093930 /* DREventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DREventsViewController.swift; sourceTree = "<group>"; };
-		5C1AB95F2AB5581D00093930 /* DREventsViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DREventsViewViewModel.swift; sourceTree = "<group>"; };
-		5C1AB9612AB5588500093930 /* DRHeaderEventsViewCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRHeaderEventsViewCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
-		5C1AB9632AB5595E00093930 /* DRHeaderEventsViewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRHeaderEventsViewCollectionViewCell.swift; sourceTree = "<group>"; };
+		5C1AB9592AB54D8400093930 /* DREventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DREventView.swift; sourceTree = "<group>"; };
+		5C1AB95B2AB54DF600093930 /* DREventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DREventViewController.swift; sourceTree = "<group>"; };
+		5C1AB95F2AB5581D00093930 /* DREventViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DREventViewViewModel.swift; sourceTree = "<group>"; };
+		5C1AB9612AB5588500093930 /* DRHeaderEventViewCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRHeaderEventViewCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
+		5C1AB9632AB5595E00093930 /* DRHeaderEventViewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRHeaderEventViewCollectionViewCell.swift; sourceTree = "<group>"; };
 		5C59644F29EF9813003BB257 /* dario.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dario.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C59645229EF9813003BB257 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C59645429EF9813003BB257 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +69,7 @@
 		5C7A08502AB65B1700F09422 /* DREventHomeSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DREventHomeSheetView.swift; sourceTree = "<group>"; };
 		5C8335262AD369B600F146A8 /* DRCalibrationAlgorithmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRCalibrationAlgorithmViewController.swift; sourceTree = "<group>"; };
 		5C8335292AD36A6000F146A8 /* DRCalibrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRCalibrationView.swift; sourceTree = "<group>"; };
+		5CBDF3F82AD4FB60007AA1EE /* DREventTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DREventTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		5CC54DEB29EF9DD100963CD7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		5CC54DED29EF9E6900963CD7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		5CC54DEF29EFA0FF00963CD7 /* TimeLineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineViewController.swift; sourceTree = "<group>"; };
@@ -113,13 +117,14 @@
 			path = Donates;
 			sourceTree = "<group>";
 		};
-		5C1AB9582AB54D6500093930 /* Events */ = {
+		5C1AB9582AB54D6500093930 /* Event */ = {
 			isa = PBXGroup;
 			children = (
-				5C1AB9592AB54D8400093930 /* DREventsView.swift */,
-				5C1AB9632AB5595E00093930 /* DRHeaderEventsViewCollectionViewCell.swift */,
+				5C1AB9592AB54D8400093930 /* DREventView.swift */,
+				5C1AB9632AB5595E00093930 /* DRHeaderEventViewCollectionViewCell.swift */,
+				5C128AFD2AD4F84200E7F842 /* DREventTableViewCell.swift */,
 			);
-			path = Events;
+			path = Event;
 			sourceTree = "<group>";
 		};
 		5C1AB95D2AB5577300093930 /* Home */ = {
@@ -131,13 +136,14 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
-		5C1AB95E2AB5577F00093930 /* Events */ = {
+		5C1AB95E2AB5577F00093930 /* Event */ = {
 			isa = PBXGroup;
 			children = (
-				5C1AB95F2AB5581D00093930 /* DREventsViewViewModel.swift */,
-				5C1AB9612AB5588500093930 /* DRHeaderEventsViewCollectionViewCellViewModel.swift */,
+				5C1AB95F2AB5581D00093930 /* DREventViewViewModel.swift */,
+				5C1AB9612AB5588500093930 /* DRHeaderEventViewCollectionViewCellViewModel.swift */,
+				5CBDF3F82AD4FB60007AA1EE /* DREventTableViewCellViewModel.swift */,
 			);
-			path = Events;
+			path = Event;
 			sourceTree = "<group>";
 		};
 		5C59644629EF9813003BB257 = {
@@ -204,7 +210,7 @@
 			children = (
 				5C8335282AD369D500F146A8 /* Calibration */,
 				5C18ECA12AC3B61900E101EF /* Profile */,
-				5C1AB9582AB54D6500093930 /* Events */,
+				5C1AB9582AB54D6500093930 /* Event */,
 				5C1AB9532AB53E3900093930 /* Donates */,
 				5CFEBDC82AB1496000327F6E /* Institutions */,
 				5CFEBDC42AB1489100327F6E /* Home */,
@@ -216,7 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				5CF8DB752AD386E9005F444A /* Calibration */,
-				5C1AB95E2AB5577F00093930 /* Events */,
+				5C1AB95E2AB5577F00093930 /* Event */,
 				5C1AB95D2AB5577300093930 /* Home */,
 			);
 			path = ViewModels;
@@ -287,7 +293,7 @@
 				5CFEBDC62AB148E400327F6E /* DRInstitutionViewController.swift */,
 				5C1AB9562AB53EBD00093930 /* DRDonatesViewController.swift */,
 				5C7A084B2AB65A4A00F09422 /* DREventHomeSheetViewController.swift */,
-				5C1AB95B2AB54DF600093930 /* DREventsViewController.swift */,
+				5C1AB95B2AB54DF600093930 /* DREventViewController.swift */,
 				5C8335262AD369B600F146A8 /* DRCalibrationAlgorithmViewController.swift */,
 			);
 			path = Others;
@@ -376,10 +382,11 @@
 				5C7A08512AB65B1700F09422 /* DREventHomeSheetView.swift in Sources */,
 				5CCAB94F2A92E4050051B233 /* DRDonate.swift in Sources */,
 				5CCAB9492A92DD990051B233 /* DREndpoint .swift in Sources */,
+				5CBDF3F92AD4FB60007AA1EE /* DREventTableViewCellViewModel.swift in Sources */,
 				5CCAB9452A92DC2B0051B233 /* DRService.swift in Sources */,
-				5C1AB95A2AB54D8400093930 /* DREventsView.swift in Sources */,
+				5C1AB95A2AB54D8400093930 /* DREventView.swift in Sources */,
 				5CF8DB772AD3872F005F444A /* DRCalibrationAlgorithmViewCollectionViewCellViewModel.swift in Sources */,
-				5C1AB95C2AB54DF600093930 /* DREventsViewController.swift in Sources */,
+				5C1AB95C2AB54DF600093930 /* DREventViewController.swift in Sources */,
 				5CCAB9572A930DDE0051B233 /* DRHeaderHomeViewCollectionViewCellViewModel.swift in Sources */,
 				5C8335272AD369B600F146A8 /* DRCalibrationAlgorithmViewController.swift in Sources */,
 				5CCAB9472A92DCBA0051B233 /* DRRequest.swift in Sources */,
@@ -389,14 +396,15 @@
 				5CCAB94D2A92E3F10051B233 /* DRInstitution.swift in Sources */,
 				5CCAB9552A930A8F0051B233 /* DRHeaderHomeViewCollectionViewCell.swift in Sources */,
 				5CC54DEE29EF9E6900963CD7 /* ProfileViewController.swift in Sources */,
+				5C128AFE2AD4F84200E7F842 /* DREventTableViewCell.swift in Sources */,
 				5CCAB9532A92ED410051B233 /* DRHomeViewViewModel.swift in Sources */,
 				5C1AB9552AB53E5A00093930 /* DRDonatesView.swift in Sources */,
-				5C1AB9602AB5581D00093930 /* DREventsViewViewModel.swift in Sources */,
+				5C1AB9602AB5581D00093930 /* DREventViewViewModel.swift in Sources */,
 				5CF8DB742AD384DA005F444A /* DRCalibrationAlgorithmViewCollectionViewCell.swift in Sources */,
 				5C83352A2AD36A6000F146A8 /* DRCalibrationView.swift in Sources */,
 				5CFEBDC72AB148E400327F6E /* DRInstitutionViewController.swift in Sources */,
 				5CF8DB792AD38A02005F444A /* DRCalibrationAlgorithmViewViewModel.swift in Sources */,
-				5C1AB9622AB5588500093930 /* DRHeaderEventsViewCollectionViewCellViewModel.swift in Sources */,
+				5C1AB9622AB5588500093930 /* DRHeaderEventViewCollectionViewCellViewModel.swift in Sources */,
 				5CFEBDCA2AB1499000327F6E /* DRInstitutionsView.swift in Sources */,
 				5CC54DF029EFA0FF00963CD7 /* TimeLineViewController.swift in Sources */,
 				5C1AB9572AB53EBD00093930 /* DRDonatesViewController.swift in Sources */,
@@ -404,7 +412,7 @@
 				5C18ECA32AC3B68700E101EF /* DRLoginView.swift in Sources */,
 				5CC54DEC29EF9DD100963CD7 /* HomeViewController.swift in Sources */,
 				5C65472E29F7DDD0003EC311 /* Extensions.swift in Sources */,
-				5C1AB9642AB5595E00093930 /* DRHeaderEventsViewCollectionViewCell.swift in Sources */,
+				5C1AB9642AB5595E00093930 /* DRHeaderEventViewCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

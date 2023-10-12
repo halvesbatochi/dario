@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+struct DREvent: Codable {
+    let id: Int
+    let title: String
+    let subtit: String
+}

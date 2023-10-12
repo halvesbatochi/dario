@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class DRHeaderEventsViewCollectionViewCellViewModel {
+final class DRHeaderEventViewCollectionViewCellViewModel {
     
     public let eventDate: String
     public let eventHour: String

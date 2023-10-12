@@ -46,7 +46,7 @@ final class HomeViewController: UIViewController {
 
 extension HomeViewController: DRHomeViewDelegate {
     func navigateEventsView(_ homeView: DRHomeView) {
-        let vc = DREventsViewController()
+        let vc = DREventViewController()
         vc.navigationController?.navigationBar.prefersLargeTitles = true
         vc.navigationItem.largeTitleDisplayMode = .always
         navigationController?.pushViewController(vc, animated: true)
