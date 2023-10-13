@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class DRCalibrationAlgorithmViewCollectionViewCellViewModel {
+final class DRPreferenceViewCollectionViewCellViewModel {
     
     public let iconCategory: UIImage
     

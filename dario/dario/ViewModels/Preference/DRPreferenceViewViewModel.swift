@@ -7,25 +7,25 @@
 
 import UIKit
 
-protocol DRCalibrationAlgorithmViewViewModelDelegate: AnyObject {
+protocol DRPreferenceViewViewModelDelegate: AnyObject {
     func didSelectCategory(_ index: Int)
 }
 
-final class DRCalibrationAlgorithmViewViewModel: NSObject {
+final class DRPreferenceViewViewModel: NSObject {
     
-    public weak var delegate: DRCalibrationAlgorithmViewViewModelDelegate?
+    public weak var delegate: DRPreferenceViewViewModelDelegate?
 }
 
 // MARK: - UICollectionViewDataSource, UICollectionViewDelegate, UICallectionViewDelegateFlowLayout
-extension DRCalibrationAlgorithmViewViewModel: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension DRPreferenceViewViewModel: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 4
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DRCalibrationAlgorithmViewCollectionViewCell.cellIdentifier,
-                                                            for: indexPath) as? DRCalibrationAlgorithmViewCollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DRPreferenceViewCollectionViewCell.cellIdentifier,
+                                                            for: indexPath) as? DRPreferenceViewCollectionViewCell else {
             fatalError("Unsupported cell")
         }
         
@@ -33,7 +33,7 @@ extension DRCalibrationAlgorithmViewViewModel: UICollectionViewDataSource, UICol
         guard let image = UIImage(named: "DogIcon") else {
             fatalError("Icon Category not found")
         }
-        let viewModel = DRCalibrationAlgorithmViewCollectionViewCellViewModel(iconCategory: image)
+        let viewModel = DRPreferenceViewCollectionViewCellViewModel(iconCategory: image)
         
         cell.configure(with: viewModel)
         return cell

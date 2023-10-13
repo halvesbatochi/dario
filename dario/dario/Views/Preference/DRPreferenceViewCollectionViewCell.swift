@@ -7,8 +7,8 @@
 
 import UIKit
 
-class DRCalibrationAlgorithmViewCollectionViewCell: UICollectionViewCell {
-    static let cellIdentifier = "DRCalibrationAlgorithmViewCollectionViewCell"
+class DRPreferenceViewCollectionViewCell: UICollectionViewCell {
+    static let cellIdentifier = "DRPreferenceViewCollectionViewCell"
     
     private let categoryIconView: UIImageView = {
         let imageView = UIImageView()
@@ -54,7 +54,7 @@ class DRCalibrationAlgorithmViewCollectionViewCell: UICollectionViewCell {
         categoryIconView.image = nil
     }
     
-    public func configure(with viewModel: DRCalibrationAlgorithmViewCollectionViewCellViewModel) {
+    public func configure(with viewModel: DRPreferenceViewCollectionViewCellViewModel) {
         categoryIconView.image = viewModel.iconCategory
     }
 }

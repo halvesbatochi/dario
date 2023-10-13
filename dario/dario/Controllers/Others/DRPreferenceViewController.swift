@@ -7,12 +7,12 @@
 
 import UIKit
 
-final class DRCalibrationAlgorithmViewController: UIViewController {
+final class DRPreferenceViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "Calibração"
+        title = "Preferências"
         view.backgroundColor = .systemMint
         
         setUpView()

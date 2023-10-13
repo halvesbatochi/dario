@@ -7,9 +7,9 @@
 
 import UIKit
 
-class DRCalibrationView: UIView {
+class DRPreferenceView: UIView {
     
-    private let viewModel = DRCalibrationAlgorithmViewViewModel()
+    private let viewModel = DRPreferenceViewViewModel()
     
     private let calibrationHeaderView: UIView = {
         let view = UIView()
@@ -24,7 +24,7 @@ class DRCalibrationView: UIView {
         let imageView = UIImageView()
         
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "CalibrationHeaderImage")
+        imageView.image = UIImage(named: "PreferenceHeaderImage")
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
         
@@ -93,8 +93,8 @@ class DRCalibrationView: UIView {
                                               collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .secondarySystemBackground
-        collectionView.register(DRCalibrationAlgorithmViewCollectionViewCell.self,
-                                forCellWithReuseIdentifier: DRCalibrationAlgorithmViewCollectionViewCell.cellIdentifier)
+        collectionView.register(DRPreferenceViewCollectionViewCell.self,
+                                forCellWithReuseIdentifier: DRPreferenceViewCollectionViewCell.cellIdentifier)
         
         return collectionView
     }()
@@ -157,7 +157,7 @@ class DRCalibrationView: UIView {
 }
 
 // MARK: - DRCalibrationAlgorithmViewViewModelDelegate
-extension DRCalibrationView: DRCalibrationAlgorithmViewViewModelDelegate {
+extension DRPreferenceView: DRPreferenceViewViewModelDelegate {
     func didSelectCategory(_ index: Int) {
         print("Escolheu")
     }
