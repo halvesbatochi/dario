@@ -16,7 +16,7 @@ protocol DREventViewDelegate: AnyObject {
 final class DREventView: UIView {
     
     public weak var delegate: DREventViewDelegate?
-    
+
     private var viewModel: DREventViewViewModel?
     
     private let collectionView: UICollectionView = {
@@ -58,7 +58,7 @@ final class DREventView: UIView {
         translatesAutoresizingMaskIntoConstraints = false
         addSubviews(collectionView,
                     eventsTableView)
-        
+
         addConstraints()
         setUpCollectionView()
         setUpTableView()
@@ -112,7 +112,7 @@ final class DREventView: UIView {
 extension DREventView: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        eventsTableView.deselectRow(at: indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
         guard let eventModel = viewModel?.event(at: indexPath.row) else {
             return
         }
@@ -129,32 +129,56 @@ extension DREventView: UITableViewDelegate {
 extension DREventView: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        guard let numberOfSection = viewModel?.countSections() else {
+            fatalError()
+        }
+        return numberOfSection
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel?.cellViewModels.count ?? 0
+        guard let numberOfRows = viewModel?.countRowsInSection(section) else {
+            fatalError()
+        }
+        return numberOfRows
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = UIView(frame: CGRect(x: 0, 
+                                        y: 0,
+                                        width: tableView.frame.width,
+                                        height: 40))
+        
+        view.backgroundColor = .systemBackground.withAlphaComponent(0.8)
+             
+        let label = UILabel(frame: CGRect(x: 15,
+                                        y: 0,
+                                        width: view.frame.width - 15,
+                                        height: 20))
+        
+        label.font = UIFont.systemFont(ofSize: 20,
+                                       weight: .medium)
+        label.textColor = .secondaryLabel
+        label.text = section == 0 ? "Pares" : "Impares"
+            
+        view.addSubview(label)
+        return view
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       
-        guard let cellViewModels = viewModel?.cellViewModels else {
-            fatalError()
-        }
-        
-        guard let cell = eventsTableView.dequeueReusableCell(
+        guard let cell = tableView.dequeueReusableCell(
             withIdentifier: DREventTableViewCell.cellIdentifier,
             for: indexPath
         ) as? DREventTableViewCell else {
             fatalError()
         }
         
-        let cellViewModel = cellViewModels[indexPath.row]
-        if indexPath.row % 2 == 0 {
-            cell.backgroundColor = .systemMint
+        guard let cellViewModel = viewModel?.loadCellModel(indexPath) else {
+            fatalError()
         }
+        
         cell.configure(with: cellViewModel)
         return cell
+
     }
 }
 
@@ -165,3 +189,4 @@ extension DREventView: UIScrollViewDelegate {
         print("Scrollando")
     }
 }
+

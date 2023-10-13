@@ -15,6 +15,14 @@ struct DREventTableViewCellViewModel: Hashable, Equatable {
         self.event = event
     }
     
+    public var id: Int {
+        return event.id
+    }
+    
+    public var category: Int {
+        return event.category
+    }
+    
     public var title: String {
         return event.title
     }

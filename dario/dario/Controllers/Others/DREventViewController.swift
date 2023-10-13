@@ -25,6 +25,7 @@ class DREventViewController: UIViewController {
         
         addConstraints()
         viewModel.delegate = self
+        eventView.delegate = self
         viewModel.fetchEvents()
     }
     
@@ -48,8 +49,14 @@ class DREventViewController: UIViewController {
 
 // MARK: - DREventViewViewModelDelegate
 extension DREventViewController: DREventViewViewModelDelegate {
-    
-    func didFetchInitialEvents() {
+    func drDidFetchInitialEvents() {
         eventView.configure(with: viewModel)
+    }
+}
+
+// MARK: - DREventViewDelegate
+extension DREventViewController: DREventViewDelegate {
+    func drEventView(_ eventView: DREventView, didSelect event: DREvent) {
+        print("Selecionou Evento!")
     }
 }

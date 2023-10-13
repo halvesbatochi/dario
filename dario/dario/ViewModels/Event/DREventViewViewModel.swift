@@ -8,7 +8,7 @@
 import UIKit
 
 protocol DREventViewViewModelDelegate: AnyObject {
-    func didFetchInitialEvents()
+    func drDidFetchInitialEvents()
 }
 
 final class DREventViewViewModel: NSObject{
@@ -41,17 +41,43 @@ final class DREventViewViewModel: NSObject{
         return self.events[index]
     }
     
+    public func countSections() -> Int {
+        let sections = cellViewModels.reduce(into: Set<Int>(), {$0.insert($1.category)})
+        return sections.count
+    }
+    
+    public func countRowsInSection(_ section: Int) -> Int {
+        let sections = cellViewModels.filter { $0.category == (section+1)}
+        return sections.count
+    }
+    
+    public func loadCellModel(_ indexPath: IndexPath) -> DREventTableViewCellViewModel {
+        let sections = Array(cellViewModels.reduce(into: Set<Int>(), {$0.insert($1.category)}))
+        var i = indexPath.section
+        var quantity = 0
+        if indexPath.section > 0 {
+            repeat {
+                quantity += sections[i]
+                i -= 1
+            } while(i > 0)
+        }
+
+
+        let index = quantity + indexPath.row
+        return cellViewModels[index]
+    }
+    
     public func fetchEvents() {
         
-        let temp = DREvent(id: 1, title: "Ola", subtit: "Teste")
-        let temp2 = DREvent(id: 2, title: "Hi", subtit: "Test")
-        let temp3 = DREvent(id: 3, title: "Ola", subtit: "Teste")
-        let temp4 = DREvent(id: 4, title: "Hi", subtit: "Test")
-        let temp5 = DREvent(id: 5, title: "Ola", subtit: "Teste")
-        let temp6 = DREvent(id: 6, title: "Hi", subtit: "Test")
-        let temp7 = DREvent(id: 7, title: "Ola", subtit: "Teste")
-        let temp8 = DREvent(id: 8, title: "Hi", subtit: "Test")
-        events.append(temp)
+        let temp1 = DREvent(id: 1, category: 1, title: "Cão Amigo", subtit: "Fundação Caramelo")
+        let temp2 = DREvent(id: 2, category: 1, title: "Gatos legais", subtit: "ONG 4Patas")
+        let temp3 = DREvent(id: 3, category: 1, title: "Passsarinhos Voadores", subtit: "Céu Vivo")
+        let temp4 = DREvent(id: 4, category: 2, title: "Coelhos fofinhos", subtit: "Pegada Fofinha")
+        let temp5 = DREvent(id: 5, category: 2, title: "Abelhas Voadoras", subtit: "MST")
+        let temp6 = DREvent(id: 6, category: 2, title: "Quatro Patas", subtit: "ONG Rua Solidária")
+        let temp7 = DREvent(id: 7, category: 2, title: "Caramelo Solidário", subtit: "ONG Rua Solidária")
+        let temp8 = DREvent(id: 8, category: 3, title: "Peixes molhados", subtit: "ONG Pescadores Paraná")
+        events.append(temp1)
         events.append(temp2)
         events.append(temp3)
         events.append(temp4)
@@ -60,7 +86,7 @@ final class DREventViewViewModel: NSObject{
         events.append(temp7)
         events.append(temp8)
         
-        delegate?.didFetchInitialEvents()
+        delegate?.drDidFetchInitialEvents()
     }
 }
 
