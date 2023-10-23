@@ -51,6 +51,10 @@ extension DRInstitutionViewController: DRInstitutionViewViewModelDelegate {
 // MARK: - DRInstitutionViewDelegate
 extension DRInstitutionViewController: DRInstitutionViewDelegate {
     func drInstitutionView(_ institutionView: DRInstitutionView, didSelect institution: DRInstitution) {
-        print("Selecionou Instituição")
+        let viewModel = DRDetailsInstitutionViewViewModel(institution: institution)
+        let vc = DRDetailsInstitutionViewController(viewModel: viewModel)
+        vc.navigationController?.navigationBar.prefersLargeTitles = false
+        vc.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
