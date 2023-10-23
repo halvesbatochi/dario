@@ -11,7 +11,7 @@ protocol DREventViewViewModelDelegate: AnyObject {
     func drDidFetchInitialEvents()
 }
 
-final class DREventViewViewModel: NSObject{
+final class DREventViewViewModel: NSObject {
     
     weak var delegate: DREventViewViewModelDelegate?
     
@@ -28,12 +28,12 @@ final class DREventViewViewModel: NSObject{
     
     public private(set) var cellViewModels: [DREventTableViewCellViewModel] = []
     
-    override init() {
-        
-    }
+    // MARK: - Init
+    override init() {}
 
     
     // MARK: - Public methods
+    
     public func event(at index: Int) -> DREvent? {
         guard index < events.count, index >= 0 else {
             return nil

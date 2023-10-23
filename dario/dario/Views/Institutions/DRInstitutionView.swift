@@ -7,7 +7,17 @@
 
 import UIKit
 
-final class DRInstitutionsView: UIView {
+/// Interface to realy institution view events
+protocol DRInstitutionViewDelegate: AnyObject {
+    func drInstitutionView(_ institutionView: DRInstitutionView, didSelect institution: DRInstitution)
+}
+
+/// View to relay institution view events
+final class DRInstitutionView: UIView {
+    
+    public weak var delegate: DRInstitutionViewDelegate?
+    
+    private var viewModel: DRInstitutionViewViewModel?
     
     private let institutionHeader: UIView = {
         let view = UIView()
@@ -62,17 +72,30 @@ final class DRInstitutionsView: UIView {
         return label
     }()
     
+    private let institutionsTableView: UITableView = {
+        let tableView = UITableView()
+        
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.backgroundColor = .systemBackground
+        tableView.register(DRInstitutionTableViewCell.self,
+                           forCellReuseIdentifier: DRInstitutionTableViewCell.cellIdentifier)
+        
+        return tableView
+    }()
+    
     // MARK: - Init
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = .systemTeal
-        addSubview(institutionHeader)
+        backgroundColor = .systemBackground
+        addSubviews(institutionHeader,
+                    institutionsTableView)
         
         institutionHeader.addSubviews(institutionHeaderImage,
                                       institutionHeaderLabel)
         addConstraints()
+        setUpTable()
     }
     
     required init?(coder: NSCoder) {
@@ -80,6 +103,11 @@ final class DRInstitutionsView: UIView {
     }
     
     // MARK: - Private Methods
+    private func setUpTable() {
+        institutionsTableView.delegate = self
+        institutionsTableView.dataSource = self
+    }
+    
     private func addConstraints() {
         NSLayoutConstraint.activate([
             institutionHeader.heightAnchor.constraint(equalToConstant: 150),
@@ -96,8 +124,90 @@ final class DRInstitutionsView: UIView {
             institutionHeaderLabel.leftAnchor.constraint(equalTo: institutionHeaderImage.rightAnchor, constant: 15),
             institutionHeaderLabel.rightAnchor.constraint(equalTo: institutionHeader.rightAnchor, constant: -5),
             
+            institutionsTableView.topAnchor.constraint(equalTo: institutionHeader.bottomAnchor),
+            institutionsTableView.leftAnchor.constraint(equalTo: leftAnchor),
+            institutionsTableView.rightAnchor.constraint(equalTo: rightAnchor),
+            institutionsTableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
         ])
     }
     
+    // MARK: - Public methods
     
+    public func configure(with viewModel: DRInstitutionViewViewModel) {
+        self.viewModel = viewModel
+    }
+}
+
+// MARK: - UITableViewDelegate
+extension DRInstitutionView: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        guard let institutionModel = viewModel?.institution(at: indexPath.row) else {
+            return
+        }
+        delegate?.drInstitutionView(self, didSelect: institutionModel)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
+}
+
+// MARK: - UITableViewDataSource
+extension DRInstitutionView: UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 9
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = UIView(frame: CGRect(x: 0,
+                                        y: 0,
+                                        width: tableView.frame.width,
+                                        height: 40))
+        
+        view.backgroundColor = .systemBackground.withAlphaComponent(0.8)
+        
+        let label = UILabel(frame: CGRect(x: 15,
+                                          y: 0,
+                                          width: view.frame.width - 15,
+                                          height: 20))
+        
+        label.font = UIFont.systemFont(ofSize: 20,
+                                       weight: .medium)
+
+        label.textColor = .secondaryLabel
+        label.text = "Pares"
+        
+        view.addSubview(label)
+        return view
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: DRInstitutionTableViewCell.cellIdentifier,
+            for: indexPath
+        ) as? DRInstitutionTableViewCell else {
+            fatalError()
+        }
+        
+        guard let cellViewModel = viewModel?.loadCellModel(indexPath) else {
+            fatalError()
+        }
+        
+        cell.configure(with: cellViewModel)
+        return cell
+    }
+}
+
+// MARK: - UIScrollViewDelegate
+extension DRInstitutionView: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        print("Scrollando - Instituições")
+    }
 }

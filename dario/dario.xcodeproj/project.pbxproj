@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		5C128AFE2AD4F84200E7F842 /* DREventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C128AFD2AD4F84200E7F842 /* DREventTableViewCell.swift */; };
+		5C17BFB92ADA27E600B1F8DB /* DRInstitutionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C17BFB82ADA27E600B1F8DB /* DRInstitutionTableViewCell.swift */; };
+		5C17BFBC2ADA2B7C00B1F8DB /* DRInstitutionTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C17BFBB2ADA2B7C00B1F8DB /* DRInstitutionTableViewCellViewModel.swift */; };
+		5C17BFBE2ADA325700B1F8DB /* DRInstitutionViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C17BFBD2ADA325700B1F8DB /* DRInstitutionViewViewModel.swift */; };
 		5C18ECA32AC3B68700E101EF /* DRLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C18ECA22AC3B68700E101EF /* DRLoginView.swift */; };
 		5C1AB9552AB53E5A00093930 /* DRDonatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1AB9542AB53E5A00093930 /* DRDonatesView.swift */; };
 		5C1AB9572AB53EBD00093930 /* DRDonatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1AB9562AB53EBD00093930 /* DRDonatesViewController.swift */; };
@@ -16,6 +19,12 @@
 		5C1AB9602AB5581D00093930 /* DREventViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1AB95F2AB5581D00093930 /* DREventViewViewModel.swift */; };
 		5C1AB9622AB5588500093930 /* DRHeaderEventViewCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1AB9612AB5588500093930 /* DRHeaderEventViewCollectionViewCellViewModel.swift */; };
 		5C1AB9642AB5595E00093930 /* DRHeaderEventViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1AB9632AB5595E00093930 /* DRHeaderEventViewCollectionViewCell.swift */; };
+		5C2041F22AE1DAFD00E2F388 /* DRDonateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2041F12AE1DAFD00E2F388 /* DRDonateTableViewCell.swift */; };
+		5C2041F52AE1DC6300E2F388 /* DRDonateTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2041F42AE1DC6300E2F388 /* DRDonateTableViewCellViewModel.swift */; };
+		5C2041F72AE1E3DE00E2F388 /* DRDonateViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2041F62AE1E3DE00E2F388 /* DRDonateViewViewModel.swift */; };
+		5C2BCEE72AE5FD1E00D92A78 /* DRDetailsDonateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2BCEE62AE5FD1E00D92A78 /* DRDetailsDonateViewController.swift */; };
+		5C2BCEE92AE5FD4A00D92A78 /* DRDetailsDonateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2BCEE82AE5FD4A00D92A78 /* DRDetailsDonateView.swift */; };
+		5C2BCEEB2AE5FD6E00D92A78 /* DRDetailsDonateViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2BCEEA2AE5FD6E00D92A78 /* DRDetailsDonateViewViewModel.swift */; };
 		5C59645329EF9813003BB257 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C59645229EF9813003BB257 /* AppDelegate.swift */; };
 		5C59645529EF9813003BB257 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C59645429EF9813003BB257 /* SceneDelegate.swift */; };
 		5C59645729EF9813003BB257 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C59645629EF9813003BB257 /* TabBarController.swift */; };
@@ -44,11 +53,14 @@
 		5CF8DB772AD3872F005F444A /* DRPreferenceViewCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF8DB762AD3872F005F444A /* DRPreferenceViewCollectionViewCellViewModel.swift */; };
 		5CF8DB792AD38A02005F444A /* DRPreferenceViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF8DB782AD38A02005F444A /* DRPreferenceViewViewModel.swift */; };
 		5CFEBDC72AB148E400327F6E /* DRInstitutionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFEBDC62AB148E400327F6E /* DRInstitutionViewController.swift */; };
-		5CFEBDCA2AB1499000327F6E /* DRInstitutionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFEBDC92AB1499000327F6E /* DRInstitutionsView.swift */; };
+		5CFEBDCA2AB1499000327F6E /* DRInstitutionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFEBDC92AB1499000327F6E /* DRInstitutionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5C128AFD2AD4F84200E7F842 /* DREventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DREventTableViewCell.swift; sourceTree = "<group>"; };
+		5C17BFB82ADA27E600B1F8DB /* DRInstitutionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRInstitutionTableViewCell.swift; sourceTree = "<group>"; };
+		5C17BFBB2ADA2B7C00B1F8DB /* DRInstitutionTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRInstitutionTableViewCellViewModel.swift; sourceTree = "<group>"; };
+		5C17BFBD2ADA325700B1F8DB /* DRInstitutionViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRInstitutionViewViewModel.swift; sourceTree = "<group>"; };
 		5C18ECA22AC3B68700E101EF /* DRLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRLoginView.swift; sourceTree = "<group>"; };
 		5C1AB9542AB53E5A00093930 /* DRDonatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRDonatesView.swift; sourceTree = "<group>"; };
 		5C1AB9562AB53EBD00093930 /* DRDonatesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRDonatesViewController.swift; sourceTree = "<group>"; };
@@ -57,6 +69,12 @@
 		5C1AB95F2AB5581D00093930 /* DREventViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DREventViewViewModel.swift; sourceTree = "<group>"; };
 		5C1AB9612AB5588500093930 /* DRHeaderEventViewCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRHeaderEventViewCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
 		5C1AB9632AB5595E00093930 /* DRHeaderEventViewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRHeaderEventViewCollectionViewCell.swift; sourceTree = "<group>"; };
+		5C2041F12AE1DAFD00E2F388 /* DRDonateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRDonateTableViewCell.swift; sourceTree = "<group>"; };
+		5C2041F42AE1DC6300E2F388 /* DRDonateTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRDonateTableViewCellViewModel.swift; sourceTree = "<group>"; };
+		5C2041F62AE1E3DE00E2F388 /* DRDonateViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRDonateViewViewModel.swift; sourceTree = "<group>"; };
+		5C2BCEE62AE5FD1E00D92A78 /* DRDetailsDonateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRDetailsDonateViewController.swift; sourceTree = "<group>"; };
+		5C2BCEE82AE5FD4A00D92A78 /* DRDetailsDonateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRDetailsDonateView.swift; sourceTree = "<group>"; };
+		5C2BCEEA2AE5FD6E00D92A78 /* DRDetailsDonateViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRDetailsDonateViewViewModel.swift; sourceTree = "<group>"; };
 		5C59644F29EF9813003BB257 /* dario.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dario.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C59645229EF9813003BB257 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C59645429EF9813003BB257 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,7 +105,7 @@
 		5CF8DB762AD3872F005F444A /* DRPreferenceViewCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRPreferenceViewCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
 		5CF8DB782AD38A02005F444A /* DRPreferenceViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRPreferenceViewViewModel.swift; sourceTree = "<group>"; };
 		5CFEBDC62AB148E400327F6E /* DRInstitutionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRInstitutionViewController.swift; sourceTree = "<group>"; };
-		5CFEBDC92AB1499000327F6E /* DRInstitutionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRInstitutionsView.swift; sourceTree = "<group>"; };
+		5CFEBDC92AB1499000327F6E /* DRInstitutionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRInstitutionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +119,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5C17BFBA2ADA2AEE00B1F8DB /* Institution */ = {
+			isa = PBXGroup;
+			children = (
+				5C17BFBB2ADA2B7C00B1F8DB /* DRInstitutionTableViewCellViewModel.swift */,
+				5C17BFBD2ADA325700B1F8DB /* DRInstitutionViewViewModel.swift */,
+			);
+			path = Institution;
+			sourceTree = "<group>";
+		};
 		5C18ECA12AC3B61900E101EF /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +140,8 @@
 			isa = PBXGroup;
 			children = (
 				5C1AB9542AB53E5A00093930 /* DRDonatesView.swift */,
+				5C2041F12AE1DAFD00E2F388 /* DRDonateTableViewCell.swift */,
+				5C2BCEE82AE5FD4A00D92A78 /* DRDetailsDonateView.swift */,
 			);
 			path = Donates;
 			sourceTree = "<group>";
@@ -144,6 +173,16 @@
 				5CBDF3F82AD4FB60007AA1EE /* DREventTableViewCellViewModel.swift */,
 			);
 			path = Event;
+			sourceTree = "<group>";
+		};
+		5C2041F32AE1DC4800E2F388 /* Donate */ = {
+			isa = PBXGroup;
+			children = (
+				5C2041F42AE1DC6300E2F388 /* DRDonateTableViewCellViewModel.swift */,
+				5C2041F62AE1E3DE00E2F388 /* DRDonateViewViewModel.swift */,
+				5C2BCEEA2AE5FD6E00D92A78 /* DRDetailsDonateViewViewModel.swift */,
+			);
+			path = Donate;
 			sourceTree = "<group>";
 		};
 		5C59644629EF9813003BB257 = {
@@ -221,6 +260,8 @@
 		5CC54DE629EF9A4B00963CD7 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				5C2041F32AE1DC4800E2F388 /* Donate */,
+				5C17BFBA2ADA2AEE00B1F8DB /* Institution */,
 				5CF8DB752AD386E9005F444A /* Preference */,
 				5C1AB95E2AB5577F00093930 /* Event */,
 				5C1AB95D2AB5577300093930 /* Home */,
@@ -295,6 +336,7 @@
 				5C7A084B2AB65A4A00F09422 /* DREventHomeSheetViewController.swift */,
 				5C1AB95B2AB54DF600093930 /* DREventViewController.swift */,
 				5C8335262AD369B600F146A8 /* DRPreferenceViewController.swift */,
+				5C2BCEE62AE5FD1E00D92A78 /* DRDetailsDonateViewController.swift */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -302,7 +344,8 @@
 		5CFEBDC82AB1496000327F6E /* Institutions */ = {
 			isa = PBXGroup;
 			children = (
-				5CFEBDC92AB1499000327F6E /* DRInstitutionsView.swift */,
+				5CFEBDC92AB1499000327F6E /* DRInstitutionView.swift */,
+				5C17BFB82ADA27E600B1F8DB /* DRInstitutionTableViewCell.swift */,
 			);
 			path = Institutions;
 			sourceTree = "<group>";
@@ -379,13 +422,16 @@
 			files = (
 				5C59645729EF9813003BB257 /* TabBarController.swift in Sources */,
 				5CCAB9512A92E9FC0051B233 /* DRHomeView.swift in Sources */,
+				5C2BCEE72AE5FD1E00D92A78 /* DRDetailsDonateViewController.swift in Sources */,
 				5C7A08512AB65B1700F09422 /* DREventHomeSheetView.swift in Sources */,
 				5CCAB94F2A92E4050051B233 /* DRDonate.swift in Sources */,
 				5CCAB9492A92DD990051B233 /* DREndpoint .swift in Sources */,
 				5CBDF3F92AD4FB60007AA1EE /* DREventTableViewCellViewModel.swift in Sources */,
+				5C17BFBE2ADA325700B1F8DB /* DRInstitutionViewViewModel.swift in Sources */,
 				5CCAB9452A92DC2B0051B233 /* DRService.swift in Sources */,
 				5C1AB95A2AB54D8400093930 /* DREventView.swift in Sources */,
 				5CF8DB772AD3872F005F444A /* DRPreferenceViewCollectionViewCellViewModel.swift in Sources */,
+				5C2041F22AE1DAFD00E2F388 /* DRDonateTableViewCell.swift in Sources */,
 				5C1AB95C2AB54DF600093930 /* DREventViewController.swift in Sources */,
 				5CCAB9572A930DDE0051B233 /* DRHeaderHomeViewCollectionViewCellViewModel.swift in Sources */,
 				5C8335272AD369B600F146A8 /* DRPreferenceViewController.swift in Sources */,
@@ -393,25 +439,31 @@
 				5C7A084C2AB65A4A00F09422 /* DREventHomeSheetViewController.swift in Sources */,
 				5C59645329EF9813003BB257 /* AppDelegate.swift in Sources */,
 				5CCAB94B2A92E3D60051B233 /* DREvent.swift in Sources */,
+				5C17BFB92ADA27E600B1F8DB /* DRInstitutionTableViewCell.swift in Sources */,
 				5CCAB94D2A92E3F10051B233 /* DRInstitution.swift in Sources */,
 				5CCAB9552A930A8F0051B233 /* DRHeaderHomeViewCollectionViewCell.swift in Sources */,
 				5CC54DEE29EF9E6900963CD7 /* ProfileViewController.swift in Sources */,
 				5C128AFE2AD4F84200E7F842 /* DREventTableViewCell.swift in Sources */,
 				5CCAB9532A92ED410051B233 /* DRHomeViewViewModel.swift in Sources */,
+				5C2041F72AE1E3DE00E2F388 /* DRDonateViewViewModel.swift in Sources */,
 				5C1AB9552AB53E5A00093930 /* DRDonatesView.swift in Sources */,
 				5C1AB9602AB5581D00093930 /* DREventViewViewModel.swift in Sources */,
+				5C2041F52AE1DC6300E2F388 /* DRDonateTableViewCellViewModel.swift in Sources */,
 				5CF8DB742AD384DA005F444A /* DRPreferenceViewCollectionViewCell.swift in Sources */,
+				5C2BCEEB2AE5FD6E00D92A78 /* DRDetailsDonateViewViewModel.swift in Sources */,
 				5C83352A2AD36A6000F146A8 /* DRPreferenceView.swift in Sources */,
 				5CFEBDC72AB148E400327F6E /* DRInstitutionViewController.swift in Sources */,
+				5C17BFBC2ADA2B7C00B1F8DB /* DRInstitutionTableViewCellViewModel.swift in Sources */,
 				5CF8DB792AD38A02005F444A /* DRPreferenceViewViewModel.swift in Sources */,
 				5C1AB9622AB5588500093930 /* DRHeaderEventViewCollectionViewCellViewModel.swift in Sources */,
-				5CFEBDCA2AB1499000327F6E /* DRInstitutionsView.swift in Sources */,
+				5CFEBDCA2AB1499000327F6E /* DRInstitutionView.swift in Sources */,
 				5CC54DF029EFA0FF00963CD7 /* TimeLineViewController.swift in Sources */,
 				5C1AB9572AB53EBD00093930 /* DRDonatesViewController.swift in Sources */,
 				5C59645529EF9813003BB257 /* SceneDelegate.swift in Sources */,
 				5C18ECA32AC3B68700E101EF /* DRLoginView.swift in Sources */,
 				5CC54DEC29EF9DD100963CD7 /* HomeViewController.swift in Sources */,
 				5C65472E29F7DDD0003EC311 /* Extensions.swift in Sources */,
+				5C2BCEE92AE5FD4A00D92A78 /* DRDetailsDonateView.swift in Sources */,
 				5C1AB9642AB5595E00093930 /* DRHeaderEventViewCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

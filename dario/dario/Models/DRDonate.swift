@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+struct DRDonate {
+    let id: Int
+    let institution: String
+    let method: String
+}

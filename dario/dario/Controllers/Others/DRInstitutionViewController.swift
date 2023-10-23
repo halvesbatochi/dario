@@ -9,7 +9,9 @@ import UIKit
 
 class DRInstitutionViewController: UIViewController {
     
-    private let institutionView = DRInstitutionsView()
+    private let institutionView = DRInstitutionView()
+    
+    private let viewModel = DRInstitutionViewViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,8 +21,15 @@ class DRInstitutionViewController: UIViewController {
         
         view.addSubview(institutionView)
         
+        viewModel.delegate = self
+        institutionView.delegate = self
+        
         addConstraints()
+        
+        viewModel.fetchInstitution()
     }
+    
+    // MARK: - Private methods
     
     private func addConstraints() {
         NSLayoutConstraint.activate([
@@ -29,5 +38,19 @@ class DRInstitutionViewController: UIViewController {
             institutionView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
             institutionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
+    }
+}
+
+// MARK: - DRInstitutionViewViewModelDelegate
+extension DRInstitutionViewController: DRInstitutionViewViewModelDelegate {
+    func drDidFetchInitialInstitutions() {
+        institutionView.configure(with: viewModel)
+    }
+}
+
+// MARK: - DRInstitutionViewDelegate
+extension DRInstitutionViewController: DRInstitutionViewDelegate {
+    func drInstitutionView(_ institutionView: DRInstitutionView, didSelect institution: DRInstitution) {
+        print("Selecionou Instituição")
     }
 }

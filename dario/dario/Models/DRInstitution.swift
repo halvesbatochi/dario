@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+struct DRInstitution {
+    let id: Int
+    let name: String
+    let district: String
+    let city: String
+}

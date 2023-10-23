@@ -45,7 +45,6 @@ final class DREventView: UIView {
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.backgroundColor = .systemBackground
-        tableView.tableFooterView = UIView()
         tableView.register(DREventTableViewCell.self,
                            forCellReuseIdentifier: DREventTableViewCell.cellIdentifier)
         
@@ -122,7 +121,6 @@ extension DREventView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
-
 }
 
 // MARK: - UITableViewDataSource
@@ -151,9 +149,9 @@ extension DREventView: UITableViewDataSource {
         view.backgroundColor = .systemBackground.withAlphaComponent(0.8)
              
         let label = UILabel(frame: CGRect(x: 15,
-                                        y: 0,
-                                        width: view.frame.width - 15,
-                                        height: 20))
+                                          y: 0,
+                                          width: view.frame.width - 15,
+                                          height: 20))
         
         label.font = UIFont.systemFont(ofSize: 20,
                                        weight: .medium)
@@ -178,7 +176,6 @@ extension DREventView: UITableViewDataSource {
         
         cell.configure(with: cellViewModel)
         return cell
-
     }
 }
 

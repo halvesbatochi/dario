@@ -11,9 +11,13 @@ struct DREventTableViewCellViewModel: Hashable, Equatable {
     
     private let event: DREvent
     
+    // MARK: - Init
+    
     init(event: DREvent) {
         self.event = event
     }
+    
+    // MARK: - Public variables
     
     public var id: Int {
         return event.id
@@ -30,6 +34,8 @@ struct DREventTableViewCellViewModel: Hashable, Equatable {
     public var subtit: String {
         return event.subtit
     }
+    
+    // MARK: - Hashable and Equatable methods
     
     static func == (lhs: DREventTableViewCellViewModel, rhs: DREventTableViewCellViewModel) -> Bool {
         return lhs.event.id == rhs.event.id

@@ -7,9 +7,19 @@
 
 import UIKit
 
-final class DRDonatesView: UIView {
+///Interface to realy donate view events
+protocol DRDonateViewDelegate: AnyObject {
+    func drDonateView(_ donateView: DRDonateView, didSelect donate: DRDonate)
+}
+
+/// View to relay donate view events
+final class DRDonateView: UIView {
     
-    private let donatesHeaderView: UIView = {
+    public weak var delegate: DRDonateViewDelegate?
+    
+    private var viewModel: DRDonateViewViewModel?
+    
+    private let donateHeaderView: UIView = {
         let view = UIView()
         
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -18,7 +28,7 @@ final class DRDonatesView: UIView {
         return view
     }()
     
-    private let donatesHeaderImage: UIImageView = {
+    private let donateHeaderImage: UIImageView = {
         let imageView = UIImageView()
         
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -27,7 +37,7 @@ final class DRDonatesView: UIView {
         return imageView
     }()
     
-    private let donatesHeaderLabel: UILabel = {
+    private let donateHeaderLabel: UILabel = {
         let label = UILabel()
         
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -57,6 +67,17 @@ final class DRDonatesView: UIView {
         return label
     }()
     
+    private let donateTableView: UITableView = {
+        let tableView = UITableView()
+        
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.backgroundColor = .systemBackground
+        tableView.register(DRDonateTableViewCell.self,
+                           forCellReuseIdentifier: DRDonateTableViewCell.cellIdentifier)
+        
+        return tableView
+    }()
+    
     // MARK: - Init
 
     override init(frame: CGRect) {
@@ -64,11 +85,13 @@ final class DRDonatesView: UIView {
         
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = .systemMint
-        addSubview(donatesHeaderView)
+        addSubviews(donateHeaderView,
+                   donateTableView)
         
-        donatesHeaderView.addSubviews(donatesHeaderImage,
-                                      donatesHeaderLabel)
+        donateHeaderView.addSubviews(donateHeaderImage,
+                                      donateHeaderLabel)
         addConstraints()
+        setUpTable()
     }
     
     required init?(coder: NSCoder) {
@@ -77,21 +100,88 @@ final class DRDonatesView: UIView {
     
     // MARK: - Private Methods
     
+    func setUpTable() {
+        donateTableView.delegate = self
+        donateTableView.dataSource = self
+    }
+    
     private func addConstraints() {
         NSLayoutConstraint.activate([
-            donatesHeaderView.heightAnchor.constraint(equalToConstant: 150),
-            donatesHeaderView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            donatesHeaderView.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor),
-            donatesHeaderView.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor),
+            donateHeaderView.heightAnchor.constraint(equalToConstant: 150),
+            donateHeaderView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            donateHeaderView.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor),
+            donateHeaderView.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor),
             
-            donatesHeaderImage.heightAnchor.constraint(equalToConstant: 120),
-            donatesHeaderImage.widthAnchor.constraint(equalToConstant: 150),
-            donatesHeaderImage.topAnchor.constraint(equalTo: donatesHeaderView.topAnchor, constant: 15),
-            donatesHeaderImage.rightAnchor.constraint(equalTo: donatesHeaderView.rightAnchor, constant: -10),
+            donateHeaderImage.heightAnchor.constraint(equalToConstant: 120),
+            donateHeaderImage.widthAnchor.constraint(equalToConstant: 150),
+            donateHeaderImage.topAnchor.constraint(equalTo: donateHeaderView.topAnchor, constant: 15),
+            donateHeaderImage.rightAnchor.constraint(equalTo: donateHeaderView.rightAnchor, constant: -10),
             
-            donatesHeaderLabel.topAnchor.constraint(equalTo: donatesHeaderView.topAnchor, constant: 10),
-            donatesHeaderLabel.leftAnchor.constraint(equalTo: donatesHeaderView.leftAnchor, constant: 15),
-            donatesHeaderLabel.rightAnchor.constraint(equalTo: donatesHeaderImage.leftAnchor, constant: -5)
+            donateHeaderLabel.topAnchor.constraint(equalTo: donateHeaderView.topAnchor, constant: 10),
+            donateHeaderLabel.leftAnchor.constraint(equalTo: donateHeaderView.leftAnchor, constant: 15),
+            donateHeaderLabel.rightAnchor.constraint(equalTo: donateHeaderImage.leftAnchor, constant: -5),
+            
+            donateTableView.topAnchor.constraint(equalTo: donateHeaderView.bottomAnchor),
+            donateTableView.leftAnchor.constraint(equalTo: leftAnchor),
+            donateTableView.rightAnchor.constraint(equalTo: rightAnchor),
+            donateTableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
         ])
+    }
+    
+    // MARK: - Public methods
+    public func configure(with viewModel: DRDonateViewViewModel) {
+        self.viewModel = viewModel
+    }
+}
+
+// MARK: - UITableViewDelegate
+extension DRDonateView: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        guard let donateModel = viewModel?.donate(at: indexPath.row) else {
+            return
+        }
+        
+        delegate?.drDonateView(self, didSelect: donateModel)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
+}
+
+// MARK: - UITableViewDataSource
+extension DRDonateView: UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: DRDonateTableViewCell.cellIdentifier,
+            for: indexPath
+        ) as? DRDonateTableViewCell else {
+            fatalError()
+        }
+        
+        guard let cellViewModel = viewModel?.loadCellModel(indexPath) else {
+            fatalError()
+        }
+        
+        cell.configure(with: cellViewModel)
+        return cell
+    }
+}
+
+// MARK: - UIScrollViewDelegate
+extension DRDonateView: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        print("Scroolando - Doações")
     }
 }

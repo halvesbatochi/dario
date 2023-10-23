@@ -1,14 +1,14 @@
 //
-//  DREventsTableViewCell.swift
+//  DRInstitutionTableViewCell.swift
 //  dario
 //
-//  Created by Henrique Alves Batochi on 10/10/23.
+//  Created by Henrique Alves Batochi on 13/10/23.
 //
 
 import UIKit
 
-final class DREventTableViewCell: UITableViewCell {
-    static let cellIdentifier = "DREventTableViewCell"
+final class DRInstitutionTableViewCell: UITableViewCell {
+    static let cellIdentifier = "DRInstitutionTableViewCell"
     
     private let logoImage: UIImageView = {
         let logoImage = UIImageView()
@@ -21,7 +21,7 @@ final class DREventTableViewCell: UITableViewCell {
         return logoImage
     }()
     
-    private let titleLabel: UILabel = {
+    private let institutionLabel: UILabel = {
         let label = UILabel()
         
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -32,7 +32,7 @@ final class DREventTableViewCell: UITableViewCell {
         return label
     }()
     
-    private let institutionLabel: UILabel = {
+    private let districtCityLabel: UILabel = {
         let label = UILabel()
         
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -47,11 +47,10 @@ final class DREventTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubviews(logoImage,
-                                titleLabel,
-                                institutionLabel)
+                                institutionLabel,
+                                districtCityLabel)
         
         self.accessoryType = .disclosureIndicator
-        
         addConstraints()
     }
     
@@ -69,26 +68,25 @@ final class DREventTableViewCell: UITableViewCell {
             logoImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
             logoImage.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10),
             
-            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 45),
-            titleLabel.leftAnchor.constraint(equalTo: logoImage.rightAnchor, constant: 5),
-            titleLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -10),
+            institutionLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 45),
+            institutionLabel.leftAnchor.constraint(equalTo: logoImage.rightAnchor, constant: 5),
+            institutionLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -10),
             
-            institutionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 2),
-            institutionLabel.leftAnchor.constraint(equalTo: titleLabel.leftAnchor),
-            institutionLabel.rightAnchor.constraint(equalTo: titleLabel.rightAnchor)
+            districtCityLabel.topAnchor.constraint(equalTo: institutionLabel.bottomAnchor, constant: 2),
+            districtCityLabel.leftAnchor.constraint(equalTo: institutionLabel.leftAnchor),
+            districtCityLabel.rightAnchor.constraint(equalTo: institutionLabel.rightAnchor),
         ])
     }
     
     override func prepareForReuse() {
-        titleLabel.text = nil
-        institutionLabel.text = nil
         logoImage.image = nil
+        institutionLabel.text = nil
+        districtCityLabel.text = nil
     }
     
     // MARK: - Public methods
-    
-    public func configure(with viewModel: DREventTableViewCellViewModel) {
-        titleLabel.text = viewModel.title
-        institutionLabel.text = viewModel.subtit
+    public func configure(with viewModel: DRInstitutionTableViewCellViewModel) {
+        institutionLabel.text = viewModel.name
+        districtCityLabel.text = viewModel.districtAndCity
     }
 }

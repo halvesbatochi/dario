@@ -60,7 +60,7 @@ extension HomeViewController: DRHomeViewDelegate {
     }
     
     func navigateDonatesView(_ homeView: DRHomeView) {
-        let vc = DRDonatesViewController()
+        let vc = DRDonateViewController()
         vc.navigationController?.navigationBar.prefersLargeTitles = true
         vc.navigationItem.largeTitleDisplayMode = .always
         navigationController?.pushViewController(vc, animated: true)
