@@ -7,31 +7,21 @@
 
 import Foundation
 
-final class DRDetailsDonateViewViewModel: NSObject {
+struct DRDetailsDonateViewViewModel {
     
-    private var detailDonate: DRDonate?
-    
+    private let detailDonate: DRDonate
     
     // MARK: - Init
-    override init() {}
+    init(donate: DRDonate) {
+        self.detailDonate = donate
+    }
     
     // MARK: - Public variables
     public var institutionName: String {
-        guard let institutionName = detailDonate?.institution else {
-            return ""
-        }
-        return institutionName
+        return detailDonate.institution
     }
     
     public var method: String {
-        guard let method = detailDonate?.method else {
-            return ""
-        }
-        return method
-    }
-    
-    // MARK: - Public methods
-    public func configure(with viewModel: DRDonate) {
-        self.detailDonate = viewModel
+        return detailDonate.method
     }
 }

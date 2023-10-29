@@ -20,4 +20,12 @@ struct DRDetailsInstitutionViewViewModel {
     public var institutionName: String {
         return institution.name
     }
+    
+    public var institutionAddress: String {
+        return institution.district + " - " + institution.city
+    }
+    
+    public var institutionBiography: String {
+        return institution.biography
+    }
 }

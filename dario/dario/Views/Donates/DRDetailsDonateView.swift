@@ -10,6 +10,8 @@ import UIKit
 /// View to realy details donate view events
 final class DRDetailsDonateView: UIView {
     
+    private let viewModel: DRDetailsDonateViewViewModel
+    
     private let detailsDonateHeader: UIView = {
         let view = UIView()
        
@@ -183,8 +185,8 @@ final class DRDetailsDonateView: UIView {
     }()
 
     // MARK: - Init
-    
-    override init(frame: CGRect) {
+    init(frame: CGRect, viewModel: DRDetailsDonateViewViewModel) {
+        self.viewModel = viewModel
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = .secondarySystemBackground
@@ -204,6 +206,7 @@ final class DRDetailsDonateView: UIView {
                                            detailDonateMethodDescSecLabel)
         
         addConstraints()
+        configure()
     }
     
     required init?(coder: NSCoder) {
@@ -218,7 +221,7 @@ final class DRDetailsDonateView: UIView {
             detailsDonateHeader.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             detailsDonateHeader.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor),
             detailsDonateHeader.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor),
-            
+          
             logoInstitutionView.heightAnchor.constraint(equalToConstant: 80),
             logoInstitutionView.widthAnchor.constraint(equalToConstant: 80),
             logoInstitutionView.topAnchor.constraint(equalTo: topAnchor, constant: 10),
@@ -263,12 +266,11 @@ final class DRDetailsDonateView: UIView {
             detailDonateMethodDescSecLabel.topAnchor.constraint(equalTo: detailDonateMethodDescLabel.bottomAnchor),
             detailDonateMethodDescSecLabel.leftAnchor.constraint(equalTo: detailDonateMethodDescLabel.leftAnchor),
             detailDonateMethodDescSecLabel.rightAnchor.constraint(equalTo: detailDonateMethodDescLabel.rightAnchor),
+           
         ])
     }
     
-    // MARK: - Public methods
-    
-    public func configure(with viewModel: DRDetailsDonateViewViewModel) {
+    private func configure() {
         institutionHeaderLabel.text = viewModel.institutionName
         detailDonateMethodTitleLabel.text = viewModel.method
     }

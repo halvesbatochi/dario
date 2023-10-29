@@ -51,10 +51,10 @@ extension DRDonateViewController: DRDonateViewViewModelDelegate {
 // MARK: - DRDonateViewDelegate
 extension DRDonateViewController: DRDonateViewDelegate {
     func drDonateView(_ donateView: DRDonateView, didSelect donate: DRDonate) {
-        let vc = DRDetailsDonateViewController()
+        let viewModel = DRDetailsDonateViewViewModel(donate: donate)
+        let vc = DRDetailsDonateViewController(viewModel: viewModel)
         vc.navigationController?.navigationBar.prefersLargeTitles = false
         vc.navigationItem.largeTitleDisplayMode = .never
-        vc.configure(with: donate)
         navigationController?.pushViewController(vc, animated: true)
     }
 }

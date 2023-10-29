@@ -7,10 +7,21 @@
 
 import UIKit
 
-class DRDetailsDonateViewController: UIViewController {
+final class DRDetailsDonateViewController: UIViewController {
     
-    private let detailsDonateView = DRDetailsDonateView()
-    private let viewModel = DRDetailsDonateViewViewModel()
+    private let detailsDonateView: DRDetailsDonateView
+    private let viewModel: DRDetailsDonateViewViewModel
+    
+    // MARK: - Init
+    init(viewModel: DRDetailsDonateViewViewModel) {
+        self.viewModel = viewModel
+        self.detailsDonateView = DRDetailsDonateView(frame: .zero, viewModel: viewModel)
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("Unsupported")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +29,6 @@ class DRDetailsDonateViewController: UIViewController {
         view.backgroundColor = .systemBackground
         view.addSubview(detailsDonateView)
         addConstraints()
-        setUpView()
     }
     
     // MARK: - Private methods
@@ -30,15 +40,5 @@ class DRDetailsDonateViewController: UIViewController {
             detailsDonateView.rightAnchor.constraint(equalTo: view.rightAnchor),
             detailsDonateView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
-    }
-    
-    private func setUpView() {
-        detailsDonateView.configure(with: viewModel)
-    }
-    
-    // MARK: - Public methods
-    
-    public func configure(with donate: DRDonate) {
-        viewModel.configure(with: donate)
     }
 }

@@ -8,10 +8,10 @@
 import UIKit
 
 /// Controller to show info about single Institution
-class DRDetailsInstitutionViewController: UIViewController {
+final class DRDetailsInstitutionViewController: UIViewController {
     
-    private let viewModel: DRDetailsInstitutionViewViewModel
     private let detailsInstitutionView: DRDetailsInstitutionView
+    private let viewModel: DRDetailsInstitutionViewViewModel
 
     // MARK: - Init
     init(viewModel: DRDetailsInstitutionViewViewModel) {
@@ -28,7 +28,7 @@ class DRDetailsInstitutionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Detalhes"
-        view.backgroundColor = .systemOrange
+        view.backgroundColor = .systemBackground
         
         view.addSubview(detailsInstitutionView)
         
