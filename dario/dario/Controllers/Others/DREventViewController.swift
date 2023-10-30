@@ -49,6 +49,15 @@ class DREventViewController: UIViewController {
 
 // MARK: - DREventViewViewModelDelegate
 extension DREventViewController: DREventViewViewModelDelegate {
+    func drDidSelectEventHeader(_ index: Int) {
+        let event = DREvent(id: 1, category: 2, title: "Cão Amigo", subtit: "Oi mundo")
+        let viewModel = DRSubscriptionEventViewViewModel(event: event)
+        let vc = DRSubscriptionEventViewController(viewModel: viewModel)
+        vc.navigationController?.navigationBar.prefersLargeTitles = true
+        vc.navigationItem.largeTitleDisplayMode = .always
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     func drDidFetchInitialEvents() {
         eventView.configure(with: viewModel)
     }
@@ -57,6 +66,10 @@ extension DREventViewController: DREventViewViewModelDelegate {
 // MARK: - DREventViewDelegate
 extension DREventViewController: DREventViewDelegate {
     func drEventView(_ eventView: DREventView, didSelect event: DREvent) {
-        print("Selecionou Evento!")
+        let viewModel = DRSubscriptionEventViewViewModel(event: event)
+        let vc = DRSubscriptionEventViewController(viewModel: viewModel)
+        vc.navigationController?.navigationBar.prefersLargeTitles = true
+        vc.navigationItem.largeTitleDisplayMode = .always
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

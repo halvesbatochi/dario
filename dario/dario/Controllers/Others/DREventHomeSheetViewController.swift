@@ -7,15 +7,19 @@
 
 import UIKit
 
-class DREventHomeSheetViewController: UIViewController {
+protocol drEventHomeSheetViewDelegate {
+    func navigateToSubscription()
+}
+
+final class DREventHomeSheetViewController: UIViewController {
     
     private let eventSheetView = DREventHomeSheetView()
+    var delegate: drEventHomeSheetViewDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(eventSheetView)
         eventSheetView.delegate = self
-        
         setUpView()
     }
     
@@ -34,9 +38,7 @@ class DREventHomeSheetViewController: UIViewController {
 // MARK: - DREventHomeSheetViewDelegate
 extension DREventHomeSheetViewController: DREventHomeSheetViewDelegate {
     func clickedParticipationButton(_ sender: UIButton) {
-        print("Navegando para tela de conclusao de participação")
         dismiss(animated: true)
+        delegate?.navigateToSubscription()
     }
-    
-    
 }

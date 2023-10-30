@@ -6,9 +6,9 @@
 //
 
 import UIKit
-
 protocol DREventViewViewModelDelegate: AnyObject {
     func drDidFetchInitialEvents()
+    func drDidSelectEventHeader(_ index: Int)
 }
 
 final class DREventViewViewModel: NSObject {
@@ -121,5 +121,9 @@ extension DREventViewViewModel: UICollectionViewDataSource, UICollectionViewDele
         let height = 200.0
         return CGSize(width: width,
                       height: height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.drDidSelectEventHeader(indexPath.item)
     }
 }

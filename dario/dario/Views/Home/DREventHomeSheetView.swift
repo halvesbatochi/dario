@@ -196,6 +196,17 @@ final class DREventHomeSheetView: UIView {
         return imageView
     }()
     
+    private let eventHeartImage: UIImageView = {
+        let imageView = UIImageView()
+        
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = UIImage(named: "Heart")
+        imageView.clipsToBounds = true
+        imageView.contentMode = .scaleAspectFit
+        
+        return imageView
+    }()
+    
     private let eventFourthLabel: UILabel = {
         let label = UILabel()
         
@@ -227,20 +238,6 @@ final class DREventHomeSheetView: UIView {
         label.numberOfLines = 0
         
         return label
-    }()
-    
-    private let optionsControl: UISegmentedControl = {
-        let segmentedControl = UISegmentedControl()
-        
-        segmentedControl.translatesAutoresizingMaskIntoConstraints = false
-        
-        segmentedControl.insertSegment(withTitle: "Cozinha", at: 0, animated: true)
-        segmentedControl.insertSegment(withTitle: "Recreação" , at: 1, animated: true)
-        segmentedControl.insertSegment(withTitle: "Limpeza", at: 2, animated: true)
-        segmentedControl.backgroundColor = .systemBackground
-        segmentedControl.selectedSegmentIndex = 1
-        
-        return segmentedControl
     }()
     
     private let eventFifthLabel: UILabel = {
@@ -309,7 +306,7 @@ final class DREventHomeSheetView: UIView {
                     eventThirdyLabel,
                     eventHandsImage,
                     eventFourthLabel,
-                    optionsControl,
+                    eventHeartImage,
                     eventFifthLabel,
                     eventParticipationButton)
         addConstraints()
@@ -399,12 +396,12 @@ final class DREventHomeSheetView: UIView {
             eventFourthLabel.leftAnchor.constraint(equalTo: eventFirstLabel.leftAnchor),
             eventFourthLabel.rightAnchor.constraint(equalTo: eventSecondLabel.rightAnchor),
             
+            eventHeartImage.heightAnchor.constraint(equalToConstant: 60),
+            eventHeartImage.widthAnchor.constraint(equalToConstant: 60),
+            eventHeartImage.topAnchor.constraint(equalTo: eventFourthLabel.bottomAnchor),
+            eventHeartImage.centerXAnchor.constraint(equalTo: centerXAnchor),
             
-            optionsControl.topAnchor.constraint(equalTo: eventFourthLabel.bottomAnchor, constant: 10),
-            optionsControl.leftAnchor.constraint(equalTo: eventSecondLabel.leftAnchor),
-            optionsControl.rightAnchor.constraint(equalTo: eventSecondLabel.rightAnchor),
-            
-            eventFifthLabel.topAnchor.constraint(equalTo: optionsControl.bottomAnchor, constant: 10),
+            eventFifthLabel.topAnchor.constraint(equalTo: eventHeartImage.bottomAnchor, constant: 5),
             eventFifthLabel.leftAnchor.constraint(equalTo: eventSecondLabel.leftAnchor),
             eventFifthLabel.rightAnchor.constraint(equalTo: eventSecondLabel.rightAnchor, constant: -60),
             

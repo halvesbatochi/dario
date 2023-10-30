@@ -11,7 +11,7 @@ import UIKit
 final class HomeViewController: UIViewController {
     
     private let homeView = DRHomeView()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         preventLargeTitleCollapsing()
@@ -68,11 +68,27 @@ extension HomeViewController: DRHomeViewDelegate {
     
     func didSelectEventHeaderHome(_ homeView: DRHomeView, _ index: Int) {
         let vc = DREventHomeSheetViewController()
+        vc.delegate = self
+        let nav = UINavigationController(rootViewController: vc)
+        nav.isNavigationBarHidden = true
         if let sheet = vc.sheetPresentationController {
             sheet.detents = [.large()]
             sheet.prefersGrabberVisible = true
             sheet.preferredCornerRadius = 30
         }
-        self.present(vc, animated: true)
+        self.present(nav, animated: true)
     }
+}
+
+extension HomeViewController: drEventHomeSheetViewDelegate {
+    func navigateToSubscription() {
+        let event = DREvent(id: 1, category: 1, title: "Cão Amigo", subtit: "Fundação Caramelo")
+        let viewModel = DRSubscriptionEventViewViewModel(event: event)
+        let vc = DRSubscriptionEventViewController(viewModel: viewModel)
+        vc.navigationController?.navigationBar.prefersLargeTitles = true
+        vc.navigationItem.largeTitleDisplayMode = .always
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    
 }
