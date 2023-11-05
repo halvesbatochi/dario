@@ -255,7 +255,7 @@ final class DREventHomeSheetView: UIView {
                                                           attributes: attrs1)
         let attributedString2 = NSMutableAttributedString(string: "um mundo melhor",
                                                           attributes: attrs2)
-        let attributedString3 = NSMutableAttributedString(string: "!\nAgora só falra confirmar a sua participação!",
+        let attributedString3 = NSMutableAttributedString(string: "!\nAgora só falta confirmar a sua participação!",
                                                           attributes: attrs1)
 
         

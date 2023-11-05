@@ -40,6 +40,7 @@ final class DRHomeView: UIView {
         collectionView.isHidden = true
         collectionView.alpha = 0
         collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.showsHorizontalScrollIndicator = false
         collectionView.register(DRHeaderHomeViewCollectionViewCell.self,
                                 forCellWithReuseIdentifier: DRHeaderHomeViewCollectionViewCell.cellIdentifier)
         return collectionView
