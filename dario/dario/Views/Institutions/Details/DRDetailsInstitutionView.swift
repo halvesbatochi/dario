@@ -24,8 +24,10 @@ final class DRDetailsInstitutionView: UIView {
     private let logoInstitutionView: UIView = {
         let logoImage = UIImageView()
         
+        logoImage.image = UIImage(named: "Logo6")
         logoImage.translatesAutoresizingMaskIntoConstraints = false
-        logoImage.backgroundColor = .systemCyan
+        logoImage.backgroundColor = .systemBackground
+        logoImage.contentMode = .scaleAspectFill
         logoImage.clipsToBounds = true
         logoImage.layer.cornerRadius = 10
         
@@ -106,7 +108,7 @@ final class DRDetailsInstitutionView: UIView {
         
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .secondaryLabel
-        label.text = "(00) 0000-0000"
+        label.text = "(11) 94311-0144"
         
         return label
     }()
@@ -116,7 +118,7 @@ final class DRDetailsInstitutionView: UIView {
         
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .secondaryLabel
-        label.text = "xxxx.xxxx@xxxx.xxx"
+        label.text = "doeteleton@aacd.org.br"
         
         return label
     }()

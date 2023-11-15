@@ -12,4 +12,5 @@ struct DREvent: Codable {
     let category: Int
     let title: String
     let subtit: String
+    let logo: String
 }

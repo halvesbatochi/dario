@@ -10,12 +10,13 @@ import UIKit
 final class DREventTableViewCell: UITableViewCell {
     static let cellIdentifier = "DREventTableViewCell"
     
-    private let logoImage: UIImageView = {
+    public let logoImage: UIImageView = {
         let logoImage = UIImageView()
         
         logoImage.translatesAutoresizingMaskIntoConstraints = false
         logoImage.backgroundColor = .systemCyan
         logoImage.clipsToBounds = true
+        logoImage.contentMode = .scaleAspectFill
         logoImage.layer.cornerRadius = 10
         
         return logoImage
@@ -90,5 +91,6 @@ final class DREventTableViewCell: UITableViewCell {
     public func configure(with viewModel: DREventTableViewCellViewModel) {
         titleLabel.text = viewModel.title
         institutionLabel.text = viewModel.subtit
+        logoImage.image = UIImage(named: viewModel.logo)
     }
 }

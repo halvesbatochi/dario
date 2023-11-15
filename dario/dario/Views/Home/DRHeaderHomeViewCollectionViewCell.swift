@@ -14,8 +14,12 @@ final class DRHeaderHomeViewCollectionViewCell: UICollectionViewCell {
     private let coverView: UIImageView = {
         let imageView = UIImageView()
         
-        imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = UIImage(named: "Teleton2")
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 10
+
         
         return imageView
     }()
@@ -61,7 +65,7 @@ final class DRHeaderHomeViewCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        contentView.backgroundColor = .systemMint
+        contentView.backgroundColor = .systemBackground
         contentView.layer.cornerRadius = 10
         contentView.addSubviews(coverView,
                                 layerView,
@@ -79,6 +83,11 @@ final class DRHeaderHomeViewCollectionViewCell: UICollectionViewCell {
     
     private func addConstraint() {
         NSLayoutConstraint.activate([
+            
+            coverView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            coverView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
+            coverView.rightAnchor.constraint(equalTo: contentView.rightAnchor),
+            coverView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             
             layerView.heightAnchor.constraint(equalToConstant: 45),
             layerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),

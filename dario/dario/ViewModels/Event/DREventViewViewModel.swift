@@ -66,17 +66,18 @@ final class DREventViewViewModel: NSObject {
         let index = quantity + indexPath.row
         return cellViewModels[index]
     }
+
     
     public func fetchEvents() {
         
-        let temp1 = DREvent(id: 1, category: 1, title: "Cão Amigo", subtit: "Fundação Caramelo")
-        let temp2 = DREvent(id: 2, category: 1, title: "Gatos legais", subtit: "ONG 4Patas")
-        let temp3 = DREvent(id: 3, category: 1, title: "Passsarinhos Voadores", subtit: "Céu Vivo")
-        let temp4 = DREvent(id: 4, category: 2, title: "Coelhos fofinhos", subtit: "Pegada Fofinha")
-        let temp5 = DREvent(id: 5, category: 2, title: "Abelhas Voadoras", subtit: "MST")
-        let temp6 = DREvent(id: 6, category: 2, title: "Quatro Patas", subtit: "ONG Rua Solidária")
-        let temp7 = DREvent(id: 7, category: 2, title: "Caramelo Solidário", subtit: "ONG Rua Solidária")
-        let temp8 = DREvent(id: 8, category: 3, title: "Peixes molhados", subtit: "ONG Pescadores Paraná")
+        let temp1 = DREvent(id: 1, category: 1, title: "Sorrir Criança", subtit: "Hospital Cruz Verde", logo: "Logo3")
+        let temp2 = DREvent(id: 2, category: 1, title: "Tarde de Contos", subtit: "Ronald McDonald", logo: "Logo4")
+        let temp3 = DREvent(id: 3, category: 1, title: "Tutoria do Coração", subtit: "Aldeias Infantis", logo: "Logo5")
+        let temp4 = DREvent(id: 4, category: 2, title: "Coelhos fofinhos", subtit: "Pegada Fofinha", logo: "Logo3")
+        let temp5 = DREvent(id: 5, category: 2, title: "Abelhas Voadoras", subtit: "MST", logo: "Logo3")
+        let temp6 = DREvent(id: 6, category: 2, title: "Quatro Patas", subtit: "ONG Rua Solidária", logo: "Logo3")
+        let temp7 = DREvent(id: 7, category: 2, title: "Caramelo Solidário", subtit: "ONG Rua Solidária", logo: "Logo3")
+        let temp8 = DREvent(id: 8, category: 3, title: "Peixes molhados", subtit: "ONG Pescadores Paraná", logo: "Logo3")
         events.append(temp1)
         events.append(temp2)
         events.append(temp3)
@@ -106,8 +107,8 @@ extension DREventViewViewModel: UICollectionViewDataSource, UICollectionViewDele
         // TODO: Carregando localmente apenas para visualizar durante desenvolvimento - Apagar depois!
         let viewModel = DRHeaderEventViewCollectionViewCellViewModel(eventDate: "Amanhã",
                                                                       eventHour: "09:00",
-                                                                      eventName: "Sabadaço da Adoção",
-                                                                      eventInstitutionName: "Cão Amigo",
+                                                                      eventName: "Show de Doações",
+                                                                      eventInstitutionName: "AACD",
                                                                       eventDistance: 900,
                                                                       eventCoverURL: nil,
                                                                       eventInstitutionLogoURL: nil)

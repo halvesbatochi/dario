@@ -19,7 +19,7 @@ final class DREventHomeSheetView: UIView {
         let label = UILabel()
         
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Sabadaço da Adoção"
+        label.text = "Show de Doações"
         label.font = .systemFont(ofSize: 30, weight: .semibold)
         label.textColor = .secondaryLabel
         
@@ -30,7 +30,7 @@ final class DREventHomeSheetView: UIView {
         let imageView = UIImageView()
         
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "Logo")
+        imageView.image = UIImage(named: "Logo6")
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 30
         imageView.contentMode = .scaleAspectFit
@@ -42,7 +42,7 @@ final class DREventHomeSheetView: UIView {
         let label = UILabel()
         
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Cão amigo"
+        label.text = "AACD"
         label.font = .systemFont(ofSize: 15, weight: .semibold)
         label.textColor = .secondaryLabel
         

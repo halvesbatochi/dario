@@ -13,4 +13,5 @@ struct DRInstitution {
     let district: String
     let city: String
     let biography: String
+    let logo: String
 }

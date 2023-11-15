@@ -34,6 +34,7 @@ final class DRHeaderEventViewCollectionViewCell: UICollectionViewCell {
         let imageView = UIImageView()
         
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 10
         
@@ -44,6 +45,7 @@ final class DRHeaderEventViewCollectionViewCell: UICollectionViewCell {
         let imageView = UIImageView()
         
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.backgroundColor = .systemBackground
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 10
         
@@ -160,7 +162,7 @@ final class DRHeaderEventViewCollectionViewCell: UICollectionViewCell {
         eventDistanceLabel.text = String(viewModel.eventDistance) + "m"
         
         // TODO: Linkar depois com as propriedades da ViewModel
-        eventCoverView.image = UIImage(named: "Background")
-        eventInstitutionLogoView.image = UIImage(named: "Logo")
+        eventCoverView.image = UIImage(named: "Teleton1")
+        eventInstitutionLogoView.image = UIImage(named: "Logo6")
     }
 }

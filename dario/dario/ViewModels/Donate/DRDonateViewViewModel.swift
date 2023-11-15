@@ -44,16 +44,16 @@ final class DRDonateViewViewModel: NSObject {
     }
     
     public func fetchDonate() {
-        let temp1 = DRDonate(id: 1, institution: "Fundação Caramelo", method: "Pix")
-        let temp2 = DRDonate(id: 2, institution: "ONG 4Patas", method: "Pix")
-        let temp3 = DRDonate(id: 3, institution: "Céu Vivo", method: "Doação de Sementes")
-        let temp4 = DRDonate(id: 4, institution: "Pegada Fofinha", method: "Doação de Ração")
-        let temp5 = DRDonate(id: 5, institution: "MST", method: "Pix")
-        let temp6 = DRDonate(id: 6, institution: "ONG Rua Solidária", method: "Pix")
-        let temp7 = DRDonate(id: 7, institution: "ONG Pescadores Paraná", method: "Ração de peixe")
-        let temp8 = DRDonate(id: 8, institution: "Asilo São Vicente de Paula", method: "Doação de não perecíveis")
-        let temp9 = DRDonate(id: 9, institution: "Lar dos Idosos", method: "Doação de Fraldas")
-        let temp10 = DRDonate(id: 10, institution: "Orfanato Criança Sempre", method: "Doação de Brinquedos")
+        let temp1 = DRDonate(id: 1, institution: "AACD", method: "Pix", logo: "Logo6")
+        let temp2 = DRDonate(id: 2, institution: "Hospital Cruz Verde", method: "Pix", logo: "Logo3")
+        let temp3 = DRDonate(id: 3, institution: "Ronald McDonald", method: "Pix", logo: "Logo4")
+        let temp4 = DRDonate(id: 4, institution: "Aldeias Infantis", method: "Doação de Brinquedos", logo: "Logo5")
+        let temp5 = DRDonate(id: 5, institution: "Habitat", method: "Pix", logo: "Logo1")
+        let temp6 = DRDonate(id: 6, institution: "Conservação Internacional", method: "Pix", logo: "Logo2")
+        let temp7 = DRDonate(id: 7, institution: "ONG Pescadores Paraná", method: "Ração de peixe", logo: "Logo6")
+        let temp8 = DRDonate(id: 8, institution: "Asilo São Vicente de Paula", method: "Doação de não perecíveis", logo: "Logo6")
+        let temp9 = DRDonate(id: 9, institution: "Lar dos Idosos", method: "Doação de Fraldas", logo: "Logo6")
+        let temp10 = DRDonate(id: 10, institution: "Orfanato Criança Sempre", method: "Doação de Brinquedos", logo: "Logo6")
         
         donates.append(temp1)
         donates.append(temp2)

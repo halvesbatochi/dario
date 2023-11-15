@@ -82,7 +82,7 @@ extension HomeViewController: DRHomeViewDelegate {
 
 extension HomeViewController: drEventHomeSheetViewDelegate {
     func navigateToSubscription() {
-        let event = DREvent(id: 1, category: 1, title: "Cão Amigo", subtit: "Fundação Caramelo")
+        let event = DREvent(id: 1, category: 1, title: "Show de Doações", subtit: "AACD", logo: "Logo6")
         let viewModel = DRSubscriptionEventViewViewModel(event: event)
         let vc = DRSubscriptionEventViewController(viewModel: viewModel)
         vc.navigationController?.navigationBar.prefersLargeTitles = true

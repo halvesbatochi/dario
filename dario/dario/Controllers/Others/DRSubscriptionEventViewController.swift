@@ -18,7 +18,7 @@ class DRSubscriptionEventViewController: UIViewController {
         self.subscriptionView = DRSubscriptionEventView(frame: .zero, viewModel: viewModel)
         super.init(nibName: nil, bundle: nil)
         
-        title = "All hands together"
+        title = "Show de Doações"
         
         view.backgroundColor = .systemBackground
         view.addSubview(subscriptionView)

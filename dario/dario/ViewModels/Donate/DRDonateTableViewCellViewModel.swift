@@ -31,6 +31,10 @@ struct DRDonateTableViewCellViewModel: Hashable, Equatable {
         return donate.method
     }
     
+    public var logo: String {
+        return donate.logo
+    }
+    
     // MARK: - Hashable and Equatable methods
     
     static func == (lhs: DRDonateTableViewCellViewModel, rhs: DRDonateTableViewCellViewModel) -> Bool {

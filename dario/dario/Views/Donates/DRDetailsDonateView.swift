@@ -25,7 +25,8 @@ final class DRDetailsDonateView: UIView {
         let logoImage = UIImageView()
         
         logoImage.translatesAutoresizingMaskIntoConstraints = false
-        logoImage.backgroundColor = .systemCyan
+        logoImage.image = UIImage(named: "Logo6")
+        logoImage.backgroundColor = .systemBackground
         logoImage.clipsToBounds = true
         logoImage.layer.cornerRadius = 10
         
@@ -168,7 +169,8 @@ final class DRDetailsDonateView: UIView {
         let label = UILabel()
         
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Asilo São Vicente de Paula"
+        label.text = "AACD - Associação de Assistência à Criança Deficiente"
+        label.numberOfLines = 0
         label.textColor = .secondaryLabel
         
         return label
@@ -251,7 +253,7 @@ final class DRDetailsDonateView: UIView {
             detailDonateDesc3Label.leftAnchor.constraint(equalTo: detailDonateDescLabel.leftAnchor),
             detailDonateDesc3Label.rightAnchor.constraint(equalTo: detailDonateDescLabel.rightAnchor),
             
-            detailDonateMethodView.heightAnchor.constraint(equalToConstant: 100),
+            detailDonateMethodView.heightAnchor.constraint(equalToConstant: 110),
             detailDonateMethodView.leftAnchor.constraint(equalTo: leftAnchor),
             detailDonateMethodView.rightAnchor.constraint(equalTo: rightAnchor),
             detailDonateMethodView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -30),

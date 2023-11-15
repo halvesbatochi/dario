@@ -50,7 +50,7 @@ class DREventViewController: UIViewController {
 // MARK: - DREventViewViewModelDelegate
 extension DREventViewController: DREventViewViewModelDelegate {
     func drDidSelectEventHeader(_ index: Int) {
-        let event = DREvent(id: 1, category: 2, title: "Cão Amigo", subtit: "Oi mundo")
+        let event = DREvent(id: 1, category: 2, title: "Cão Amigo", subtit: "Oi mundo", logo: "Logo3")
         let viewModel = DRSubscriptionEventViewViewModel(event: event)
         let vc = DRSubscriptionEventViewController(viewModel: viewModel)
         vc.navigationController?.navigationBar.prefersLargeTitles = true

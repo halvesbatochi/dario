@@ -156,7 +156,7 @@ extension DREventView: UITableViewDataSource {
         label.font = UIFont.systemFont(ofSize: 20,
                                        weight: .medium)
         label.textColor = .secondaryLabel
-        label.text = section == 0 ? "Pares" : "Impares"
+        label.text = section == 0 ? "Crianças" : "Meio Ambiente"
             
         view.addSubview(label)
         return view
@@ -173,8 +173,8 @@ extension DREventView: UITableViewDataSource {
         guard let cellViewModel = viewModel?.loadCellModel(indexPath) else {
             fatalError()
         }
-        
         cell.configure(with: cellViewModel)
+
         return cell
     }
 }

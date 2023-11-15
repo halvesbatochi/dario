@@ -8,11 +8,11 @@
 import Foundation
 
 /// Represents unique API endpoint
-@frozen enum DRendpoint: String {
+@frozen enum DREndpoint: String {
     /// Endpoint to get events info
-    case event
+    case event = "/event"
     /// Endpoint to get institution info
-    case institution
+    case institution = "/inst"
     /// Endpoint to get donate info
-    case donate
+    case donate = "/donat"
 }

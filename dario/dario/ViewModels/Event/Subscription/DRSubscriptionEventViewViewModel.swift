@@ -14,4 +14,8 @@ final class DRSubscriptionEventViewViewModel {
     init(event: DREvent) {
         self.event = event
     }
+    
+    public var logo: String {
+        return event.logo
+    }
 }

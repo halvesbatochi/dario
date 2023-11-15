@@ -35,6 +35,9 @@ struct DRInstitutionTableViewCellViewModel: Hashable, Equatable {
         return institution.district.appending(" - " + institution.city)
     }
     
+    public var logo: String {
+        return institution.logo
+    }
     // MARK: - Hashable and Equatable methods
     
     static func == (lhs: DRInstitutionTableViewCellViewModel, rhs: DRInstitutionTableViewCellViewModel) -> Bool {

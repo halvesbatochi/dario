@@ -31,8 +31,8 @@ extension DRHomeViewViewModel: UICollectionViewDataSource, UICollectionViewDeleg
         }
         
         // TODO: Carregando localmente apensa para visualizar durante desenvolvimento - Apagar depois!
-        let viewModel = DRHeaderHomeViewCollectionViewCellViewModel(eventName: "Sabadaço da Adoção",
-                                                                    institutionName: "Cão Amigo",
+        let viewModel = DRHeaderHomeViewCollectionViewCellViewModel(eventName: "Show de Doações",
+                                                                    institutionName: "AACD",
                                                                     eventCoverURL: nil)
         cell.configure(with: viewModel)
         return cell

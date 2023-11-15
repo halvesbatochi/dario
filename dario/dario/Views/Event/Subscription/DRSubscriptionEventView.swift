@@ -15,7 +15,7 @@ final class DRSubscriptionEventView: UIView {
         let imageView = UIImageView()
         
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.backgroundColor = .systemIndigo
+        imageView.image = UIImage(named: "Logo6")
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 30
         imageView.contentMode = .scaleAspectFit
@@ -27,7 +27,7 @@ final class DRSubscriptionEventView: UIView {
         let label = UILabel()
         
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Cão amigo"
+        label.text = "AACD"
         label.font = .systemFont(ofSize: 15, weight: .semibold)
         label.textColor = .secondaryLabel
         
@@ -49,7 +49,7 @@ final class DRSubscriptionEventView: UIView {
         let label = UILabel()
         
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "18.09"
+        label.text = "30.11"
         label.font = .systemFont(ofSize: 12, weight: .regular)
         label.textColor = .secondaryLabel
         
@@ -149,8 +149,8 @@ final class DRSubscriptionEventView: UIView {
         
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
         
-        segmentedControl.insertSegment(withTitle: "Cozinha", at: 0, animated: true)
-        segmentedControl.insertSegment(withTitle: "Recreação" , at: 1, animated: true)
+        segmentedControl.insertSegment(withTitle: "Camera", at: 0, animated: true)
+        segmentedControl.insertSegment(withTitle: "Palco" , at: 1, animated: true)
         segmentedControl.insertSegment(withTitle: "Limpeza", at: 2, animated: true)
         segmentedControl.backgroundColor = .systemBackground
         segmentedControl.selectedSegmentIndex = 1

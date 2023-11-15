@@ -14,7 +14,7 @@ final class DRInstitutionTableViewCell: UITableViewCell {
         let logoImage = UIImageView()
         
         logoImage.translatesAutoresizingMaskIntoConstraints = false
-        logoImage.backgroundColor = .systemCyan
+        logoImage.backgroundColor = .systemBackground
         logoImage.clipsToBounds = true
         logoImage.layer.cornerRadius = 10
         
@@ -88,5 +88,6 @@ final class DRInstitutionTableViewCell: UITableViewCell {
     public func configure(with viewModel: DRInstitutionTableViewCellViewModel) {
         institutionLabel.text = viewModel.name
         districtCityLabel.text = viewModel.districtAndCity
+        logoImage.image = UIImage(named: viewModel.logo)
     }
 }

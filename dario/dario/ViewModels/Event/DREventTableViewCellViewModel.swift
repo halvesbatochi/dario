@@ -35,6 +35,10 @@ struct DREventTableViewCellViewModel: Hashable, Equatable {
         return event.subtit
     }
     
+    public var logo: String {
+        return event.logo
+    }
+    
     // MARK: - Hashable and Equatable methods
     
     static func == (lhs: DREventTableViewCellViewModel, rhs: DREventTableViewCellViewModel) -> Bool {

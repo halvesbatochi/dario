@@ -182,7 +182,7 @@ extension DRInstitutionView: UITableViewDataSource {
                                        weight: .medium)
 
         label.textColor = .secondaryLabel
-        label.text = "Pares"
+        label.text = "Crianças"
         
         view.addSubview(label)
         return view

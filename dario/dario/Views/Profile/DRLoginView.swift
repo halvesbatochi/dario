@@ -29,7 +29,7 @@ final class DRLoginView: UIView {
         let label = UILabel()
         
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Bem-vindo!"
+        label.text = "Bem-vindo(a)!"
         label.textColor = .white
         label.font = .systemFont(ofSize: 22,
                                  weight: .regular)
