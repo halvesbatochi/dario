@@ -13,7 +13,8 @@ protocol drEventHomeSheetViewDelegate {
 
 final class DREventHomeSheetViewController: UIViewController {
     
-    private let eventSheetView = DREventHomeSheetView()
+    private let eventSheetView: DREventHomeSheetView
+    private let eventSheetViewViewModel: DREventHomeSheetViewViewModel
     var delegate: drEventHomeSheetViewDelegate?
     
     override func viewDidLoad() {
@@ -21,6 +22,16 @@ final class DREventHomeSheetViewController: UIViewController {
         view.addSubview(eventSheetView)
         eventSheetView.delegate = self
         setUpView()
+    }
+    
+    init(event: DREvent) {
+        self.eventSheetViewViewModel = DREventHomeSheetViewViewModel(event: event)
+        self.eventSheetView = DREventHomeSheetView(frame: .zero, viewModel: self.eventSheetViewViewModel)
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("Unsupported")
     }
     
     // MARK: - Private Methods

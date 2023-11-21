@@ -16,6 +16,6 @@ final class DRSubscriptionEventViewViewModel {
     }
     
     public var logo: String {
-        return event.logo
+        return "Logo4"
     }
 }

@@ -20,34 +20,34 @@ struct DREventTableViewCellViewModel: Hashable, Equatable {
     // MARK: - Public variables
     
     public var id: Int {
-        return event.id
+        return event.ev001_it_id
     }
     
     public var category: Int {
-        return event.category
+        return 1
     }
     
     public var title: String {
-        return event.title
+        return event.ev001_vc_titulo
     }
     
     public var subtit: String {
-        return event.subtit
+        return "Subtitulo"
     }
     
     public var logo: String {
-        return event.logo
+        return "Logo3"
     }
     
     // MARK: - Hashable and Equatable methods
     
     static func == (lhs: DREventTableViewCellViewModel, rhs: DREventTableViewCellViewModel) -> Bool {
-        return lhs.event.id == rhs.event.id
+        return lhs.event.ev001_it_id == rhs.event.ev001_it_id
     }
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(title)
-        hasher.combine(event.id)
+        hasher.combine(event.ev001_it_id)
         hasher.combine(subtit)
     }
 }

@@ -8,7 +8,7 @@
 import UIKit
 
 protocol DRLoginViewDelegate: AnyObject {
-    func loginBtnTapped(_ drLoginView: DRLoginView, _ sender: UIButton)
+    func loginBtnTapped(_ drLoginView: DRLoginView, _ sender: UIButton, _ user: String, _ password: String)
 }
 
 /// View that handles showing Login view elements, loader and etc.
@@ -44,6 +44,7 @@ final class DRLoginView: UIView {
         text.placeholder = "Usuário"
         text.textColor = UIColor(named: "DRPrimaryColor")
         text.keyboardType = .default
+        text.autocapitalizationType = .none
         text.returnKeyType = .next
         text.clearButtonMode = .whileEditing
         
@@ -78,7 +79,7 @@ final class DRLoginView: UIView {
         return btn
     }()
 
-    //MARK: - Init
+    // MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
@@ -105,9 +106,22 @@ final class DRLoginView: UIView {
         endEditing(true)
     }
     
+    // MARK: - Public methods
+    public func eraseLabels() {
+        DispatchQueue.main.async {
+            self.userLoginTxt.text = ""
+            self.passwordLoginTxt.text = ""
+        }
+
+    }
+    
     //MARK: - Private Methods
     @objc private func btnTapped(sender: UIButton) {
-        delegate?.loginBtnTapped(self, sender)
+        
+        guard let user = userLoginTxt.text,
+              let password = passwordLoginTxt.text else { return }
+        
+        delegate?.loginBtnTapped(self, sender, user, password)
     }
     
     private func addConstraint() {

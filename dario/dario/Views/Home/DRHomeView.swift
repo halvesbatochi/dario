@@ -11,7 +11,7 @@ protocol DRHomeViewDelegate: AnyObject {
     func navigateEventsView(_ homeView: DRHomeView)
     func navigateInstitutionsView(_ homeView: DRHomeView)
     func navigateDonatesView(_ homeView: DRHomeView)
-    func didSelectEventHeaderHome(_ homeView: DRHomeView, _ index: Int)
+    func didSelectEventHeaderHome(_ homeView: DRHomeView, _ event: DREvent)
 }
 
 /// View that handles showing home elements, loader and etc.
@@ -204,6 +204,7 @@ final class DRHomeView: UIView {
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = .systemBackground
         viewModel.delegate = self
+        viewModel.fetchEvents()
         
         addSubviews(collectionView,
                     spinner,
@@ -341,7 +342,11 @@ final class DRHomeView: UIView {
 
 // MARK: - DRHomeViewViewModelDelegate
 extension DRHomeView: DRHomeViewViewModelDelegate {
-    func didSelectEventHeaderHome(_ index: Int) {
-        self.delegate?.didSelectEventHeaderHome(self, index)
+    func didFetchInitialEvents() {
+        collectionView.reloadData()
+    }
+    
+    func didSelectEventHeaderHome(_ event: DREvent) {
+        self.delegate?.didSelectEventHeaderHome(self, event)
     }
 }

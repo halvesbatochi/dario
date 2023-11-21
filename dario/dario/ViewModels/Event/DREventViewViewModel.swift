@@ -70,22 +70,13 @@ final class DREventViewViewModel: NSObject {
     
     public func fetchEvents() {
         
-        let temp1 = DREvent(id: 1, category: 1, title: "Sorrir Criança", subtit: "Hospital Cruz Verde", logo: "Logo3")
-        let temp2 = DREvent(id: 2, category: 1, title: "Tarde de Contos", subtit: "Ronald McDonald", logo: "Logo4")
-        let temp3 = DREvent(id: 3, category: 1, title: "Tutoria do Coração", subtit: "Aldeias Infantis", logo: "Logo5")
-        let temp4 = DREvent(id: 4, category: 2, title: "Coelhos fofinhos", subtit: "Pegada Fofinha", logo: "Logo3")
-        let temp5 = DREvent(id: 5, category: 2, title: "Abelhas Voadoras", subtit: "MST", logo: "Logo3")
-        let temp6 = DREvent(id: 6, category: 2, title: "Quatro Patas", subtit: "ONG Rua Solidária", logo: "Logo3")
-        let temp7 = DREvent(id: 7, category: 2, title: "Caramelo Solidário", subtit: "ONG Rua Solidária", logo: "Logo3")
-        let temp8 = DREvent(id: 8, category: 3, title: "Peixes molhados", subtit: "ONG Pescadores Paraná", logo: "Logo3")
+        let temp1 = DREvent(ev001_it_id: 1, ev001_it_inst: 1, ev001_vc_end: "Ola", ev001_it_num: "1", ev001_vc_compl: "Apto91", ev001_vc_bairro: "Centro", ev001_vc_cidade: "Curitiba", ev001_vc_estado: "PR", ev001_vc_pais: "BR", ev001_vc_titulo: "Show de Doações", ev001_dt_inic: "20231111", ev001_hr_inic: "0900", ev001_dt_fim: "20231111", ev001_hr_fim: "1200", ev001_it_npart: "100", ev001_vc_fmsg1: "Ola", ev001_vc_fmsg2: "Ola", ev001_vc_fmsg3: "Ola", ev001_vc_fmsg4: "Ola", ev001_vc_fmsg5: "Ola", ev001_vc_pmsg1: "Ola", ev001_vc_pmsg2: "Ola", ev001_vc_img1: "Ola", ev001_vc_img2: "Ola", ev001_it_atv1: 1, ev001_it_atv2: 2, ev001_it_atv3: 3, ev001_it_situac: "1", ev001_dt_ultatu: "2023", ev001_dt_inclus: "2023")
+        let temp2 = DREvent(ev001_it_id: 1, ev001_it_inst: 1, ev001_vc_end: "Ola", ev001_it_num: "1", ev001_vc_compl: "Apto91", ev001_vc_bairro: "Centro", ev001_vc_cidade: "Curitiba", ev001_vc_estado: "PR", ev001_vc_pais: "BR", ev001_vc_titulo: "Show de Doações", ev001_dt_inic: "20231111", ev001_hr_inic: "0900", ev001_dt_fim: "20231111", ev001_hr_fim: "1200", ev001_it_npart: "100", ev001_vc_fmsg1: "Ola", ev001_vc_fmsg2: "Ola", ev001_vc_fmsg3: "Ola", ev001_vc_fmsg4: "Ola", ev001_vc_fmsg5: "Ola", ev001_vc_pmsg1: "Ola", ev001_vc_pmsg2: "Ola", ev001_vc_img1: "Ola", ev001_vc_img2: "Ola", ev001_it_atv1: 1, ev001_it_atv2: 2, ev001_it_atv3: 3, ev001_it_situac: "1", ev001_dt_ultatu: "2023", ev001_dt_inclus: "2023")
+        let temp3 = DREvent(ev001_it_id: 1, ev001_it_inst: 1, ev001_vc_end: "Ola", ev001_it_num: "1", ev001_vc_compl: "Apto91", ev001_vc_bairro: "Centro", ev001_vc_cidade: "Curitiba", ev001_vc_estado: "PR", ev001_vc_pais: "BR", ev001_vc_titulo: "Show de Doações", ev001_dt_inic: "20231111", ev001_hr_inic: "0900", ev001_dt_fim: "20231111", ev001_hr_fim: "1200", ev001_it_npart: "100", ev001_vc_fmsg1: "Ola", ev001_vc_fmsg2: "Ola", ev001_vc_fmsg3: "Ola", ev001_vc_fmsg4: "Ola", ev001_vc_fmsg5: "Ola", ev001_vc_pmsg1: "Ola", ev001_vc_pmsg2: "Ola", ev001_vc_img1: "Ola", ev001_vc_img2: "Ola", ev001_it_atv1: 1, ev001_it_atv2: 2, ev001_it_atv3: 3, ev001_it_situac: "1", ev001_dt_ultatu: "2023", ev001_dt_inclus: "2023")
         events.append(temp1)
         events.append(temp2)
         events.append(temp3)
-        events.append(temp4)
-        events.append(temp5)
-        events.append(temp6)
-        events.append(temp7)
-        events.append(temp8)
+
         
         delegate?.drDidFetchInitialEvents()
     }

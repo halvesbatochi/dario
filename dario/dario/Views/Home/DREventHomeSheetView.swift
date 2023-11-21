@@ -15,11 +15,12 @@ final class DREventHomeSheetView: UIView {
     
     public weak var delegate: DREventHomeSheetViewDelegate?
     
+    private var viewModel: DREventHomeSheetViewViewModel
+    
     private let eventNameLabel: UILabel = {
         let label = UILabel()
         
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Show de Doações"
         label.font = .systemFont(ofSize: 30, weight: .semibold)
         label.textColor = .secondaryLabel
         
@@ -64,7 +65,6 @@ final class DREventHomeSheetView: UIView {
         let label = UILabel()
         
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "18.09"
         label.font = .systemFont(ofSize: 12, weight: .regular)
         label.textColor = .secondaryLabel
         
@@ -86,7 +86,6 @@ final class DREventHomeSheetView: UIView {
         let label = UILabel()
         
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "14:00"
         label.font = .systemFont(ofSize: 12, weight: .regular)
         label.textColor = .secondaryLabel
         
@@ -100,6 +99,7 @@ final class DREventHomeSheetView: UIView {
         imageView.image = UIImage(systemName: "mappin.circle")
         imageView.tintColor = .secondaryLabel
         imageView.clipsToBounds = true
+        imageView.isHidden = true
         
         return imageView
     }()
@@ -111,6 +111,7 @@ final class DREventHomeSheetView: UIView {
         label.text = "900m"
         label.font = .systemFont(ofSize: 12, weight: .regular)
         label.textColor = .secondaryLabel
+        label.isHidden = true
         
         return label
     }()
@@ -119,7 +120,6 @@ final class DREventHomeSheetView: UIView {
         let label = UILabel()
         
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Precisamos de você!"
         label.textColor = UIColor(red: 48/255, green: 176/255, blue: 188/255, alpha: 1.0)
         
         return label
@@ -140,7 +140,6 @@ final class DREventHomeSheetView: UIView {
         let label = UILabel()
         
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Convidamos a todos com vontade de ajudar a construir bons momentos aos nossos residentes."
         label.textColor = .secondaryLabel
         label.numberOfLines = 0
         
@@ -162,24 +161,7 @@ final class DREventHomeSheetView: UIView {
         let label = UILabel()
         
         label.translatesAutoresizingMaskIntoConstraints = false
-
-        let attrs1 = [NSAttributedString.Key.foregroundColor : UIColor.secondaryLabel]
-        let attrs2 = [NSAttributedString.Key.foregroundColor : UIColor(red: 48/255,
-                                                                       green: 176/255,
-                                                                       blue: 188/255,
-                                                                       alpha: 1.0)]
-        
-        let attributedString1 = NSMutableAttributedString(string: "Unindo forças em áreas de interesse comum temos como meto construir um ",
-                                                          attributes: attrs1)
-        let attributedString2 = NSMutableAttributedString(string: "evento solidário",
-                                                          attributes: attrs2)
-        let attributedString3 = NSMutableAttributedString(string: "!",
-                                                          attributes: attrs1)
-        
-        attributedString1.append(attributedString2)
-        attributedString1.append(attributedString3)
-        
-        label.attributedText = attributedString1
+        label.textColor = .secondaryLabel
         label.numberOfLines = 0
         
         return label
@@ -211,30 +193,7 @@ final class DREventHomeSheetView: UIView {
         let label = UILabel()
         
         label.translatesAutoresizingMaskIntoConstraints = false
-        
-        let attrs1 = [NSAttributedString.Key.foregroundColor : UIColor.secondaryLabel]
-        let attrs2 = [NSAttributedString.Key.foregroundColor : UIColor(red: 48/255,
-                                                                       green: 176/255,
-                                                                       blue: 188/255,
-                                                                       alpha: 1.0)]
-        
-        let attributedString1 = NSMutableAttributedString(string: "Escolha sua área de interesse em ajudar e venha construir a diferença em ",
-                                                          attributes: attrs1)
-        let attributedString2 = NSMutableAttributedString(string: "um mundo mais solidário",
-                                                          attributes: attrs2)
-        let attributedString3 = NSMutableAttributedString(string: ". Juntando nossas diferenças em prol de algo em comum ",
-                                                          attributes: attrs1)
-        let attributedString4 = NSMutableAttributedString(string: "construíremos um mundo melhor",
-                                                          attributes: attrs2)
-        let attributedString5 = NSMutableAttributedString(string: ".",
-                                                          attributes: attrs1)
-        
-        attributedString1.append(attributedString2)
-        attributedString1.append(attributedString3)
-        attributedString1.append(attributedString4)
-        attributedString1.append(attributedString5)
-        
-        label.attributedText = attributedString1
+        label.textColor = .secondaryLabel
         label.numberOfLines = 0
         
         return label
@@ -244,25 +203,7 @@ final class DREventHomeSheetView: UIView {
         let label = UILabel()
         
         label.translatesAutoresizingMaskIntoConstraints = false
-        
-        let attrs1 = [NSAttributedString.Key.foregroundColor : UIColor.secondaryLabel]
-        let attrs2 = [NSAttributedString.Key.foregroundColor : UIColor(red: 48/255,
-                                                                       green: 176/255,
-                                                                       blue: 188/255,
-                                                                       alpha: 1.0)]
-        
-        let attributedString1 = NSMutableAttributedString(string: "Agradecemos ao seu interesse em construir momentos melhores e com isso ",
-                                                          attributes: attrs1)
-        let attributedString2 = NSMutableAttributedString(string: "um mundo melhor",
-                                                          attributes: attrs2)
-        let attributedString3 = NSMutableAttributedString(string: "!\nAgora só falta confirmar a sua participação!",
-                                                          attributes: attrs1)
-
-        
-        attributedString1.append(attributedString2)
-        attributedString1.append(attributedString3)
-
-        label.attributedText = attributedString1
+        label.textColor = .secondaryLabel
         label.numberOfLines = 0
         
         return label
@@ -284,7 +225,8 @@ final class DREventHomeSheetView: UIView {
 
     // MARK: - Init
     
-    override init(frame: CGRect) {
+    init(frame: CGRect, viewModel: DREventHomeSheetViewViewModel) {
+        self.viewModel = viewModel
         super.init(frame: frame)
         
         translatesAutoresizingMaskIntoConstraints = false
@@ -311,6 +253,7 @@ final class DREventHomeSheetView: UIView {
                     eventParticipationButton)
         addConstraints()
         setUpParticipationButton()
+        configureLabels()
     }
     
     required init?(coder: NSCoder) {
@@ -320,6 +263,18 @@ final class DREventHomeSheetView: UIView {
     // MARK: - Private Methods
     private func setUpParticipationButton() {
         self.eventParticipationButton.addTarget(self, action: #selector(self.clickedButton), for: .touchUpInside)
+    }
+    
+    private func configureLabels() {
+        eventNameLabel.text = viewModel.event.ev001_vc_titulo
+        eventInstitutionNameLabel.text = String(viewModel.event.ev001_it_id)
+        eventDateLabel.text = viewModel.dateEvent
+        eventHourLabel.text = viewModel.hourEvent
+        eventFirstLabel.text = viewModel.event.ev001_vc_fmsg1
+        eventSecondLabel.text = viewModel.event.ev001_vc_fmsg2
+        eventThirdyLabel.text = viewModel.event.ev001_vc_fmsg3
+        eventFourthLabel.text = viewModel.event.ev001_vc_fmsg4
+        eventFifthLabel.text = viewModel.event.ev001_vc_fmsg5
     }
     
     
@@ -409,7 +364,6 @@ final class DREventHomeSheetView: UIView {
             eventParticipationButton.widthAnchor.constraint(equalToConstant: 90),
             eventParticipationButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -20),
             eventParticipationButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20)
-            
         ])
     }
 }

@@ -11,8 +11,12 @@ import Foundation
 @frozen enum DREndpoint: String {
     /// Endpoint to get events info
     case event = "/event"
+    /// Endpoint to get evetns info by ColdStart method
+    case eventColdStart = "/eventcoldstart"
     /// Endpoint to get institution info
     case institution = "/inst"
     /// Endpoint to get donate info
     case donate = "/donat"
+    /// Endpoint to get volunteer
+    case volunteer = "/volunt"
 }

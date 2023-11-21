@@ -8,9 +8,11 @@
 import UIKit
 
 /// Controller to show Profile
-final class ProfileViewController: UIViewController {
+final class DRProfileViewController: UIViewController {
     
     private let loginView = DRLoginView()
+    private let successfulLoginView = DRLoginSuccessfulView()
+    private let viewModel = DRProfileViewViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,10 +21,13 @@ final class ProfileViewController: UIViewController {
         navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.systemGray]
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.systemGray]
         
-        view.addSubview(loginView)
-        setUpView()
+        view.addSubviews(loginView, successfulLoginView)
         
+        successfulLoginView.isHidden = true
+        
+        setUpView()
         loginView.delegate = self
+        viewModel.delegate = self
     }
     
     // MARK: - Private Methods
@@ -33,12 +38,30 @@ final class ProfileViewController: UIViewController {
             loginView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
             loginView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
             loginView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            
+            successfulLoginView.topAnchor.constraint(equalTo: loginView.topAnchor),
+            successfulLoginView.leftAnchor.constraint(equalTo: loginView.leftAnchor),
+            successfulLoginView.rightAnchor.constraint(equalTo: loginView.rightAnchor),
+            successfulLoginView.bottomAnchor.constraint(equalTo: loginView.bottomAnchor),
         ])
     }
 }
 
-extension ProfileViewController: DRLoginViewDelegate {
-    func loginBtnTapped(_ drLoginView: DRLoginView, _ sender: UIButton) {
-        print("Buttom Tapped Login")
+extension DRProfileViewController: DRLoginViewDelegate {
+    func loginBtnTapped(_ drLoginView: DRLoginView, _ sender: UIButton, _ user: String, _ senha: String) {
+        viewModel.login(user: user, password: senha)
+    }
+}
+
+extension DRProfileViewController: DRProfileViewViewModelDelegate {
+    func drLoginFail() {
+        self.loginView.eraseLabels()
+    }
+    
+    func drLoginSuccess() {
+        DispatchQueue.main.async {
+            self.loginView.isHidden = true
+            self.successfulLoginView.isHidden = false
+        }
     }
 }

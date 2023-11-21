@@ -8,18 +8,51 @@
 import UIKit
 
 protocol DRHomeViewViewModelDelegate: AnyObject {
-    func didSelectEventHeaderHome(_ index: Int)
+    func didSelectEventHeaderHome(_ event: DREvent)
+    func didFetchInitialEvents()
 }
 
 final class DRHomeViewViewModel: NSObject {
     
     public weak var delegate: DRHomeViewViewModelDelegate?
+    
+    private var events: [DREvent] = [] {
+        didSet {
+            for event in events {
+                let viewModel = DRHeaderHomeViewCollectionViewCellViewModel(eventName: event.ev001_vc_titulo,
+                                                                            institutionName: event.ev001_vc_pais,
+                                                                            eventCoverURL: URL(string: event.ev001_vc_img1))
+                cellHeaderViewModels.append(viewModel)
+            }
+        }
+    }
+    
+    private var cellHeaderViewModels: [DRHeaderHomeViewCollectionViewCellViewModel] = []
+    
+    public func fetchEvents() {
+        let request = DRRequest(endpoint: .eventColdStart)
+        
+        DRService.shared.execute(request,
+                                 expecting: [DREvent].self) { [weak self] result in
+            switch result {
+            case .success(let resultModel):
+                print("Sucesso")
+                self?.events = resultModel
+                DispatchQueue.main.async {
+                    self?.delegate?.didFetchInitialEvents()
+                }
+            case .failure(let error):
+                print(String(describing: error))
+            }
+        }
+    }
+    
 }
 
 // MARK: - UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout
 extension DRHomeViewViewModel: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return cellHeaderViewModels.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -30,11 +63,7 @@ extension DRHomeViewViewModel: UICollectionViewDataSource, UICollectionViewDeleg
             fatalError("Unsupported cell")
         }
         
-        // TODO: Carregando localmente apensa para visualizar durante desenvolvimento - Apagar depois!
-        let viewModel = DRHeaderHomeViewCollectionViewCellViewModel(eventName: "Show de Doações",
-                                                                    institutionName: "AACD",
-                                                                    eventCoverURL: nil)
-        cell.configure(with: viewModel)
+        cell.configure(with: cellHeaderViewModels[indexPath.row])
         return cell
     }
     
@@ -47,6 +76,6 @@ extension DRHomeViewViewModel: UICollectionViewDataSource, UICollectionViewDeleg
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate?.didSelectEventHeaderHome(indexPath.item)
+        delegate?.didSelectEventHeaderHome(events[indexPath.item])
     }
 }

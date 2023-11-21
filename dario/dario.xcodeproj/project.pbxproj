@@ -30,6 +30,10 @@
 		5C59645729EF9813003BB257 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C59645629EF9813003BB257 /* TabBarController.swift */; };
 		5C59645C29EF9814003BB257 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C59645B29EF9814003BB257 /* Assets.xcassets */; };
 		5C59645F29EF9814003BB257 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C59645D29EF9814003BB257 /* LaunchScreen.storyboard */; };
+		5C5AF9752B0BBC48007B8B18 /* DRGetLoginVolunteerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5AF9742B0BBC48007B8B18 /* DRGetLoginVolunteerResponse.swift */; };
+		5C5AF9782B0BBD19007B8B18 /* DRProfileViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5AF9772B0BBD19007B8B18 /* DRProfileViewViewModel.swift */; };
+		5C5AF97A2B0BC739007B8B18 /* DRVolunteer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5AF9792B0BC739007B8B18 /* DRVolunteer.swift */; };
+		5C5AF97C2B0BCD96007B8B18 /* DRLoginSuccessfulView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5AF97B2B0BCD96007B8B18 /* DRLoginSuccessfulView.swift */; };
 		5C65472E29F7DDD0003EC311 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C65472D29F7DDD0003EC311 /* Extensions.swift */; };
 		5C7A084C2AB65A4A00F09422 /* DREventHomeSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7A084B2AB65A4A00F09422 /* DREventHomeSheetViewController.swift */; };
 		5C7A08512AB65B1700F09422 /* DREventHomeSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7A08502AB65B1700F09422 /* DREventHomeSheetView.swift */; };
@@ -38,6 +42,7 @@
 		5CA7B98F2AEEFB89006BE732 /* DRSubscriptionEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA7B98E2AEEFB89006BE732 /* DRSubscriptionEventViewController.swift */; };
 		5CA7B9912AEEFBB8006BE732 /* DRSubscriptionEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA7B9902AEEFBB8006BE732 /* DRSubscriptionEventView.swift */; };
 		5CA7B9932AEEFECB006BE732 /* DRSubscriptionEventViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA7B9922AEEFECB006BE732 /* DRSubscriptionEventViewViewModel.swift */; };
+		5CAB019A2B0C5B2E00C8F9F1 /* DREventHomeSheetViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAB01992B0C5B2E00C8F9F1 /* DREventHomeSheetViewViewModel.swift */; };
 		5CBDF3F92AD4FB60007AA1EE /* DREventTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBDF3F82AD4FB60007AA1EE /* DREventTableViewCellViewModel.swift */; };
 		5CC54DEC29EF9DD100963CD7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC54DEB29EF9DD100963CD7 /* HomeViewController.swift */; };
 		5CC54DEE29EF9E6900963CD7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC54DED29EF9E6900963CD7 /* ProfileViewController.swift */; };
@@ -88,6 +93,10 @@
 		5C59645B29EF9814003BB257 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5C59645E29EF9814003BB257 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5C59646029EF9814003BB257 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5C5AF9742B0BBC48007B8B18 /* DRGetLoginVolunteerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRGetLoginVolunteerResponse.swift; sourceTree = "<group>"; };
+		5C5AF9772B0BBD19007B8B18 /* DRProfileViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRProfileViewViewModel.swift; sourceTree = "<group>"; };
+		5C5AF9792B0BC739007B8B18 /* DRVolunteer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRVolunteer.swift; sourceTree = "<group>"; };
+		5C5AF97B2B0BCD96007B8B18 /* DRLoginSuccessfulView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRLoginSuccessfulView.swift; sourceTree = "<group>"; };
 		5C65472D29F7DDD0003EC311 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		5C7A084B2AB65A4A00F09422 /* DREventHomeSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DREventHomeSheetViewController.swift; sourceTree = "<group>"; };
 		5C7A08502AB65B1700F09422 /* DREventHomeSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DREventHomeSheetView.swift; sourceTree = "<group>"; };
@@ -96,6 +105,7 @@
 		5CA7B98E2AEEFB89006BE732 /* DRSubscriptionEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRSubscriptionEventViewController.swift; sourceTree = "<group>"; };
 		5CA7B9902AEEFBB8006BE732 /* DRSubscriptionEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRSubscriptionEventView.swift; sourceTree = "<group>"; };
 		5CA7B9922AEEFECB006BE732 /* DRSubscriptionEventViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRSubscriptionEventViewViewModel.swift; sourceTree = "<group>"; };
+		5CAB01992B0C5B2E00C8F9F1 /* DREventHomeSheetViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DREventHomeSheetViewViewModel.swift; sourceTree = "<group>"; };
 		5CBDF3F82AD4FB60007AA1EE /* DREventTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DREventTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		5CC54DEB29EF9DD100963CD7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		5CC54DED29EF9E6900963CD7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -145,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				5C18ECA22AC3B68700E101EF /* DRLoginView.swift */,
+				5C5AF97B2B0BCD96007B8B18 /* DRLoginSuccessfulView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -175,6 +186,7 @@
 			children = (
 				5CCAB9562A930DDE0051B233 /* DRHeaderHomeViewCollectionViewCellViewModel.swift */,
 				5CCAB9522A92ED410051B233 /* DRHomeViewViewModel.swift */,
+				5CAB01992B0C5B2E00C8F9F1 /* DREventHomeSheetViewViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -231,6 +243,33 @@
 			path = dario;
 			sourceTree = "<group>";
 		};
+		5C5AF9722B0BBC0F007B8B18 /* APIResponseTypes */ = {
+			isa = PBXGroup;
+			children = (
+				5C5AF9742B0BBC48007B8B18 /* DRGetLoginVolunteerResponse.swift */,
+			);
+			path = APIResponseTypes;
+			sourceTree = "<group>";
+		};
+		5C5AF9732B0BBC25007B8B18 /* DataTypes */ = {
+			isa = PBXGroup;
+			children = (
+				5CCAB94A2A92E3D60051B233 /* DREvent.swift */,
+				5CCAB94C2A92E3F10051B233 /* DRInstitution.swift */,
+				5CCAB94E2A92E4050051B233 /* DRDonate.swift */,
+				5C5AF9792B0BC739007B8B18 /* DRVolunteer.swift */,
+			);
+			path = DataTypes;
+			sourceTree = "<group>";
+		};
+		5C5AF9762B0BBD05007B8B18 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				5C5AF9772B0BBD19007B8B18 /* DRProfileViewViewModel.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		5C8335282AD369D500F146A8 /* Preference */ = {
 			isa = PBXGroup;
 			children = (
@@ -268,9 +307,8 @@
 		5CC54DE429EF99A300963CD7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				5CCAB94A2A92E3D60051B233 /* DREvent.swift */,
-				5CCAB94C2A92E3F10051B233 /* DRInstitution.swift */,
-				5CCAB94E2A92E4050051B233 /* DRDonate.swift */,
+				5C5AF9722B0BBC0F007B8B18 /* APIResponseTypes */,
+				5C5AF9732B0BBC25007B8B18 /* DataTypes */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -291,6 +329,7 @@
 		5CC54DE629EF9A4B00963CD7 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				5C5AF9762B0BBD05007B8B18 /* Profile */,
 				5C2041F32AE1DC4800E2F388 /* Donate */,
 				5C17BFBA2ADA2AEE00B1F8DB /* Institution */,
 				5CF8DB752AD386E9005F444A /* Preference */,
@@ -482,6 +521,7 @@
 				5CCAB9452A92DC2B0051B233 /* DRService.swift in Sources */,
 				5C1AB95A2AB54D8400093930 /* DREventView.swift in Sources */,
 				5CF8DB772AD3872F005F444A /* DRPreferenceViewCollectionViewCellViewModel.swift in Sources */,
+				5C5AF97A2B0BC739007B8B18 /* DRVolunteer.swift in Sources */,
 				5C2041F22AE1DAFD00E2F388 /* DRDonateTableViewCell.swift in Sources */,
 				5C1AB95C2AB54DF600093930 /* DREventViewController.swift in Sources */,
 				5CCAB9572A930DDE0051B233 /* DRHeaderHomeViewCollectionViewCellViewModel.swift in Sources */,
@@ -500,7 +540,10 @@
 				5C2041F72AE1E3DE00E2F388 /* DRDonateViewViewModel.swift in Sources */,
 				5C1AB9552AB53E5A00093930 /* DRDonatesView.swift in Sources */,
 				5CD865912AE62F9F00A9A666 /* DRDetailsInstitutionView.swift in Sources */,
+				5CAB019A2B0C5B2E00C8F9F1 /* DREventHomeSheetViewViewModel.swift in Sources */,
+				5C5AF9782B0BBD19007B8B18 /* DRProfileViewViewModel.swift in Sources */,
 				5C1AB9602AB5581D00093930 /* DREventViewViewModel.swift in Sources */,
+				5C5AF9752B0BBC48007B8B18 /* DRGetLoginVolunteerResponse.swift in Sources */,
 				5C2041F52AE1DC6300E2F388 /* DRDonateTableViewCellViewModel.swift in Sources */,
 				5CF8DB742AD384DA005F444A /* DRPreferenceViewCollectionViewCell.swift in Sources */,
 				5C2BCEEB2AE5FD6E00D92A78 /* DRDetailsDonateViewViewModel.swift in Sources */,
@@ -518,6 +561,7 @@
 				5C59645529EF9813003BB257 /* SceneDelegate.swift in Sources */,
 				5C18ECA32AC3B68700E101EF /* DRLoginView.swift in Sources */,
 				5CC54DEC29EF9DD100963CD7 /* HomeViewController.swift in Sources */,
+				5C5AF97C2B0BCD96007B8B18 /* DRLoginSuccessfulView.swift in Sources */,
 				5C65472E29F7DDD0003EC311 /* Extensions.swift in Sources */,
 				5C2BCEE92AE5FD4A00D92A78 /* DRDetailsDonateView.swift in Sources */,
 				5C1AB9642AB5595E00093930 /* DRHeaderEventViewCollectionViewCell.swift in Sources */,

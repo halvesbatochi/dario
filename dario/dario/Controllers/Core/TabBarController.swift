@@ -18,7 +18,7 @@ final class TabBarController: UITabBarController {
     private func setUpTabs() {
         let homeVC = HomeViewController()
         let timelineVC = TimeLineViewController()
-        let profileVC = ProfileViewController()
+        let profileVC = DRProfileViewController()
         
         homeVC.navigationItem.largeTitleDisplayMode = .always
         timelineVC.navigationItem.largeTitleDisplayMode = .automatic
