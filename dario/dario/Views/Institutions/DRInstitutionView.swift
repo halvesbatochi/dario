@@ -72,7 +72,7 @@ final class DRInstitutionView: UIView {
         return label
     }()
     
-    private let institutionsTableView: UITableView = {
+    public let institutionsTableView: UITableView = {
         let tableView = UITableView()
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -162,7 +162,7 @@ extension DRInstitutionView: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 9
+        return viewModel?.cellViewModels.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -182,7 +182,7 @@ extension DRInstitutionView: UITableViewDataSource {
                                        weight: .medium)
 
         label.textColor = .secondaryLabel
-        label.text = "Crianças"
+        label.text = ""
         
         view.addSubview(label)
         return view
@@ -196,7 +196,7 @@ extension DRInstitutionView: UITableViewDataSource {
             fatalError()
         }
         
-        guard let cellViewModel = viewModel?.loadCellModel(indexPath) else {
+        guard let cellViewModel = viewModel?.cellViewModels[indexPath.row] else {
             fatalError()
         }
         

@@ -44,29 +44,21 @@ final class DRDonateViewViewModel: NSObject {
     }
     
     public func fetchDonate() {
-        let temp1 = DRDonate(id: 1, institution: "AACD", method: "Pix", logo: "Logo6")
-        let temp2 = DRDonate(id: 2, institution: "Hospital Cruz Verde", method: "Pix", logo: "Logo3")
-        let temp3 = DRDonate(id: 3, institution: "Ronald McDonald", method: "Pix", logo: "Logo4")
-        let temp4 = DRDonate(id: 4, institution: "Aldeias Infantis", method: "Doação de Brinquedos", logo: "Logo5")
-        let temp5 = DRDonate(id: 5, institution: "Habitat", method: "Pix", logo: "Logo1")
-        let temp6 = DRDonate(id: 6, institution: "Conservação Internacional", method: "Pix", logo: "Logo2")
-        let temp7 = DRDonate(id: 7, institution: "ONG Pescadores Paraná", method: "Ração de peixe", logo: "Logo6")
-        let temp8 = DRDonate(id: 8, institution: "Asilo São Vicente de Paula", method: "Doação de não perecíveis", logo: "Logo6")
-        let temp9 = DRDonate(id: 9, institution: "Lar dos Idosos", method: "Doação de Fraldas", logo: "Logo6")
-        let temp10 = DRDonate(id: 10, institution: "Orfanato Criança Sempre", method: "Doação de Brinquedos", logo: "Logo6")
         
-        donates.append(temp1)
-        donates.append(temp2)
-        donates.append(temp3)
-        donates.append(temp4)
-        donates.append(temp5)
-        donates.append(temp6)
-        donates.append(temp7)
-        donates.append(temp8)
-        donates.append(temp9)
-        donates.append(temp10)
+        let request = DRRequest(endpoint: .donate)
         
-        delegate?.drDidFetchInitialDonates()
+        DRService.shared.execute(request,
+                                 expecting: [DRDonate].self) { [weak self] result in
+            switch result {
+            case .success(let resultModel):
+                self?.donates = resultModel
+                DispatchQueue.main.async {
+                    self?.delegate?.drDidFetchInitialDonates()
+                }
+            case .failure(let error):
+                print(String(describing: error))
+            }
+        }
     }
     
 }

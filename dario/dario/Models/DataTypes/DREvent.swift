@@ -8,6 +8,7 @@
 import Foundation
 
 struct DREvent: Codable {
+    let ad001_vc_nfanta: String
     let ev001_it_id: Int
     let ev001_it_inst: Int
     let ev001_vc_end: String

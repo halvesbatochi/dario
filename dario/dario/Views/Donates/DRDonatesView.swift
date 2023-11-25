@@ -67,7 +67,7 @@ final class DRDonateView: UIView {
         return label
     }()
     
-    private let donateTableView: UITableView = {
+    public let donateTableView: UITableView = {
         let tableView = UITableView()
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -154,12 +154,8 @@ extension DRDonateView: UITableViewDelegate {
 // MARK: - UITableViewDataSource
 extension DRDonateView: UITableViewDataSource {
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return viewModel?.cellViewModels.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -169,12 +165,11 @@ extension DRDonateView: UITableViewDataSource {
         ) as? DRDonateTableViewCell else {
             fatalError()
         }
-        
-        guard let cellViewModel = viewModel?.loadCellModel(indexPath) else {
+        guard let viewModel = viewModel?.cellViewModels[indexPath.row] else {
             fatalError()
         }
         
-        cell.configure(with: cellViewModel)
+        cell.configure(with: viewModel)
         return cell
     }
 }

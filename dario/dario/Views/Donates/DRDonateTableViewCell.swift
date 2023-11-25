@@ -15,7 +15,7 @@ class DRDonateTableViewCell: UITableViewCell {
         
         logoImage.translatesAutoresizingMaskIntoConstraints = false
         logoImage.backgroundColor = .systemBackground
-        logoImage.contentMode = .scaleAspectFit
+        logoImage.contentMode = .scaleToFill
         logoImage.clipsToBounds = true
         logoImage.layer.cornerRadius = 10
         
@@ -90,6 +90,18 @@ class DRDonateTableViewCell: UITableViewCell {
     public func configure(with viewModel: DRDonateTableViewCellViewModel) {
         institutionLabel.text = viewModel.institution
         methodLabel.text = viewModel.method
-        logoInstitution.image = UIImage(named: viewModel.logo)
+        
+        viewModel.fetchImage { [weak self] result in
+            switch result {
+            case .success(let data):
+                DispatchQueue.main.async {
+                    let image = UIImage(data: data)
+                    self?.logoInstitution.image = image
+                }
+            case .failure(let error):
+                print(String(describing: error))
+                break
+            }
+        }
     }
 }

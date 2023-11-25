@@ -16,7 +16,7 @@ import Foundation
     /// Endpoint to get institution info
     case institution = "/inst"
     /// Endpoint to get donate info
-    case donate = "/donat"
+    case donate = "/donates"
     /// Endpoint to get volunteer
     case volunteer = "/volunt"
 }

@@ -88,6 +88,18 @@ final class DRInstitutionTableViewCell: UITableViewCell {
     public func configure(with viewModel: DRInstitutionTableViewCellViewModel) {
         institutionLabel.text = viewModel.name
         districtCityLabel.text = viewModel.districtAndCity
-        logoImage.image = UIImage(named: viewModel.logo)
+        
+        viewModel.fetchImage { [weak self] result in
+            switch result {
+            case .success(let data):
+                DispatchQueue.main.async {
+                    let image = UIImage(data: data)
+                    self?.logoImage.image = image
+                }
+            case .failure(let error):
+                print(String(describing: error))
+                break
+            }
+        }
     }
 }

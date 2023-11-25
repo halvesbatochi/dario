@@ -21,13 +21,12 @@ final class DRDetailsInstitutionView: UIView {
         return view
     }()
     
-    private let logoInstitutionView: UIView = {
+    private let logoInstitutionView: UIImageView = {
         let logoImage = UIImageView()
         
-        logoImage.image = UIImage(named: "Logo6")
         logoImage.translatesAutoresizingMaskIntoConstraints = false
         logoImage.backgroundColor = .systemBackground
-        logoImage.contentMode = .scaleAspectFill
+        logoImage.contentMode = .scaleToFill
         logoImage.clipsToBounds = true
         logoImage.layer.cornerRadius = 10
         
@@ -157,6 +156,19 @@ final class DRDetailsInstitutionView: UIView {
         institutionHeaderLabel.text = viewModel.institutionName
         institutionAddressLabel.text = viewModel.institutionAddress
         detailsInstitutionBiographyLabel.text = viewModel.institutionBiography
+        
+        viewModel.fetchImage { [weak self] result in
+            switch result {
+            case .success(let data):
+                DispatchQueue.main.async {
+                    let image = UIImage(data: data)
+                    self?.logoInstitutionView.image = image
+                }
+            case .failure(let error):
+                print(String(describing: error))
+                break
+            }
+        }
     }
     
     private func addConstraints() {

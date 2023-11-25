@@ -45,6 +45,7 @@ class DRDonateViewController: UIViewController {
 extension DRDonateViewController: DRDonateViewViewModelDelegate {
     func drDidFetchInitialDonates() {
         donateView.configure(with: viewModel)
+        donateView.donateTableView.reloadData()
     }
 }
 

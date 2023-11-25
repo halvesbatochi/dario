@@ -25,8 +25,8 @@ final class DRDetailsDonateView: UIView {
         let logoImage = UIImageView()
         
         logoImage.translatesAutoresizingMaskIntoConstraints = false
-        logoImage.image = UIImage(named: "Logo6")
         logoImage.backgroundColor = .systemBackground
+        logoImage.contentMode = .scaleToFill
         logoImage.clipsToBounds = true
         logoImage.layer.cornerRadius = 10
         
@@ -50,7 +50,7 @@ final class DRDetailsDonateView: UIView {
         
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .secondaryLabel
-        label.text = "Rebouças - Curitiba"
+
         
         return label
     }()
@@ -169,7 +169,6 @@ final class DRDetailsDonateView: UIView {
         let label = UILabel()
         
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "AACD - Associação de Assistência à Criança Deficiente"
         label.numberOfLines = 0
         label.textColor = .secondaryLabel
         
@@ -180,7 +179,6 @@ final class DRDetailsDonateView: UIView {
         let label = UILabel()
         
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Chave: 00.000.000/0000-00"
         label.textColor = .secondaryLabel
 
         return label
@@ -275,5 +273,21 @@ final class DRDetailsDonateView: UIView {
     private func configure() {
         institutionHeaderLabel.text = viewModel.institutionName
         detailDonateMethodTitleLabel.text = viewModel.method
+        institutionAddressLabel.text = viewModel.address
+        detailDonateMethodDescLabel.text = viewModel.desc
+        detailDonateMethodDescSecLabel.text = viewModel.descaux
+        
+        viewModel.fetchImage { [weak self] result in
+            switch result {
+            case .success(let data):
+                DispatchQueue.main.async {
+                    let image = UIImage(data: data)
+                    self?.logoInstitutionView.image = image
+                }
+            case .failure(let error):
+                print(String(describing: error))
+                break
+            }
+        }
     }
 }

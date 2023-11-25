@@ -20,7 +20,7 @@ final class DRHomeViewViewModel: NSObject {
         didSet {
             for event in events {
                 let viewModel = DRHeaderHomeViewCollectionViewCellViewModel(eventName: event.ev001_vc_titulo,
-                                                                            institutionName: event.ev001_vc_pais,
+                                                                            institutionName: event.ad001_vc_nfanta,
                                                                             eventCoverURL: URL(string: event.ev001_vc_img1))
                 cellHeaderViewModels.append(viewModel)
             }
@@ -30,13 +30,12 @@ final class DRHomeViewViewModel: NSObject {
     private var cellHeaderViewModels: [DRHeaderHomeViewCollectionViewCellViewModel] = []
     
     public func fetchEvents() {
-        let request = DRRequest(endpoint: .eventColdStart)
+        let request = DRRequest(endpoint: .event)
         
         DRService.shared.execute(request,
                                  expecting: [DREvent].self) { [weak self] result in
             switch result {
             case .success(let resultModel):
-                print("Sucesso")
                 self?.events = resultModel
                 DispatchQueue.main.async {
                     self?.delegate?.didFetchInitialEvents()

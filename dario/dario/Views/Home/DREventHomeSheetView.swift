@@ -267,7 +267,7 @@ final class DREventHomeSheetView: UIView {
     
     private func configureLabels() {
         eventNameLabel.text = viewModel.event.ev001_vc_titulo
-        eventInstitutionNameLabel.text = String(viewModel.event.ev001_it_id)
+        eventInstitutionNameLabel.text = viewModel.event.ad001_vc_nfanta
         eventDateLabel.text = viewModel.dateEvent
         eventHourLabel.text = viewModel.hourEvent
         eventFirstLabel.text = viewModel.event.ev001_vc_fmsg1

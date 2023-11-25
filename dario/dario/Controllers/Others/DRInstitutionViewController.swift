@@ -45,6 +45,7 @@ class DRInstitutionViewController: UIViewController {
 extension DRInstitutionViewController: DRInstitutionViewViewModelDelegate {
     func drDidFetchInitialInstitutions() {
         institutionView.configure(with: viewModel)
+        institutionView.institutionsTableView.reloadData()
     }
 }
 

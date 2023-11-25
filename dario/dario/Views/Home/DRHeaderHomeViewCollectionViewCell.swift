@@ -103,8 +103,6 @@ final class DRHeaderHomeViewCollectionViewCell: UICollectionViewCell {
             institutionLabel.topAnchor.constraint(equalTo: eventLabel.bottomAnchor, constant: 3),
             institutionLabel.leftAnchor.constraint(equalTo: layerView.leftAnchor, constant: 5),
             institutionLabel.rightAnchor.constraint(equalTo: layerView.rightAnchor, constant: -5),
-
-            
         ])
     }
     
@@ -121,7 +119,7 @@ final class DRHeaderHomeViewCollectionViewCell: UICollectionViewCell {
         eventLabel.text = viewModel.eventName
         institutionLabel.text = viewModel.institutionName
 
-      /*  viewModel.fetchImage { [weak self] result in
+        viewModel.fetchImage { [weak self] result in
             switch result {
             case .success(let data):
                 DispatchQueue.main.async {
@@ -132,6 +130,6 @@ final class DRHeaderHomeViewCollectionViewCell: UICollectionViewCell {
                 print(String(describing: error))
                 break
             }
-        } */
+        }
     }
 }
