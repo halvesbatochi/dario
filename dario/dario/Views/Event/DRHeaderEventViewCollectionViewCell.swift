@@ -45,6 +45,7 @@ final class DRHeaderEventViewCollectionViewCell: UICollectionViewCell {
         let imageView = UIImageView()
         
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleToFill
         imageView.backgroundColor = .systemBackground
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 10
@@ -67,6 +68,7 @@ final class DRHeaderEventViewCollectionViewCell: UICollectionViewCell {
         
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(named: "Location")
+        imageView.isHidden = true
         imageView.clipsToBounds = true
         
         return imageView
@@ -97,7 +99,6 @@ final class DRHeaderEventViewCollectionViewCell: UICollectionViewCell {
                                    eventDistanceIcone,
                                    eventDistanceLabel)
         
-
         addConstraints()
     }
     
@@ -156,13 +157,34 @@ final class DRHeaderEventViewCollectionViewCell: UICollectionViewCell {
     }
     
     public func configure(with viewModel: DRHeaderEventViewCollectionViewCellViewModel) {
-        eventDateLabel.text = viewModel.eventDate + " " + viewModel.eventHour
-        eventNameLabel.text = viewModel.eventName
-        eventInstitutionNameLabel.text = viewModel.eventInstitutionName
-        eventDistanceLabel.text = String(viewModel.eventDistance) + "m"
+        eventDateLabel.text = viewModel.dateEvent + " - " + viewModel.hourEvent
+        eventNameLabel.text = viewModel.event.ev001_vc_titulo
+        eventInstitutionNameLabel.text = viewModel.event.ad001_vc_nfanta
+
+        viewModel.fetchImageCapa { [weak self] result in
+            switch result {
+            case .success(let data):
+                DispatchQueue.main.async {
+                    let image = UIImage(data: data)
+                    self?.eventCoverView.image = image
+                }
+            case .failure(let error):
+                print(String(describing: error))
+                break
+            }
+        }
         
-        // TODO: Linkar depois com as propriedades da ViewModel
-        eventCoverView.image = UIImage(named: "Teleton1")
-        eventInstitutionLogoView.image = UIImage(named: "Logo6")
+        viewModel.fetchImageLogo { [weak self] result in
+            switch result {
+            case .success(let data):
+                DispatchQueue.main.async {
+                    let image = UIImage(data: data)
+                    self?.eventInstitutionLogoView.image = image
+                }
+            case .failure(let error):
+                print(String(describing: error))
+                break
+            }
+        }
     }
 }

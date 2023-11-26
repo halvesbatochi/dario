@@ -40,7 +40,7 @@ final class DREventView: UIView {
         return collectionView
     }()
     
-    private let eventsTableView: UITableView = {
+    public let eventsTableView: UITableView = {
         let tableView = UITableView()
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -104,6 +104,7 @@ final class DREventView: UIView {
     
     public func configure(with viewModel: DREventViewViewModel) {
         self.viewModel = viewModel
+        self.eventsTableView.reloadData()
     }
 }
 
@@ -112,7 +113,7 @@ extension DREventView: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        guard let eventModel = viewModel?.event(at: indexPath.row) else {
+        guard let eventModel = viewModel?.event(at: indexPath) else {
             return
         }
         delegate?.drEventView(self, didSelect: eventModel)
@@ -127,17 +128,18 @@ extension DREventView: UITableViewDelegate {
 extension DREventView: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        guard let numberOfSection = viewModel?.countSections() else {
-            fatalError()
+        guard let sections = viewModel?.countSections() else {
+            return 0
         }
-        return numberOfSection
+        return sections
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let numberOfRows = viewModel?.countRowsInSection(section) else {
-            fatalError()
+        guard let rowsInSection = viewModel?.countRowsInSection(section) else {
+            return 0
         }
-        return numberOfRows
+            
+        return rowsInSection
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -156,7 +158,7 @@ extension DREventView: UITableViewDataSource {
         label.font = UIFont.systemFont(ofSize: 20,
                                        weight: .medium)
         label.textColor = .secondaryLabel
-        label.text = section == 0 ? "Crianças" : "Meio Ambiente"
+        label.text = viewModel?.fetchSectionName(section)
             
         view.addSubview(label)
         return view
@@ -170,10 +172,11 @@ extension DREventView: UITableViewDataSource {
             fatalError()
         }
         
-        guard let cellViewModel = viewModel?.loadCellModel(indexPath) else {
+        guard let model = viewModel?.loadCellModel(indexPath) else {
             fatalError()
         }
-        cell.configure(with: cellViewModel)
+        
+        cell.configure(with: model)
 
         return cell
     }

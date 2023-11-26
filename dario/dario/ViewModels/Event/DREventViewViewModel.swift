@@ -8,7 +8,7 @@
 import UIKit
 protocol DREventViewViewModelDelegate: AnyObject {
     func drDidFetchInitialEvents()
-    func drDidSelectEventHeader(_ index: Int)
+    func drDidSelectEventHeader(_ event: DREvent)
 }
 
 final class DREventViewViewModel: NSObject {
@@ -25,8 +25,20 @@ final class DREventViewViewModel: NSObject {
             }
         }
     }
-    
     public private(set) var cellViewModels: [DREventTableViewCellViewModel] = []
+    
+    private var eventsHeader: [DREvent] = [] {
+        didSet {
+            for event in eventsHeader {
+                let cellViewModel = DRHeaderEventViewCollectionViewCellViewModel(event: event)
+                if !cellViewModelsHeader.contains(cellViewModel) {
+                    cellViewModelsHeader.append(cellViewModel)
+                }
+            }
+        }
+    }
+    public private(set) var cellViewModelsHeader: [DRHeaderEventViewCollectionViewCellViewModel] = []
+    
     
     // MARK: - Init
     override init() {}
@@ -34,58 +46,90 @@ final class DREventViewViewModel: NSObject {
     
     // MARK: - Public methods
     
-    public func event(at index: Int) -> DREvent? {
-        guard index < events.count, index >= 0 else {
-            return nil
-        }
-        return self.events[index]
+    public func event(at indexPath: IndexPath) -> DREvent? {
+        let sections = cellViewModels.reduce(into: [Int](), {
+            if (!$0.contains($1.category)) {
+                $0.append($1.category)
+            }
+        })
+        
+        let rows = cellViewModels.filter { $0.category == sections[indexPath.section] }
+        let model = rows[indexPath.row]
+        return model.eventData
     }
-    
+ 
     public func countSections() -> Int {
         let sections = cellViewModels.reduce(into: Set<Int>(), {$0.insert($1.category)})
         return sections.count
     }
     
+    public func fetchSectionName(_ section: Int) -> String {
+        let sections = cellViewModels.reduce(into: [String](), {
+            if (!$0.contains($1.categoryDesc)) {
+                $0.append($1.categoryDesc)
+            }
+        })
+        return sections[section]
+    }
+    
     public func countRowsInSection(_ section: Int) -> Int {
-        let sections = cellViewModels.filter { $0.category == (section+1)}
-        return sections.count
+        let sections = cellViewModels.reduce(into: Set<Int>(), {$0.insert($1.category)})
+        let sectionArray = Array(sections)
+        let rows = cellViewModels.filter { $0.category == sectionArray[section] }
+        return rows.count
     }
     
     public func loadCellModel(_ indexPath: IndexPath) -> DREventTableViewCellViewModel {
-        let sections = Array(cellViewModels.reduce(into: Set<Int>(), {$0.insert($1.category)}))
-        var i = indexPath.section
-        var quantity = 0
-        if indexPath.section > 0 {
-            repeat {
-                quantity += sections[i]
-                i -= 1
-            } while(i > 0)
-        }
-
-
-        let index = quantity + indexPath.row
-        return cellViewModels[index]
+        let sections = cellViewModels.reduce(into: [Int](), {
+            if (!$0.contains($1.category)) {
+                $0.append($1.category)
+            }
+        })
+        
+        let rows = cellViewModels.filter { $0.category == sections[indexPath.section] }
+        let model = rows[indexPath.row]
+        
+        return model
     }
 
     
-    public func fetchEvents() {
+    public func fetchEventsHeader() {
+        let request = DRRequest(endpoint: .event)
         
-        let temp1 = DREvent(ad001_vc_nfanta: "Teste", ev001_it_id: 1, ev001_it_inst: 1, ev001_vc_end: "Ola", ev001_it_num: "1", ev001_vc_compl: "Apto91", ev001_vc_bairro: "Centro", ev001_vc_cidade: "Curitiba", ev001_vc_estado: "PR", ev001_vc_pais: "BR", ev001_vc_titulo: "Show de Doações", ev001_dt_inic: "20231111", ev001_hr_inic: "0900", ev001_dt_fim: "20231111", ev001_hr_fim: "1200", ev001_it_npart: "100", ev001_vc_fmsg1: "Ola", ev001_vc_fmsg2: "Ola", ev001_vc_fmsg3: "Ola", ev001_vc_fmsg4: "Ola", ev001_vc_fmsg5: "Ola", ev001_vc_pmsg1: "Ola", ev001_vc_pmsg2: "Ola", ev001_vc_img1: "Ola", ev001_vc_img2: "Ola", ev001_it_atv1: 1, ev001_it_atv2: 2, ev001_it_atv3: 3, ev001_it_situac: "1", ev001_dt_ultatu: "2023", ev001_dt_inclus: "2023")
-        let temp2 = DREvent(ad001_vc_nfanta: "Teste", ev001_it_id: 1, ev001_it_inst: 1, ev001_vc_end: "Ola", ev001_it_num: "1", ev001_vc_compl: "Apto91", ev001_vc_bairro: "Centro", ev001_vc_cidade: "Curitiba", ev001_vc_estado: "PR", ev001_vc_pais: "BR", ev001_vc_titulo: "Show de Doações", ev001_dt_inic: "20231111", ev001_hr_inic: "0900", ev001_dt_fim: "20231111", ev001_hr_fim: "1200", ev001_it_npart: "100", ev001_vc_fmsg1: "Ola", ev001_vc_fmsg2: "Ola", ev001_vc_fmsg3: "Ola", ev001_vc_fmsg4: "Ola", ev001_vc_fmsg5: "Ola", ev001_vc_pmsg1: "Ola", ev001_vc_pmsg2: "Ola", ev001_vc_img1: "Ola", ev001_vc_img2: "Ola", ev001_it_atv1: 1, ev001_it_atv2: 2, ev001_it_atv3: 3, ev001_it_situac: "1", ev001_dt_ultatu: "2023", ev001_dt_inclus: "2023")
-        let temp3 = DREvent(ad001_vc_nfanta: "Teste", ev001_it_id: 1, ev001_it_inst: 1, ev001_vc_end: "Ola", ev001_it_num: "1", ev001_vc_compl: "Apto91", ev001_vc_bairro: "Centro", ev001_vc_cidade: "Curitiba", ev001_vc_estado: "PR", ev001_vc_pais: "BR", ev001_vc_titulo: "Show de Doações", ev001_dt_inic: "20231111", ev001_hr_inic: "0900", ev001_dt_fim: "20231111", ev001_hr_fim: "1200", ev001_it_npart: "100", ev001_vc_fmsg1: "Ola", ev001_vc_fmsg2: "Ola", ev001_vc_fmsg3: "Ola", ev001_vc_fmsg4: "Ola", ev001_vc_fmsg5: "Ola", ev001_vc_pmsg1: "Ola", ev001_vc_pmsg2: "Ola", ev001_vc_img1: "Ola", ev001_vc_img2: "Ola", ev001_it_atv1: 1, ev001_it_atv2: 2, ev001_it_atv3: 3, ev001_it_situac: "1", ev001_dt_ultatu: "2023", ev001_dt_inclus: "2023")
-        events.append(temp1)
-        events.append(temp2)
-        events.append(temp3)
-
+        DRService.shared.execute(request,
+                                 expecting: [DREvent].self) { [weak self] result in
+            switch result {
+            case .success(let resultModel):
+                self?.eventsHeader = resultModel
+                self?.fetchEventsTable()
+            case .failure(let error):
+                print(String(describing: error))
+            }
+        }
+    }
+    
+    public func fetchEventsTable() {
+        let request = DRRequest(endpoint: .event)
         
-        delegate?.drDidFetchInitialEvents()
+        DRService.shared.execute(request,
+                                 expecting: [DREvent].self) { [weak self] result in
+            switch result {
+            case .success(let resultModel):
+                self?.events = resultModel
+                DispatchQueue.main.async {
+                    self?.delegate?.drDidFetchInitialEvents()
+                }
+            case .failure(let error):
+                print(String(describing: error))
+            }
+        }
     }
 }
 
 // MARK: - UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout
 extension DREventViewViewModel: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return cellViewModelsHeader.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -94,16 +138,8 @@ extension DREventViewViewModel: UICollectionViewDataSource, UICollectionViewDele
         ) as? DRHeaderEventViewCollectionViewCell else {
             fatalError("Unsupported cell")
         }
-        
-        // TODO: Carregando localmente apenas para visualizar durante desenvolvimento - Apagar depois!
-        let viewModel = DRHeaderEventViewCollectionViewCellViewModel(eventDate: "Amanhã",
-                                                                      eventHour: "09:00",
-                                                                      eventName: "Show de Doações",
-                                                                      eventInstitutionName: "AACD",
-                                                                      eventDistance: 900,
-                                                                      eventCoverURL: nil,
-                                                                      eventInstitutionLogoURL: nil)
-        cell.configure(with: viewModel)
+
+        cell.configure(with: cellViewModelsHeader[indexPath.row])
         return cell
     }
     
@@ -116,6 +152,6 @@ extension DREventViewViewModel: UICollectionViewDataSource, UICollectionViewDele
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate?.drDidSelectEventHeader(indexPath.item)
+        delegate?.drDidSelectEventHeader(eventsHeader[indexPath.row])
     }
 }

@@ -23,8 +23,16 @@ struct DREventTableViewCellViewModel: Hashable, Equatable {
         return event.ev001_it_id
     }
     
+    public var eventData: DREvent {
+        return event
+    }
+    
     public var category: Int {
-        return 1
+        return event.ad001_it_atuac
+    }
+    
+    public var categoryDesc: String {
+        return event.ad003_vc_desc
     }
     
     public var title: String {
@@ -32,11 +40,28 @@ struct DREventTableViewCellViewModel: Hashable, Equatable {
     }
     
     public var subtit: String {
-        return "Subtitulo"
+        return event.ad001_vc_nfanta
     }
     
     public var logo: String {
-        return "Logo3"
+        return event.ad001_vc_logo
+    }
+    
+    public func fetchImage(completion: @escaping (Result<Data, Error>) -> Void) {
+        // TODO: Abstract to Image Manager
+        guard let url = URL(string: event.ad001_vc_logo) else {
+            completion(.failure(URLError(.badURL)))
+            return
+        }
+        let request = URLRequest(url: url)
+        let task = URLSession.shared.dataTask(with: request) { data, _, error in
+            guard let data = data, error == nil else {
+                completion(.failure(error ?? URLError(.badServerResponse)))
+                return
+            }
+            completion(.success(data))
+        }
+        task.resume()
     }
     
     // MARK: - Hashable and Equatable methods

@@ -11,14 +11,13 @@ final class DRSubscriptionEventView: UIView {
     
     private let viewModel: DRSubscriptionEventViewViewModel
     
-    private let eventInstitutionLogoView: UIView = {
+    private let eventInstitutionLogoView: UIImageView = {
         let imageView = UIImageView()
         
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "Logo6")
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 30
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleToFill
         
         return imageView
     }()
@@ -27,7 +26,6 @@ final class DRSubscriptionEventView: UIView {
         let label = UILabel()
         
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "AACD"
         label.font = .systemFont(ofSize: 15, weight: .semibold)
         label.textColor = .secondaryLabel
         
@@ -49,7 +47,6 @@ final class DRSubscriptionEventView: UIView {
         let label = UILabel()
         
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "30.11"
         label.font = .systemFont(ofSize: 12, weight: .regular)
         label.textColor = .secondaryLabel
         
@@ -71,7 +68,6 @@ final class DRSubscriptionEventView: UIView {
         let label = UILabel()
         
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "14:00"
         label.font = .systemFont(ofSize: 12, weight: .regular)
         label.textColor = .secondaryLabel
         
@@ -84,6 +80,7 @@ final class DRSubscriptionEventView: UIView {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(systemName: "mappin.circle")
         imageView.tintColor = .secondaryLabel
+        imageView.isHidden = true
         imageView.clipsToBounds = true
         
         return imageView
@@ -94,6 +91,7 @@ final class DRSubscriptionEventView: UIView {
         
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "900m"
+        label.isHidden = true
         label.font = .systemFont(ofSize: 12, weight: .regular)
         label.textColor = .secondaryLabel
         
@@ -237,6 +235,8 @@ final class DRSubscriptionEventView: UIView {
                     eventFriendsView,
                     subscriptionButton)
         addConstraints()
+        
+        configure()
     }
     
     required init?(coder: NSCoder) {
@@ -246,6 +246,26 @@ final class DRSubscriptionEventView: UIView {
     // MARK: - Init
     @objc private func btnTapped() {
         print("Participar")
+    }
+    
+    // MARK: - Private methods
+    private func configure() {
+        viewModel.fetchImage { [weak self] result in
+            switch result {
+            case .success(let data):
+                DispatchQueue.main.async {
+                    let image = UIImage(data: data)
+                    self?.eventInstitutionLogoView.image = image
+                }
+            case .failure(let error):
+                print(String(describing: error))
+                break
+            }
+        }
+        
+        eventInstitutionNameLabel.text = viewModel.event.ad001_vc_nfanta
+        eventDateLabel.text = viewModel.dateEvent
+        eventHourLabel.text = viewModel.hourEvent
     }
     
     private func addConstraints() {

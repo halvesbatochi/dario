@@ -10,7 +10,6 @@ import UIKit
 class DRInstitutionViewController: UIViewController {
     
     private let institutionView = DRInstitutionView()
-    
     private let viewModel = DRInstitutionViewViewModel()
 
     override func viewDidLoad() {

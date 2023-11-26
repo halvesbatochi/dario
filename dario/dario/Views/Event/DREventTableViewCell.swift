@@ -14,9 +14,9 @@ final class DREventTableViewCell: UITableViewCell {
         let logoImage = UIImageView()
         
         logoImage.translatesAutoresizingMaskIntoConstraints = false
-        logoImage.backgroundColor = .systemCyan
+        logoImage.backgroundColor = .systemBackground
         logoImage.clipsToBounds = true
-        logoImage.contentMode = .scaleAspectFill
+        logoImage.contentMode = .scaleToFill
         logoImage.layer.cornerRadius = 10
         
         return logoImage
@@ -91,6 +91,18 @@ final class DREventTableViewCell: UITableViewCell {
     public func configure(with viewModel: DREventTableViewCellViewModel) {
         titleLabel.text = viewModel.title
         institutionLabel.text = viewModel.subtit
-        logoImage.image = UIImage(named: viewModel.logo)
+        
+        viewModel.fetchImage { [weak self] result in
+            switch result {
+            case .success(let data):
+                DispatchQueue.main.async {
+                    let image = UIImage(data: data)
+                    self?.logoImage.image = image
+                }
+            case .failure(let error):
+                print(String(describing: error))
+                break
+            }
+        }
     }
 }
