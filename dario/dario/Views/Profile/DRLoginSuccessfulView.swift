@@ -7,8 +7,14 @@
 
 import UIKit
 
+protocol DRLoginSuccessfulViewDelegate: AnyObject {
+    func navigateToPreferences()
+}
+
 /// View that handles showing Login Successful view elements
 final class DRLoginSuccessfulView: UIView {
+    
+    public weak var delegate: DRLoginSuccessfulViewDelegate?
     
     private let iconSuccess: UIImageView = {
         let iconImage = UIImageView()
@@ -35,13 +41,26 @@ final class DRLoginSuccessfulView: UIView {
         return label
     }()
     
+    private lazy var preferencesButton: UIButton = {
+        let btn = UIButton()
+        
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.setTitle("Preferências", for: .normal)
+        btn.backgroundColor = UIColor(named: "DRPrimaryColor")
+        btn.setTitleColor(.white, for: .normal)
+        btn.layer.cornerRadius = 10.0
+        btn.addTarget(self, action: #selector(btnTapped), for: .touchUpInside)
+        
+        return btn
+    }()
+    
     // MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = .systemBackground
         
-        addSubviews(iconSuccess, messageLabel)
+        addSubviews(iconSuccess, messageLabel, preferencesButton)
         
         addConstraint()
     }
@@ -51,6 +70,11 @@ final class DRLoginSuccessfulView: UIView {
     }
     
     // MARK: - Private Methods
+    
+    @objc
+    private func btnTapped() {
+        delegate?.navigateToPreferences()
+    }
     
     private func addConstraint() {
         NSLayoutConstraint.activate([
@@ -62,6 +86,11 @@ final class DRLoginSuccessfulView: UIView {
             messageLabel.topAnchor.constraint(equalTo: iconSuccess.bottomAnchor, constant: 5),
             messageLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 10),
             messageLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -10),
+            
+            preferencesButton.heightAnchor.constraint(equalToConstant: 40),
+            preferencesButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
+            preferencesButton.leftAnchor.constraint(equalTo: leftAnchor, constant: 10),
+            preferencesButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -10),
         ])
     }
 }

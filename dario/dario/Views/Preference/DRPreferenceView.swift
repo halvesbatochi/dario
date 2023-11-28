@@ -158,7 +158,14 @@ class DRPreferenceView: UIView {
 
 // MARK: - DRCalibrationAlgorithmViewViewModelDelegate
 extension DRPreferenceView: DRPreferenceViewViewModelDelegate {
-    func didSelectCategory(_ index: Int) {
-        print("Escolheu")
+    func didSelectPreference(_ index: IndexPath) {
+        
+        collectionView.visibleCells.forEach { cell in
+            cell.contentView.backgroundColor = .white
+            cell.contentView.alpha = 1.0
+        }
+        
+        collectionView.cellForItem(at: index)?.contentView.backgroundColor = .systemMint
+        collectionView.cellForItem(at: index)?.contentView.alpha = 0.4
     }
 }

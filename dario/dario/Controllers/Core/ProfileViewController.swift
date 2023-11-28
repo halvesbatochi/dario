@@ -23,11 +23,20 @@ final class DRProfileViewController: UIViewController {
         
         view.addSubviews(loginView, successfulLoginView)
         
-        successfulLoginView.isHidden = true
-        
         setUpView()
         loginView.delegate = self
+        successfulLoginView.delegate = self
         viewModel.delegate = self
+        
+        guard UserDefaults.standard.string(forKey: "idUser") != nil else {
+            loginView.isHidden = false
+            successfulLoginView.isHidden = true
+            return
+        }
+        
+        loginView.isHidden = true
+        successfulLoginView.isHidden = false
+        
     }
     
     // MARK: - Private Methods
@@ -44,6 +53,15 @@ final class DRProfileViewController: UIViewController {
             successfulLoginView.rightAnchor.constraint(equalTo: loginView.rightAnchor),
             successfulLoginView.bottomAnchor.constraint(equalTo: loginView.bottomAnchor),
         ])
+    }
+}
+
+extension DRProfileViewController: DRLoginSuccessfulViewDelegate {
+    func navigateToPreferences() {
+        let vc = DRPreferenceViewController()
+        vc.navigationController?.navigationBar.prefersLargeTitles = true
+        vc.navigationItem.largeTitleDisplayMode = .always
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

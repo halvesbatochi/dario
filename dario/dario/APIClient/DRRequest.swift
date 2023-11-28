@@ -52,7 +52,7 @@ final class DRRequest {
     }
     
     /// Desired http method
-    public let httpMethod = "GET"
+    public var httpMethod = "GET"
     
     // MARK: - Init
     

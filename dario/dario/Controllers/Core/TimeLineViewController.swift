@@ -10,28 +10,46 @@ import UIKit
 /// Controller to show TimeLine
 final class TimeLineViewController: UIViewController {
     
-    private let preferencesView = DRPreferenceView()
+    private let timeLineView = DRTimeLineView()
+    private let viewModel = DRTimeLineViewViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Preferências"
+        title = "Histórico"
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.systemGray]
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.systemGray]
         
-        view.addSubview(preferencesView)
+        view.addSubview(timeLineView)
+        viewModel.delegate = self
         
         setUpView()
+        
+        guard let id = UserDefaults.standard.string(forKey: "idUser") else {
+            return
+        }
+        
+        if let idInt = Int(id) {
+            viewModel.fetchEventsTable(id: idInt)
+        }
     }
     
     // MARK: - Private Methods
     
     private func setUpView() {
         NSLayoutConstraint.activate([
-            preferencesView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            preferencesView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
-            preferencesView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
-            preferencesView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            timeLineView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            timeLineView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
+            timeLineView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
+            timeLineView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
+    }
+}
+
+
+// MARK: - DREventViewViewModelDelegate
+extension TimeLineViewController: DRTimeLineViewViewModelDelegate {
+    func drDidFetchInitialEvents() {
+        timeLineView.configure(with: viewModel)
     }
 }

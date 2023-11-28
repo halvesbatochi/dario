@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class DRHeaderHomeViewCollectionViewCellViewModel {
+final class DRHeaderHomeViewCollectionViewCellViewModel: Hashable, Equatable {
     
     public let eventName: String
     public let institutionName: String
@@ -39,5 +39,15 @@ final class DRHeaderHomeViewCollectionViewCellViewModel {
             completion(.success(data))
         }
         task.resume()
+    }
+    
+    // MARK: - Hashable and Equatable methods
+    
+    static func == (lhs: DRHeaderHomeViewCollectionViewCellViewModel, rhs: DRHeaderHomeViewCollectionViewCellViewModel) -> Bool {
+        return lhs.eventName == rhs.eventName
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(eventName)
     }
 }

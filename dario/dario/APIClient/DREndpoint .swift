@@ -19,4 +19,6 @@ import Foundation
     case donate = "/donates"
     /// Endpoint to get volunteer
     case volunteer = "/volunt"
+    /// Endpoint to subscription
+    case historic = "/volunthist"
 }

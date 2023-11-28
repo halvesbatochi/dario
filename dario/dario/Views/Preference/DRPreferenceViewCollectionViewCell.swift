@@ -26,7 +26,9 @@ class DRPreferenceViewCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        contentView.backgroundColor = .systemPink
+        contentView.backgroundColor = .white
+        contentView.layer.borderColor = UIColor.systemTeal.cgColor
+        contentView.layer.borderWidth = 2
         contentView.layer.cornerRadius = 10
         contentView.addSubview(categoryIconView)
         
@@ -41,6 +43,8 @@ class DRPreferenceViewCollectionViewCell: UICollectionViewCell {
     // MARK: - Private methods
     private func addConstraint() {
         NSLayoutConstraint.activate([
+            categoryIconView.heightAnchor.constraint(equalToConstant: 80),
+            categoryIconView.widthAnchor.constraint(equalToConstant: 80),
             categoryIconView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             categoryIconView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
         ])

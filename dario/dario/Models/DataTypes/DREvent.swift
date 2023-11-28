@@ -12,6 +12,9 @@ struct DREvent: Codable {
     let ad001_vc_logo: String
     let ad001_it_atuac: Int
     let ad003_vc_desc: String
+    let ev001_vc_atv1: String?
+    let ev001_vc_atv2: String?
+    let ev001_vc_atv3: String?
     let ev001_it_id: Int
     let ev001_it_inst: Int
     let ev001_vc_end: String
@@ -36,9 +39,9 @@ struct DREvent: Codable {
     let ev001_vc_pmsg2: String
     let ev001_vc_img1: String
     let ev001_vc_img2: String
-    let ev001_it_atv1: Int
-    let ev001_it_atv2: Int
-    let ev001_it_atv3: Int
+    let ev001_it_atv1: Int?
+    let ev001_it_atv2: Int?
+    let ev001_it_atv3: Int?
     let ev001_it_situac: String
     let ev001_dt_ultatu: String
     let ev001_dt_inclus: String

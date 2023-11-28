@@ -22,7 +22,9 @@ final class DRHomeViewViewModel: NSObject {
                 let viewModel = DRHeaderHomeViewCollectionViewCellViewModel(eventName: event.ev001_vc_titulo,
                                                                             institutionName: event.ad001_vc_nfanta,
                                                                             eventCoverURL: URL(string: event.ev001_vc_img1))
-                cellHeaderViewModels.append(viewModel)
+                if !cellHeaderViewModels.contains(viewModel) {
+                    cellHeaderViewModels.append(viewModel)
+                }
             }
         }
     }

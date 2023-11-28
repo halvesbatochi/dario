@@ -226,6 +226,8 @@ final class DRHomeView: UIView {
         addConstraints()
         setUpCollectionView()
         setUpCards()
+        
+        refreshDataGestureConfig()
     }
     
     required init?(coder: NSCoder) {
@@ -233,6 +235,19 @@ final class DRHomeView: UIView {
     }
     
     // MARK: - Private methods
+    
+    private func refreshDataGestureConfig() {
+        let gesture = UISwipeGestureRecognizer(target: self, action: #selector(didSwipe))
+        gesture.direction = .down
+        
+        addGestureRecognizer(gesture)
+    }
+    
+    @objc
+    private func didSwipe() {
+        viewModel.fetchEvents()
+    }
+    
     private func setUpCards() {
         let gestureEvents = UITapGestureRecognizer(target: self,
                                                    action: #selector(self.navigateEventsView))

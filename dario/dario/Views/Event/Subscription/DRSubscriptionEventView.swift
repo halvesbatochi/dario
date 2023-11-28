@@ -7,7 +7,15 @@
 
 import UIKit
 
+protocol DRSubscriptionEventViewDelegate: AnyObject {
+    func didFailSubscription(msg: String)
+    func notSignIn()
+    func successSubscription()
+}
+
 final class DRSubscriptionEventView: UIView {
+    
+    public weak var delegate: DRSubscriptionEventViewDelegate?
     
     private let viewModel: DRSubscriptionEventViewViewModel
     
@@ -146,13 +154,8 @@ final class DRSubscriptionEventView: UIView {
         let segmentedControl = UISegmentedControl()
         
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
-        
-        segmentedControl.insertSegment(withTitle: "Camera", at: 0, animated: true)
-        segmentedControl.insertSegment(withTitle: "Palco" , at: 1, animated: true)
-        segmentedControl.insertSegment(withTitle: "Limpeza", at: 2, animated: true)
         segmentedControl.backgroundColor = .systemBackground
-        segmentedControl.selectedSegmentIndex = 1
-        
+
         return segmentedControl
     }()
     
@@ -220,6 +223,8 @@ final class DRSubscriptionEventView: UIView {
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = .systemBackground
         
+        viewModel.delegate = self
+        
         addSubviews(eventInstitutionLogoView,
                     eventInstitutionNameLabel,
                     eventCalendarIcone,
@@ -245,7 +250,7 @@ final class DRSubscriptionEventView: UIView {
     
     // MARK: - Init
     @objc private func btnTapped() {
-        print("Participar")
+        viewModel.subscription(optionsControl.selectedSegmentIndex)
     }
     
     // MARK: - Private methods
@@ -266,6 +271,19 @@ final class DRSubscriptionEventView: UIView {
         eventInstitutionNameLabel.text = viewModel.event.ad001_vc_nfanta
         eventDateLabel.text = viewModel.dateEvent
         eventHourLabel.text = viewModel.hourEvent
+        
+        if let activity1 = viewModel.event.ev001_it_atv1, let desc1 = viewModel.event.ev001_vc_atv1  {
+            optionsControl.insertSegment(withTitle: desc1, at: activity1, animated: true)
+        }
+        if let activity2 = viewModel.event.ev001_it_atv2, let desc2 = viewModel.event.ev001_vc_atv2  {
+            optionsControl.insertSegment(withTitle: desc2, at: activity2, animated: true)
+        }
+        if let activity3 = viewModel.event.ev001_it_atv3, let desc3 = viewModel.event.ev001_vc_atv3  {
+            optionsControl.insertSegment(withTitle: desc3, at: activity3, animated: true)
+        }
+        
+        optionsControl.selectedSegmentIndex = 0
+        
     }
     
     private func addConstraints() {
@@ -332,4 +350,21 @@ final class DRSubscriptionEventView: UIView {
 
         ])
     }
+}
+
+// MARK: - DRSubscriptionEventViewViewModelDelegate
+extension DRSubscriptionEventView: DRSubscriptionEventViewViewModelDelegate {
+    func notSignIn() {
+        delegate?.notSignIn()
+    }
+    
+    func successSubscription() {
+        delegate?.successSubscription()
+    }
+    
+    func didFailSubscription(msg: String) {
+        delegate?.didFailSubscription(msg: msg)
+    }
+    
+    
 }
