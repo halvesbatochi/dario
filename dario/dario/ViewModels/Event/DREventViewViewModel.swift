@@ -98,7 +98,23 @@ final class DREventViewViewModel: NSObject {
     }
     
     public func fetchEventsHeader() {
-        let request = DRRequest(endpoint: .cosine, pathComponents: ["1"])
+        guard let voluntID = UserDefaults.standard.string(forKey: "idUser") else { 
+            let request = DRRequest(endpoint: .event)
+            
+            DRService.shared.execute(request,
+                                     expecting: [DREvent].self) { [weak self] result in
+                switch result {
+                case .success(let resultModel):
+                    self?.eventsHeader = resultModel
+                    self?.fetchEventsTable()
+                case .failure(let error):
+                    print(String(describing: error))
+                }
+            }
+            return
+        }
+        
+        let request = DRRequest(endpoint: .cosine, pathComponents: [voluntID])
         
         DRService.shared.execute(request,
                                  expecting: [DREvent].self) { [weak self] result in
