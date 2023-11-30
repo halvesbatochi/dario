@@ -242,6 +242,7 @@ final class DRSubscriptionEventView: UIView {
         addConstraints()
         
         configure()
+        viewModel.registerVisit()
     }
     
     required init?(coder: NSCoder) {

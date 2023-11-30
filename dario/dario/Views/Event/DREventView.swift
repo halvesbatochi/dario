@@ -175,7 +175,7 @@ extension DREventView: UITableViewDataSource {
         guard let model = viewModel?.loadCellModel(indexPath) else {
             fatalError()
         }
-        
+            
         cell.configure(with: model)
 
         return cell

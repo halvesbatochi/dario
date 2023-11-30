@@ -73,9 +73,13 @@ final class DREventViewViewModel: NSObject {
     }
     
     public func countRowsInSection(_ section: Int) -> Int {
-        let sections = cellViewModels.reduce(into: Set<Int>(), {$0.insert($1.category)})
-        let sectionArray = Array(sections)
-        let rows = cellViewModels.filter { $0.category == sectionArray[section] }
+        let sections = cellViewModels.reduce(into: [Int](), {
+            if (!$0.contains($1.category)) {
+                $0.append($1.category)
+            }
+        })
+        
+        let rows = cellViewModels.filter { $0.category == sections[section]}
         return rows.count
     }
     
@@ -87,14 +91,14 @@ final class DREventViewViewModel: NSObject {
         })
         
         let rows = cellViewModels.filter { $0.category == sections[indexPath.section] }
+        
         let model = rows[indexPath.row]
         
         return model
     }
-
     
     public func fetchEventsHeader() {
-        let request = DRRequest(endpoint: .event)
+        let request = DRRequest(endpoint: .cosine, pathComponents: ["1"])
         
         DRService.shared.execute(request,
                                  expecting: [DREvent].self) { [weak self] result in

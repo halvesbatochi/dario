@@ -36,6 +36,7 @@
 		5C5AF9782B0BBD19007B8B18 /* DRProfileViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5AF9772B0BBD19007B8B18 /* DRProfileViewViewModel.swift */; };
 		5C5AF97A2B0BC739007B8B18 /* DRVolunteer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5AF9792B0BC739007B8B18 /* DRVolunteer.swift */; };
 		5C5AF97C2B0BCD96007B8B18 /* DRLoginSuccessfulView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5AF97B2B0BCD96007B8B18 /* DRLoginSuccessfulView.swift */; };
+		5C603D832B184C7200AB3184 /* DRRegisterVisit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C603D822B184C7200AB3184 /* DRRegisterVisit.swift */; };
 		5C65472E29F7DDD0003EC311 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C65472D29F7DDD0003EC311 /* Extensions.swift */; };
 		5C7A084C2AB65A4A00F09422 /* DREventHomeSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7A084B2AB65A4A00F09422 /* DREventHomeSheetViewController.swift */; };
 		5C7A08512AB65B1700F09422 /* DREventHomeSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7A08502AB65B1700F09422 /* DREventHomeSheetView.swift */; };
@@ -105,6 +106,7 @@
 		5C5AF9772B0BBD19007B8B18 /* DRProfileViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRProfileViewViewModel.swift; sourceTree = "<group>"; };
 		5C5AF9792B0BC739007B8B18 /* DRVolunteer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRVolunteer.swift; sourceTree = "<group>"; };
 		5C5AF97B2B0BCD96007B8B18 /* DRLoginSuccessfulView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRLoginSuccessfulView.swift; sourceTree = "<group>"; };
+		5C603D822B184C7200AB3184 /* DRRegisterVisit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRRegisterVisit.swift; sourceTree = "<group>"; };
 		5C65472D29F7DDD0003EC311 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		5C7A084B2AB65A4A00F09422 /* DREventHomeSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DREventHomeSheetViewController.swift; sourceTree = "<group>"; };
 		5C7A08502AB65B1700F09422 /* DREventHomeSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DREventHomeSheetView.swift; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 				5C5AF9792B0BC739007B8B18 /* DRVolunteer.swift */,
 				5C1472A12B151FC5000B3D77 /* DRSubscription.swift */,
 				5C8686042B159B90009905AD /* DRPreference.swift */,
+				5C603D822B184C7200AB3184 /* DRRegisterVisit.swift */,
 			);
 			path = DataTypes;
 			sourceTree = "<group>";
@@ -566,6 +569,7 @@
 				5CCAB9472A92DCBA0051B233 /* DRRequest.swift in Sources */,
 				5C7A084C2AB65A4A00F09422 /* DREventHomeSheetViewController.swift in Sources */,
 				5C59645329EF9813003BB257 /* AppDelegate.swift in Sources */,
+				5C603D832B184C7200AB3184 /* DRRegisterVisit.swift in Sources */,
 				5CCAB94B2A92E3D60051B233 /* DREvent.swift in Sources */,
 				5C17BFB92ADA27E600B1F8DB /* DRInstitutionTableViewCell.swift in Sources */,
 				5CCAB94D2A92E3F10051B233 /* DRInstitution.swift in Sources */,

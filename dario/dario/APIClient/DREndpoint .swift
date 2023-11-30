@@ -21,4 +21,6 @@ import Foundation
     case volunteer = "/volunt"
     /// Endpoint to subscription
     case historic = "/volunthist"
+    /// Endpoint cosine similarity
+    case cosine = "/cosinesimilarity"
 }

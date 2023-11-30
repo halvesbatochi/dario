@@ -254,6 +254,7 @@ final class DREventHomeSheetView: UIView {
         addConstraints()
         setUpParticipationButton()
         configureLabels()
+        viewModel.registerVisit()
     }
     
     required init?(coder: NSCoder) {
