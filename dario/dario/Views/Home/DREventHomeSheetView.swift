@@ -8,7 +8,7 @@
 import UIKit
 
 protocol DREventHomeSheetViewDelegate: AnyObject {
-    func clickedParticipationButton(_ sender: UIButton)
+    func clickedParticipationButton(_ sender: UIButton, event: DREvent)
 }
 
 final class DREventHomeSheetView: UIView {
@@ -27,11 +27,10 @@ final class DREventHomeSheetView: UIView {
         return label
     }()
     
-    private let eventInstitutionLogoView: UIView = {
+    private let eventInstitutionLogoView: UIImageView = {
         let imageView = UIImageView()
         
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "Logo6")
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 30
         imageView.contentMode = .scaleAspectFit
@@ -276,11 +275,24 @@ final class DREventHomeSheetView: UIView {
         eventThirdyLabel.text = viewModel.event.ev001_vc_fmsg3
         eventFourthLabel.text = viewModel.event.ev001_vc_fmsg4
         eventFifthLabel.text = viewModel.event.ev001_vc_fmsg5
+        
+        viewModel.fetchImage { [weak self] result in
+            switch result {
+            case .success(let data):
+                DispatchQueue.main.async {
+                    let image = UIImage(data: data)
+                    self?.eventInstitutionLogoView.image = image
+                }
+            case .failure(let error):
+                print(String(describing: error))
+                break
+            }
+        }
     }
     
     
     @objc private func clickedButton(_ sender: UIButton) {
-        delegate?.clickedParticipationButton(sender)
+        delegate?.clickedParticipationButton(sender, event: viewModel.event)
     }
     
     private func addConstraints() {

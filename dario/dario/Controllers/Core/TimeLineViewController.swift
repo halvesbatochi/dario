@@ -21,6 +21,7 @@ final class TimeLineViewController: UIViewController {
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.systemGray]
         
         view.addSubview(timeLineView)
+        timeLineView.viewModel = viewModel
         viewModel.delegate = self
         
         setUpView()

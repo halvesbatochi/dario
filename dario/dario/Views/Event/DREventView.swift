@@ -61,6 +61,8 @@ final class DREventView: UIView {
         addConstraints()
         setUpCollectionView()
         setUpTableView()
+        
+        refreshDataGestureConfig()
     }
     
     required init?(coder: NSCoder) {
@@ -105,6 +107,18 @@ final class DREventView: UIView {
     public func configure(with viewModel: DREventViewViewModel) {
         self.viewModel = viewModel
         self.eventsTableView.reloadData()
+    }
+    
+    private func refreshDataGestureConfig() {
+        let gesture = UISwipeGestureRecognizer(target: self, action: #selector(didSwipe))
+        gesture.direction = .down
+        
+        addGestureRecognizer(gesture)
+    }
+    
+    @objc
+    private func didSwipe() {
+        viewModel?.fetchEventsHeader()
     }
 }
 

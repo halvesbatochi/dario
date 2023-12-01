@@ -8,7 +8,7 @@
 import UIKit
 
 class DRTimeLineView: UIView {
-    private var viewModel: DRTimeLineViewViewModel?
+    public var viewModel: DRTimeLineViewViewModel?
 
     private let calibrationHeaderView: UIView = {
         let view = UIView()
@@ -78,6 +78,8 @@ class DRTimeLineView: UIView {
         
         addConstraints()
         setUpTableView()
+        
+        refreshDataGestureConfig()
     }
     
     required init?(coder: NSCoder) {
@@ -118,6 +120,25 @@ class DRTimeLineView: UIView {
     public func configure(with viewModel: DRTimeLineViewViewModel) {
         self.viewModel = viewModel
         self.eventsTableView.reloadData()
+    }
+    
+    private func refreshDataGestureConfig() {
+        let gesture = UISwipeGestureRecognizer(target: self, action: #selector(didSwipe))
+        gesture.direction = .down
+        
+        addGestureRecognizer(gesture)
+    }
+    
+    @objc
+    private func didSwipe() {
+        print("Atualizando")
+        guard let id = UserDefaults.standard.string(forKey: "idUser") else {
+            return
+        }
+        
+        if let idInt = Int(id) {
+            viewModel?.fetchEventsTable(id: idInt)
+        }
     }
 
 }

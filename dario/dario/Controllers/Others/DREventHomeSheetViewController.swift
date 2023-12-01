@@ -8,7 +8,7 @@
 import UIKit
 
 protocol drEventHomeSheetViewDelegate {
-    func navigateToSubscription()
+    func navigateToSubscription(_ event: DREvent)
 }
 
 final class DREventHomeSheetViewController: UIViewController {
@@ -48,8 +48,8 @@ final class DREventHomeSheetViewController: UIViewController {
 
 // MARK: - DREventHomeSheetViewDelegate
 extension DREventHomeSheetViewController: DREventHomeSheetViewDelegate {
-    func clickedParticipationButton(_ sender: UIButton) {
+    func clickedParticipationButton(_ sender: UIButton, event: DREvent) {
         dismiss(animated: true)
-        delegate?.navigateToSubscription()
+        delegate?.navigateToSubscription(event)
     }
 }

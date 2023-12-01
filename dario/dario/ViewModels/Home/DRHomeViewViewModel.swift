@@ -32,7 +32,7 @@ final class DRHomeViewViewModel: NSObject {
     private var cellHeaderViewModels: [DRHeaderHomeViewCollectionViewCellViewModel] = []
     
     public func fetchEvents() {
-        let request = DRRequest(endpoint: .event)
+        let request = DRRequest(endpoint: .eventColdStart)
         
         DRService.shared.execute(request,
                                  expecting: [DREvent].self) { [weak self] result in
