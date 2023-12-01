@@ -7,7 +7,8 @@
 
 import UIKit
 
-final class TabViewController: UITabBarController {
+/// Controller to house tans and root tab controllers
+final class TabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,15 +17,15 @@ final class TabViewController: UITabBarController {
     
     private func setUpTabs() {
         let homeVC = HomeViewController()
-        let historyVC = HistoryViewController()
-        let profileVC = ProfileViewController()
+        let timelineVC = TimeLineViewController()
+        let profileVC = DRProfileViewController()
         
-        homeVC.navigationItem.largeTitleDisplayMode = .automatic
-        historyVC.navigationItem.largeTitleDisplayMode = .automatic
+        homeVC.navigationItem.largeTitleDisplayMode = .always
+        timelineVC.navigationItem.largeTitleDisplayMode = .automatic
         profileVC.navigationItem.largeTitleDisplayMode = .automatic
         
         let nav1 = UINavigationController(rootViewController: homeVC)
-        let nav2 = UINavigationController(rootViewController: historyVC)
+        let nav2 = UINavigationController(rootViewController: timelineVC)
         let nav3 = UINavigationController(rootViewController: profileVC)
         
         nav1.tabBarItem = UITabBarItem(title: "Home",
